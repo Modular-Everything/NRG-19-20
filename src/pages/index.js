@@ -1,10 +1,11 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
-import Layout from '../components/layout'
-import styled from '@emotion/styled'
-import tw from 'tailwind.macro'
-import { Helmet } from 'react-helmet'
+import React from 'react';
+import { graphql } from 'gatsby';
+import { Helmet } from 'react-helmet';
+import styled from '@emotion/styled';
+import Img from 'gatsby-image';
+import tw from 'tailwind.macro';
+
+import Layout from '../components/Layout';
 
 // ========================
 // The primary card container
@@ -13,14 +14,14 @@ const Card = styled.div`
     bg-white rounded-lg shadow-xl p-12 w-full h-auto m-4
   `}
   max-width: 500px;
-`
+`;
 // ========================
 
 // ========================
 // The card header
 const CardHeader = styled.h1`
   ${tw`text-2xl mb-4 font-bold leading-tight text-teal-800`}
-`
+`;
 // ========================
 
 // ========================
@@ -45,14 +46,14 @@ const CardCopy = styled.div`
       }
     }
   }
-`
+`;
 // ========================
 
 // ========================
 // A reusable divider for separating content
 const Divider = styled.div`
   ${tw`w-full h-1 bg-gray-100 my-6`}
-`
+`;
 
 // ========================
 // Icons for credits
@@ -69,7 +70,7 @@ const CardIcons = styled.ul`
       ${tw`mx-0`}
     }
   }
-`
+`;
 // ========================
 
 export default ({ data }) => (
@@ -104,7 +105,7 @@ export default ({ data }) => (
       </CardIcons>
     </Card>
   </Layout>
-)
+);
 
 export const query = graphql`
   query {
@@ -123,4 +124,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;
