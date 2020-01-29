@@ -2,18 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Title = props => {
-  const { is, large } = props;
+  const { is: title } = props;
 
-  return <>{large === true ? <h2>{is}</h2> : <pre>{is}</pre>}</>;
+  return <h2>{title}</h2>;
 };
 
 Title.propTypes = {
   is: PropTypes.string.isRequired,
-  large: PropTypes.string,
-};
-
-Title.defaultProps = {
-  large: 'Title Name',
 };
 
 export default Title;
