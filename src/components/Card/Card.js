@@ -1,28 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import Image from './Image.jsx';
-import Subtitle from './Subtitle.jsx';
-import CallToAction from './CallToAction.jsx';
-import Title from './Title.jsx';
 
-class Card extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-  render() {
-    const {} = this.props;
-    return (
-      <div>
-        <Image />
-        <Subtitle />
-        <CallToAction />
-        <Title />
-      </div>
-    );
-  }
-}
+// import Image from '../Image';
+// import Subtitle from '../Subtitle';
+import Title from '../Title';
+// import CallToAction from '../CallToAction';
 
-Card.propTypes = {};
+const Card = props => {
+  const { title } = props;
+
+  return (
+    <div>
+      <Title is={title} />
+    </div>
+  );
+};
+
+Card.propTypes = {
+  title: PropTypes.string.isRequired,
+};
 
 export default Card;
