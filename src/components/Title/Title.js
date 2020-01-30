@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import tw from 'tailwind.macro';
 import styled from '@emotion/styled';
 
-const TitleForCards = styled.div`
+const StyledTitle = styled.h3`
   ${tw`
     text-3xl
     font-bold
@@ -13,7 +13,7 @@ const TitleForCards = styled.div`
 
 const Title = props => {
   const { is: title } = props;
-  return <TitleForCards>{title}</TitleForCards>;
+  return <StyledTitle>{title}</StyledTitle>;
 };
 
 Title.propTypes = {
