@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // import Image from '../Image';
-// import Subtitle from '../Subtitle';
+import Subtitle from '../Subtitle';
 import Title from '../Title';
 // import CallToAction from '../CallToAction';
 
@@ -11,6 +11,7 @@ const Card = props => {
 
   return (
     <div>
+      <Subtitle is={title} />
       <Title is={title} />
     </div>
   );
