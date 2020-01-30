@@ -7,8 +7,6 @@ import Card from '../components/Card';
 
 export default () => (
   <Layout>
-    <Card title="Hello Charl" />
-    <Card title="Hello Chrish" />
-    <Card title="Hasdsdnsindisndisnd" />
+    <Card title="Title goes here" subtitle="Sub-Title" cta="Call to Action" />
   </Layout>
 );
