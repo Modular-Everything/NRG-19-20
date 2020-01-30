@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Tailwind 2 + Emotion / Styled Components`,
-    description: `A (reasonably) unopinionated Gatsby starter, including; Tailwind 2 and Emotion`,
+    title: `NRG`,
+    description: `Creators, makers and builders.`,
     author: `@chrish-d`,
   },
   plugins: [
@@ -23,4 +23,4 @@ module.exports = {
       options: {},
     },
   ],
-}
+};
