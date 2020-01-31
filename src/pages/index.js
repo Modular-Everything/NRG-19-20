@@ -7,6 +7,11 @@ import Card from '../components/Card';
 
 export default () => (
   <Layout>
-    <Card title="Title goes here" subtitle="Sub-Title" cta="Call to Action" />
+    <Card
+      title="Title goes here"
+      subtitle="Sub-Title"
+      cta="Read More"
+      link="/"
+    />
   </Layout>
 );
