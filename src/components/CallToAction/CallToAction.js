@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
 
 const CallToAction = props => {
-  const { is: cta, to } = props;
-  return <Link to={to}>{cta}</Link>;
+  const { is: cta } = props;
+  return <span>{cta}</span>;
 };
 
-CallToAction.propTypes = {};
+CallToAction.propTypes = {
+  is: PropTypes.string.isRequired,
+};
 
 export default CallToAction;

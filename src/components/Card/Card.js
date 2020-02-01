@@ -1,45 +1,64 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useSpring, animated } from 'react-spring';
+import tw from 'tailwind.macro';
+import styled from '@emotion/styled';
+import { Link } from 'gatsby';
 
 // import Image from '../Image';
 import Subtitle from '../Subtitle';
 import Title from '../Title';
 import CallToAction from '../CallToAction';
 
+// ============================================================================
+
 const Card = props => {
   const { title, subtitle, cta, link } = props;
 
-  const fadeIn = useSpring({
-    to: {
-      opacity: 1,
-      transform: 'translate3d(0, 0, 0)',
-    },
-    from: {
-      opacity: 0,
-      transform: 'translate3d(0, 1.5rem, 0)',
-    },
-  });
-
   return (
-    <animated.div style={fadeIn}>
-      <Subtitle is={subtitle} />
-      <Title is={title} />
-      <CallToAction is={cta} to={link} />
-    </animated.div>
+    <StyledCard onClick={() => link.click}>
+      <Link to={link}>
+        <CardContent>
+          <Subtitle is={subtitle} />
+          <Title is={title} />
+          <CallToAction is={cta} to={link} />
+        </CardContent>
+      </Link>
+    </StyledCard>
   );
 };
 
+// ============================================================================
+
+const StyledCard = styled.li`
+  ${tw`
+    bg-white
+    shadow-lg
+    cursor-pointer
+    rounded-b-lg
+  `}
+`;
+
+const CardContent = styled.div`
+  ${tw`
+    p-6
+  `}
+`;
+
+// ============================================================================
+
 Card.propTypes = {
-  title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
   cta: PropTypes.string,
-  link: PropTypes.string,
+  link: PropTypes.string.isRequired,
 };
 
 Card.defaultProps = {
+  title: 'Title goes here',
+  subtitle: 'Sub-title',
   cta: 'Call to Action',
-  link: false,
 };
+
+// ============================================================================
 
 export default Card;

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import tw from 'tailwind.macro';
 import styled from '@emotion/styled';
 
-const StyledTitle = styled.h3`
+const StyledTitle = styled.h2`
   ${tw`
     text-3xl
     font-bold

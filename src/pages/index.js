@@ -1,17 +1,21 @@
 import React from 'react';
-// import styled from '@emotion/styled';
-// import tw from 'tailwind.macro';
 
 import Layout from '../components/Layout';
+import CardsWrapper from '../components/CardsWrapper';
 import Card from '../components/Card';
 
 export default () => (
   <Layout>
-    <Card
-      title="Title goes here"
-      subtitle="Sub-Title"
-      cta="Read More"
-      link="/"
-    />
+    <CardsWrapper>
+      <Card
+        title="Title goes here"
+        subtitle="Sub-Title"
+        cta="Read More"
+        link="/1"
+      />
+      <Card link="/2" />
+      <Card link="/3" />
+      <Card link="/4" />
+    </CardsWrapper>
   </Layout>
 );
