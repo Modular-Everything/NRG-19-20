@@ -4,10 +4,11 @@ import tw from 'tailwind.macro';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 
-// import Image from '../Image';
+import Image from '../Image';
 import Subtitle from '../Subtitle';
 import Title from '../Title';
 import CallToAction from '../CallToAction';
+import SampleImage from '../../../static/images/emotion-js.png';
 
 // ============================================================================
 
@@ -17,6 +18,7 @@ const Card = props => {
   return (
     <StyledCard onClick={() => link.click}>
       <Link to={link}>
+        <Image src={SampleImage} />
         <CardContent>
           <Subtitle is={subtitle} />
           <Title is={title} />
