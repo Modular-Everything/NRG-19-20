@@ -28,8 +28,9 @@ const CardsWrapper = ({ children }) => {
 
 const Wrapper = styled.ul`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
   grid-gap: 1rem;
+  grid-template-columns: repeat(12, 1fr);
+  margin-bottom: 1rem;
 `;
 
 // ============================================================================

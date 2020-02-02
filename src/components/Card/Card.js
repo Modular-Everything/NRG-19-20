@@ -24,22 +24,28 @@ const Card = props => {
       rounded-b-lg
     `}
     grid-column: span ${width};
+    height: fit-content;
+
+    @media (max-width: 639px) {
+      ${width !== 4 ? 'grid-column: span 12;' : 'grid-column: span 10;'}
+    }
   `;
 
   const CardContent = styled.div`
-    ${tw`
-      p-6
-    `}
+    ${tw`p-6`}
   `;
 
   return (
     <StyledCard onClick={() => link.click}>
       <Link
-        css={css`
-          display: ${width === 4 ? `grid` : `block`};
-          grid-template-columns: 1fr 1fr;
-        `}
         to={link}
+        css={css`
+          display: block;
+          @media (min-width: 640px) {
+            display: ${width === 12 ? `grid` : `block`};
+            grid-template-columns: 1fr 1fr;
+          }
+        `}
       >
         <Image />
         <CardContent>
@@ -66,7 +72,7 @@ Card.defaultProps = {
   title: 'Title goes here',
   subtitle: 'Sub-title',
   cta: 'Call to Action',
-  width: '2',
+  width: '6',
 };
 
 // ============================================================================
