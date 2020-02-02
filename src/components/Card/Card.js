@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import tw from 'tailwind.macro';
+import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 
@@ -31,11 +32,15 @@ const Card = props => {
     `}
   `;
 
-  // To do; create alternative view if a card is full width
-
   return (
     <StyledCard onClick={() => link.click}>
-      <Link to={link}>
+      <Link
+        css={css`
+          display: ${width === 4 ? `grid` : `block`};
+          grid-template-columns: 1fr 1fr;
+        `}
+        to={link}
+      >
         <Image />
         <CardContent>
           <Subtitle is={subtitle} />

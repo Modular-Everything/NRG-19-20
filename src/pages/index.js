@@ -11,13 +11,7 @@ export default () => (
   <Layout>
     <Container>
       <CardsWrapper>
-        <Card
-          link="/1"
-          title="hy charl"
-          cta="make dinner"
-          subtitle="chrish"
-          width={4}
-        />
+        <Card link="/1" width={4} />
         <Card link="/1" />
         <Card link="/1" />
         <Card link="/1" />
