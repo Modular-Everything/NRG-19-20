@@ -12,7 +12,26 @@ import CallToAction from '../CallToAction';
 // ============================================================================
 
 const Card = props => {
-  const { title, subtitle, cta, link } = props;
+  const { title, subtitle, cta, link, width } = props;
+
+  const StyledCard = styled.li`
+    ${tw`
+      bg-white
+      shadow-lg
+      cursor-pointer
+      rounded-t
+      rounded-b-lg
+    `}
+    grid-column: span ${width};
+  `;
+
+  const CardContent = styled.div`
+    ${tw`
+      p-6
+    `}
+  `;
+
+  // To do; create alternative view if a card is full width
 
   return (
     <StyledCard onClick={() => link.click}>
@@ -30,35 +49,19 @@ const Card = props => {
 
 // ============================================================================
 
-const StyledCard = styled.li`
-  ${tw`
-    bg-white
-    shadow-lg
-    cursor-pointer
-    rounded-t
-    rounded-b-lg
-  `}
-`;
-
-const CardContent = styled.div`
-  ${tw`
-    p-6
-  `}
-`;
-
-// ============================================================================
-
 Card.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
   cta: PropTypes.string,
   link: PropTypes.string.isRequired,
+  width: PropTypes.string,
 };
 
 Card.defaultProps = {
   title: 'Title goes here',
   subtitle: 'Sub-title',
   cta: 'Call to Action',
+  width: '2',
 };
 
 // ============================================================================
