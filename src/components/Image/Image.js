@@ -19,13 +19,13 @@ const Image = props => {
     }
   `);
 
-  const Placeholder = data.file.childImageSharp.fluid;
+  const placeholder = data.file.childImageSharp.fluid;
   const { src: image } = props;
 
   return (
     <Img
       css={tw`rounded-t rounded-b-lg`}
-      fluid={image === undefined ? Placeholder : image}
+      fluid={image === null ? placeholder : image}
     />
   );
 };
@@ -33,7 +33,11 @@ const Image = props => {
 // ============================================================================
 
 Image.propTypes = {
-  src: PropTypes.string.isRequired,
+  src: PropTypes.string,
+};
+
+Image.defaultProps = {
+  src: null,
 };
 
 // ============================================================================
