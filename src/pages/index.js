@@ -11,14 +11,10 @@ export default () => (
   <Layout>
     <Container>
       <CardsWrapper>
-        <Card link="/1" width={12} />
-      </CardsWrapper>
-      <CardsWrapper>
+        <Card link="/1" width={12} truncate={5} />
+        <Card link="/1" width={4} truncate={1} />
+        <Card link="/1" width={4} truncate={3} />
         <Card link="/1" width={4} />
-        <Card link="/1" width={4} />
-        <Card link="/1" width={4} />
-      </CardsWrapper>
-      <CardsWrapper>
         <Card link="/1" width={6} />
         <Card link="/1" width={6} />
         <Card link="/1" width={4} />

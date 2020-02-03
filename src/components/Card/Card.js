@@ -8,12 +8,13 @@ import { Link } from 'gatsby';
 import Image from '../Image';
 import Subtitle from '../Subtitle';
 import Title from '../Title';
+import TextBlock from '../TextBlock';
 import CallToAction from '../CallToAction';
 
 // ============================================================================
 
 const Card = props => {
-  const { title, subtitle, cta, link, width } = props;
+  const { title, subtitle, cta, link, width, truncate } = props;
 
   const StyledCard = styled.li`
     ${tw`
@@ -51,6 +52,7 @@ const Card = props => {
         <CardContent>
           <Subtitle is={subtitle} />
           <Title is={title} />
+          <TextBlock truncate={truncate} />
           <CallToAction is={cta} to={link} />
         </CardContent>
       </Link>
@@ -66,6 +68,7 @@ Card.propTypes = {
   cta: PropTypes.string,
   link: PropTypes.string.isRequired,
   width: PropTypes.string,
+  truncate: PropTypes.number,
 };
 
 Card.defaultProps = {
@@ -73,6 +76,7 @@ Card.defaultProps = {
   subtitle: 'Sub-title',
   cta: 'Call to Action',
   width: '6',
+  truncate: null,
 };
 
 // ============================================================================
