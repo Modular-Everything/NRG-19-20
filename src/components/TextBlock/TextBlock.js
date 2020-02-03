@@ -20,7 +20,7 @@ const TextBlock = props => {
 const Text = styled.p`
   ${tw`
     text-sm
-    mb-4
+    mb-6
   `}
 `;
 
