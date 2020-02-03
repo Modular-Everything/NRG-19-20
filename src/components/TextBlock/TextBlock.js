@@ -24,6 +24,7 @@ const Text = styled.p`
     font-medium
     leading-snug
   `}
+  color: var(--color-black-primary);
   font-family: 'Simplon BP', -apple-system, 'Helvetica Neue', sans-serif;
 `;
 

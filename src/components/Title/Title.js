@@ -10,6 +10,7 @@ const StyledTitle = styled.h2`
     leading-relaxed
     mb-4
   `};
+  color: var(--color-black-primary);
   font-family: 'Simplon BP', -apple-system, 'Helvetica Neue', sans-serif;
 `;
 

@@ -18,6 +18,7 @@ const StyledSubtitle = styled.h3`
     text-sm
     tracking-wider
   `}
+  color: var(--color-white-secondary);
   font-family: 'Grotesque MT Std', -apple-system, 'Helvetica Neue', sans-serif;
 `;
 

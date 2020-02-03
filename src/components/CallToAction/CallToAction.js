@@ -13,6 +13,7 @@ const StyledCTA = styled.span`
     font-medium
     text-sm
   `}
+  color: var(--color-brand);
   font-family: 'Simplon BP', -apple-system, 'Helvetica Neue', sans-serif;
 `;
 
