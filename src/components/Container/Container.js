@@ -6,7 +6,7 @@ import styled from '@emotion/styled';
 // ============================================================================
 
 const Container = ({ children }) => {
-  const breakpoints = [640, 768, 1024, 1280];
+  const breakpoints = [640, 768, 936];
   const PageContainer = styled.section`
     ${tw`
       mx-auto
