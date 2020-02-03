@@ -15,7 +15,10 @@ const Subtitle = props => {
 const StyledSubtitle = styled.h3`
   ${tw`
     uppercase
+    text-sm
+    tracking-wider
   `}
+  font-family: 'Grotesque MT Std', -apple-system, 'Helvetica Neue', sans-serif;
 `;
 
 // ============================================================================

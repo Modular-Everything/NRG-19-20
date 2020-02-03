@@ -6,9 +6,11 @@ import styled from '@emotion/styled';
 const StyledTitle = styled.h2`
   ${tw`
     text-3xl
-    font-bold
+    font-medium
     leading-relaxed
+    mb-4
   `};
+  font-family: 'Simplon BP', -apple-system, 'Helvetica Neue', sans-serif;
 `;
 
 const Title = props => {

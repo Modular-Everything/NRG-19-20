@@ -21,7 +21,10 @@ const Text = styled.p`
   ${tw`
     text-sm
     mb-6
+    font-medium
+    leading-snug
   `}
+  font-family: 'Simplon BP', -apple-system, 'Helvetica Neue', sans-serif;
 `;
 
 // ============================================================================
@@ -33,7 +36,7 @@ TextBlock.propTypes = {
 
 TextBlock.defaultProps = {
   text:
-    'Sed condimentum dui sed velit aliquet, efficitur sodales ipsum pharetra.Suspendisse potenti.Aenean luctus interdum gravida.Quisque ultricies purus sapien, blandit bibendum quam finibus at.Sed convallis accumsan urna, in lobortis risus elementum eu.Fusce ligula nulla, pharetra vitae cursus et, rutrum ut ligula.',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
 };
 
 // ============================================================================
