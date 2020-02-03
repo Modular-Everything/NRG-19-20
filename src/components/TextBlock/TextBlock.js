@@ -17,7 +17,7 @@ const TextBlock = props => {
 
 // ============================================================================
 
-const Text = styled.p`
+const Text = styled.div`
   ${tw`
     text-sm
     mb-6
