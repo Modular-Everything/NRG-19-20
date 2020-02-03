@@ -1,10 +1,15 @@
+const postcssImport = require('postcss-import');
+const stylelint = require('stylelint');
+const tailwindCSS = require('tailwindcss');
+const postCSSPresetEnv = require('postcss-preset-env');
+
 module.exports = {
   plugins: [
-    require('postcss-import')({
-      plugins: [require('stylelint')],
+    postcssImport({
+      plugins: [stylelint],
     }),
-    require('tailwindcss')('./tailwind.config.js'),
-    require('postcss-preset-env')({
+    tailwindCSS('./tailwind.config.js'),
+    postCSSPresetEnv({
       autoprefixer: { grid: true },
       features: {
         'nesting-rules': true,
