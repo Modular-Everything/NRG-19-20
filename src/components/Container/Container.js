@@ -11,8 +11,6 @@ const Container = ({ children }) => {
     ${tw`
       mx-auto
       px-4
-      border
-      border-green-400
     `}
     ${breakpoints.map(
       minWidth =>
