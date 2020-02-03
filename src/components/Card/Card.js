@@ -28,7 +28,7 @@ const Card = props => {
     height: fit-content;
 
     @media (max-width: 639px) {
-      ${width !== 4 ? 'grid-column: span 12;' : 'grid-column: span 10;'}
+      grid-column: span 12;
     }
   `;
 
