@@ -13,9 +13,12 @@ const Container = props => {
     ${tw`
       mx-auto
       px-4
+<<<<<<< HEAD
       justify-between
       align-middle
       w-full
+=======
+>>>>>>> 9839a7d5bb67fa9578ecba7ced5c1d57f88a2ee5
     `}
     display: ${display};
     ${breakpoints.map(

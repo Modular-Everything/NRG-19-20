@@ -5,7 +5,7 @@ import { useSpring, animated } from 'react-spring';
 
 // ============================================================================
 
-const CardsWrapper = ({ children }) => {
+const CardsWrapper = ({ children, scroll }) => {
   const fadeIn = useSpring({
     to: {
       opacity: 1,
@@ -19,7 +19,7 @@ const CardsWrapper = ({ children }) => {
 
   return (
     <animated.div style={fadeIn}>
-      <Wrapper>{children}</Wrapper>
+      {scroll ? <Swiper>{children}</Swiper> : <Wrapper>{children}</Wrapper>}
     </animated.div>
   );
 };
@@ -30,7 +30,32 @@ const Wrapper = styled.ul`
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: repeat(12, 1fr);
-  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+`;
+
+const Swiper = styled.ul`
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(12, 1fr);
+  padding-bottom: 1rem;
+
+  @media (max-width: 639px) {
+    display: grid;
+    grid-template-columns: 0 repeat(3, calc(50% - 40px)) 1px;
+    grid-gap: 1rem;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -1rem;
+
+    &::before,
+    &::after {
+      content: '';
+    }
+
+    & li {
+      grid-column: auto;
+    }
+  }
 `;
 
 // ============================================================================
@@ -40,6 +65,11 @@ CardsWrapper.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]).isRequired,
+  scroll: PropTypes.bool,
+};
+
+CardsWrapper.defaultProps = {
+  scroll: false,
 };
 
 // ============================================================================
