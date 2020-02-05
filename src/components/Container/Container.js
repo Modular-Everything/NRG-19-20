@@ -5,19 +5,27 @@ import styled from '@emotion/styled';
 
 // ============================================================================
 
-const Container = ({ children }) => {
+const Container = props => {
+  const { children, display } = props;
   const breakpoints = [640, 768, 936];
-  const PageContainer = styled.section`
+
+  const PageContainer = styled.div`
     ${tw`
       mx-auto
       px-4
-      border
-      border-green-400
+      justify-between
+      align-middle
+      w-full
     `}
+    display: ${display};
     ${breakpoints.map(
       minWidth =>
         `@media(min-width: ${minWidth}px) { max-width: ${minWidth}px }`
     )}
+    
+    & > div {
+      ${tw`self-center`}
+    }
   `;
 
   return <PageContainer>{children}</PageContainer>;
@@ -30,6 +38,11 @@ Container.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]).isRequired,
+  display: PropTypes.string,
+};
+
+Container.defaultProps = {
+  display: 'block',
 };
 
 // ============================================================================
