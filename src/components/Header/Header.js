@@ -8,36 +8,17 @@ import Container from '../Container';
 
 // ============================================================================
 
-const Contact = ({ close }) => (
-  <Container>
-    Contact is open
-    <button type="submit" onClick={close}>
-      Close
-    </button>
-  </Container>
-);
+const Contact = () => <Container>Contact is open</Container>;
 
 // ============================================================================
 
-const Navigation = ({ close }) => (
-  <Container>
-    Navigation is open
-    <button type="submit" onClick={close}>
-      Close
-    </button>
-  </Container>
-);
+const Navigation = () => <Container>Navigation is open</Container>;
 
 // ============================================================================
 
 const Header = ({ siteName }) => {
   const [nav, toggleNav] = useState(false);
   const [contact, toggleContact] = useState(false);
-
-  function closeMenu() {
-    toggleNav(false);
-    toggleContact(false);
-  }
 
   const data = useStaticQuery(graphql`
     query MyQuery {
@@ -55,15 +36,15 @@ const Header = ({ siteName }) => {
 
   return (
     <StyledHeader>
-      {contact && <Contact close={closeMenu} />}
-      {nav && <Navigation close={closeMenu} />}
       <Container display="flex">
         <button type="submit" onClick={() => toggleContact(!contact)}>
-          Contact
+          {contact ? 'Close' : 'Contact'}
         </button>
+        {contact && <Contact />}
         <img src={logo[0]} alt={siteName} />
+        {nav && <Navigation />}
         <button type="submit" onClick={() => toggleNav(!nav)}>
-          Menu
+          {nav ? 'Close' : 'Menu'}
         </button>
       </Container>
     </StyledHeader>
