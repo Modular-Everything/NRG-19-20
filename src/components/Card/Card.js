@@ -48,7 +48,7 @@ const Card = props => {
           }
         `}
       >
-        <Image />
+        <Image isCard />
         <CardContent>
           <Subtitle is={subtitle} />
           <Title is={title} />

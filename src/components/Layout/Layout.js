@@ -1,15 +1,14 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import PropTypes from 'prop-types';
-import tw from 'tailwind.macro';
-import styled from '@emotion/styled';
 import { Helmet } from 'react-helmet';
 
 import Header from '../Header';
 
 // ============================================================================
 
-const Layout = ({ children }) => {
+const Layout = props => {
+  const { children, hasHero } = props;
   const data = useStaticQuery(graphql`
     query Meta {
       site {
@@ -26,17 +25,11 @@ const Layout = ({ children }) => {
       <Helmet>
         <title>{SiteTitle}</title>
       </Helmet>
-      <Header siteName={SiteTitle} />
-      <StyledMain>{children}</StyledMain>
+      <Header siteName={SiteTitle} hasHero={hasHero} color />
+      <main>{children}</main>
     </>
   );
 };
-
-// ============================================================================
-
-const StyledMain = styled.main`
-  ${tw`pt-4`}
-`;
 
 // ============================================================================
 
@@ -45,6 +38,11 @@ Layout.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]).isRequired,
+  hasHero: PropTypes.bool,
+};
+
+Layout.defaultProps = {
+  hasHero: false,
 };
 
 // ============================================================================

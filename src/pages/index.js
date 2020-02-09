@@ -4,11 +4,13 @@ import Layout from '../components/Layout';
 import Container from '../components/Container';
 import CardsWrapper from '../components/CardsWrapper';
 import Card from '../components/Card';
+import Image from '../components/Image';
 
 // ============================================================================
 
 export default () => (
-  <Layout>
+  <Layout hasHero>
+    <Image isHero />
     <Container>
       <CardsWrapper>
         <Card link="/1" width={12} truncate={5} />

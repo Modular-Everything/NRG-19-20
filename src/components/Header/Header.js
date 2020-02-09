@@ -99,7 +99,8 @@ const NavigationButton = ({ isOpen }) => (
 
 // ============================================================================
 
-const Header = ({ siteName }) => {
+const Header = props => {
+  const { siteName, hasHero } = props;
   const [nav, toggleNav] = useState(false);
   const [contact, toggleContact] = useState(false);
   const isOpen = !!(nav || contact);
@@ -118,7 +119,7 @@ const Header = ({ siteName }) => {
   const logo = data.allFile.edges.map(img => img.node.publicURL);
 
   return (
-    <StyledHeader color={isOpen}>
+    <StyledHeader color={isOpen} hasHero={hasHero}>
       <Container display="flex">
         {!nav && (
           <div>
@@ -160,15 +161,18 @@ const StyledHeader = styled.header`
     flex-col
     justify-center
     bg-white
-    shadow-md
+    relative
     w-full
     z-50
     h-24
     md:h-32
   `}
-  transition: 350ms ease background-color;
-  ${props =>
-    props.color
+  ${({ hasHero }) =>
+    hasHero
+      ? ''
+      : 'box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); margin-bottom: 1rem;'}
+  ${({ color }) =>
+    color
       ? 'background-color: var(--color-black-primary); color: var(--color-white-primary)'
       : 'background-color: transparent'}
 `;
@@ -177,6 +181,11 @@ const StyledHeader = styled.header`
 
 Header.propTypes = {
   siteName: PropTypes.string.isRequired,
+  hasHero: PropTypes.bool,
+};
+
+Header.defaultProps = {
+  hasHero: false,
 };
 
 ContactButton.propTypes = {
