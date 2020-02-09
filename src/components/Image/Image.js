@@ -5,6 +5,7 @@ import tw from 'tailwind.macro';
 import Img from 'gatsby-image';
 
 import Container from '../Container';
+import Caption from '../Caption';
 
 // ============================================================================
 
@@ -22,7 +23,7 @@ const Image = props => {
   `);
 
   const placeholder = data.file.childImageSharp.fluid;
-  const { src: image, isHero, isCard, isStatic } = props;
+  const { src: image, isHero, isCard, isStatic, caption } = props;
 
   const CardImg = () => (
     <Img
@@ -44,6 +45,7 @@ const Image = props => {
         css={tw`rounded-lg mb-4`}
         fluid={image === null ? placeholder : image}
       />
+      {caption && <Caption is={caption} />}
     </Container>
   );
 
@@ -63,6 +65,7 @@ Image.propTypes = {
   isHero: PropTypes.bool,
   isCard: PropTypes.bool,
   isStatic: PropTypes.bool,
+  caption: PropTypes.string,
 };
 
 Image.defaultProps = {
@@ -70,6 +73,7 @@ Image.defaultProps = {
   isHero: false,
   isCard: false,
   isStatic: false,
+  caption: false,
 };
 
 // ============================================================================

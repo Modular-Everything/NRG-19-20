@@ -11,6 +11,8 @@ import Image from '../components/Image';
 export default () => (
   <Layout hasHero isInverted>
     <Image isHero />
+    <Image isStatic caption="Image caption" />
+    <Image isStatic />
     <Container>
       <CardsWrapper>
         <Card link="/1" width={12} truncate={5} />
