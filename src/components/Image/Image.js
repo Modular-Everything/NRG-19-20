@@ -32,7 +32,10 @@ const Image = props => {
   );
 
   const HeroImg = () => (
-    <Img css={tw`-mt-32 mb-4`} fluid={image === null ? placeholder : image} />
+    <Img
+      css={tw`-mt-32 mb-4 h-screen sm:h-auto`}
+      fluid={image === null ? placeholder : image}
+    />
   );
 
   const StaticImg = () => (
