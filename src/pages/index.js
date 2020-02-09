@@ -9,7 +9,7 @@ import Image from '../components/Image';
 // ============================================================================
 
 export default () => (
-  <Layout hasHero>
+  <Layout hasHero isInverted>
     <Image isHero />
     <Container>
       <CardsWrapper>

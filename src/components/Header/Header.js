@@ -22,6 +22,7 @@ const Plus = styled.div`
 
   & span {
     top: 8px;
+    ${props => props.isInverted && 'background: var(--color-white-primary)'}
     ${props => props.isOpen && 'background: var(--color-white-primary)'}
   }
 
@@ -37,7 +38,7 @@ const Burger = styled.div`
 
   & span {
     top: 14px;
-    ${props => props.isOpen && 'background: var(--color-white-primary)'}
+    ${props => props.isInverted && 'background: var(--color-white-primary)'}
     ${props => props.isOpen && 'background: var(--color-white-primary)'}
   }
 
@@ -76,12 +77,15 @@ const Contact = () => (
     </div>
   </>
 );
-const ContactButton = ({ isOpen }) => (
-  <Plus isOpen={isOpen}>
-    <Line />
-    <Line />
-  </Plus>
-);
+const ContactButton = props => {
+  const { isOpen, isInverted } = props;
+  return (
+    <Plus isOpen={isOpen} isInverted={isInverted}>
+      <Line />
+      <Line />
+    </Plus>
+  );
+};
 
 const Navigation = () => (
   <>
@@ -90,17 +94,20 @@ const Navigation = () => (
     </div>
   </>
 );
-const NavigationButton = ({ isOpen }) => (
-  <Burger isOpen={isOpen}>
-    <Line />
-    <Line />
-  </Burger>
-);
+const NavigationButton = props => {
+  const { isOpen, isInverted } = props;
+  return (
+    <Burger isOpen={isOpen} isInverted={isInverted}>
+      <Line />
+      <Line />
+    </Burger>
+  );
+};
 
 // ============================================================================
 
 const Header = props => {
-  const { siteName, hasHero } = props;
+  const { siteName, hasHero, isInverted } = props;
   const [nav, toggleNav] = useState(false);
   const [contact, toggleContact] = useState(false);
   const isOpen = !!(nav || contact);
@@ -124,7 +131,7 @@ const Header = props => {
         {!nav && (
           <div>
             <button type="submit" onClick={() => toggleContact(!contact)}>
-              <ContactButton isOpen={contact} />
+              <ContactButton isOpen={contact} isInverted={isInverted} />
             </button>
           </div>
         )}
@@ -133,7 +140,7 @@ const Header = props => {
 
         {!contact && !nav ? (
           <div>
-            <img src={logo[0]} alt={siteName} />
+            <img src={logo[isInverted ? 1 : 0]} alt={siteName} />
           </div>
         ) : (
           ''
@@ -144,7 +151,7 @@ const Header = props => {
         {!contact && (
           <div>
             <button type="submit" onClick={() => toggleNav(!nav)}>
-              <NavigationButton isOpen={nav} />
+              <NavigationButton isOpen={nav} isInverted={isInverted} />
             </button>
           </div>
         )}
@@ -182,26 +189,32 @@ const StyledHeader = styled.header`
 Header.propTypes = {
   siteName: PropTypes.string.isRequired,
   hasHero: PropTypes.bool,
+  isInverted: PropTypes.bool,
 };
 
 Header.defaultProps = {
   hasHero: false,
+  isInverted: false,
 };
 
 ContactButton.propTypes = {
   isOpen: PropTypes.bool,
+  isInverted: PropTypes.bool,
 };
 
 ContactButton.defaultProps = {
   isOpen: false,
+  isInverted: false,
 };
 
 NavigationButton.propTypes = {
   isOpen: PropTypes.bool,
+  isInverted: PropTypes.bool,
 };
 
 NavigationButton.defaultProps = {
   isOpen: false,
+  isInverted: false,
 };
 
 // ============================================================================

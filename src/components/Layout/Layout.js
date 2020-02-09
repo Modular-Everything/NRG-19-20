@@ -8,7 +8,7 @@ import Header from '../Header';
 // ============================================================================
 
 const Layout = props => {
-  const { children, hasHero } = props;
+  const { children, hasHero, isInverted } = props;
   const data = useStaticQuery(graphql`
     query Meta {
       site {
@@ -25,7 +25,12 @@ const Layout = props => {
       <Helmet>
         <title>{SiteTitle}</title>
       </Helmet>
-      <Header siteName={SiteTitle} hasHero={hasHero} color />
+      <Header
+        siteName={SiteTitle}
+        hasHero={hasHero}
+        isInverted={isInverted}
+        color
+      />
       <main>{children}</main>
     </>
   );
@@ -39,10 +44,12 @@ Layout.propTypes = {
     PropTypes.node,
   ]).isRequired,
   hasHero: PropTypes.bool,
+  isInverted: PropTypes.bool,
 };
 
 Layout.defaultProps = {
   hasHero: false,
+  isInverted: false,
 };
 
 // ============================================================================
