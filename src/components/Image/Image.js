@@ -42,7 +42,7 @@ const Image = props => {
   const StaticImg = () => (
     <Container>
       <Img
-        css={tw`rounded-lg mb-4`}
+        css={tw`rounded mb-4`}
         fluid={image === null ? placeholder : image}
       />
       {caption && <Caption is={caption} />}
