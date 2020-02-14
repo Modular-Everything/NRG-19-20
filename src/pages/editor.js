@@ -1,6 +1,6 @@
 import React from 'react';
 import SbEditable from 'storyblok-react';
-import Components from '../components/StoryblokComponents';
+import StoryblokComponents from '../components/StoryblokComponents';
 import config from '../../gatsby-config';
 
 const sbConfigs = config.plugins.filter(item => {
@@ -8,29 +8,12 @@ const sbConfigs = config.plugins.filter(item => {
 });
 const sbConfig = sbConfigs.length > 0 ? sbConfigs[0] : {};
 
-const loadStoryblokBridge = function bridge(cb) {
+const loadStoryblokBridge = function(cb) {
   const script = document.createElement('script');
   script.type = 'text/javascript';
   script.src = `//app.storyblok.com/f/storyblok-latest.js?t=${sbConfig.options.accessToken}`;
   script.onload = cb;
   document.getElementsByTagName('head')[0].appendChild(script);
-};
-
-const getParam = function param(val) {
-  let result = '';
-  let tmp = [];
-
-  window.location.search
-    .substr(1)
-    .split('&')
-    .forEach(function paramItem(item) {
-      tmp = item.split('=');
-      if (tmp[0] === val) {
-        result = decodeURIComponent(tmp[1]);
-      }
-    });
-
-  return result;
 };
 
 class StoryblokEntry extends React.Component {
@@ -63,16 +46,17 @@ class StoryblokEntry extends React.Component {
 
     const sb = window.storyblok;
 
-    sb.on(['change', 'published'], () => {
+    sb.on(['change', 'published'], payload => {
       this.loadStory();
     });
 
     sb.on('input', payload => {
-      const { story } = this.state;
-      const pl = payload;
-      if (story && pl.story.id === story.id) {
-        pl.story.content = sb.addComments(pl.story.content, pl.story.id);
-        this.setState({ story: pl.story });
+      if (this.state.story && payload.story.id === this.state.story.id) {
+        payload.story.content = sb.addComments(
+          payload.story.content,
+          payload.story.id
+        );
+        this.setState({ story: payload.story });
       }
     });
 
@@ -84,12 +68,11 @@ class StoryblokEntry extends React.Component {
   }
 
   render() {
-    const { story } = this.state;
-    if (story == null) {
+    if (this.state.story == null) {
       return <div />;
     }
 
-    const content = story.content;
+    const { content } = this.state.story;
 
     return (
       <SbEditable content={content}>

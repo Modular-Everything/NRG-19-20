@@ -1,13 +1,15 @@
-import React from 'react';
 import Card from '../Card';
+import Page from '../page';
+import ComponentNotFound from '../ComponentNotFound';
 
 const ComponentList = {
-  card: Card,
+  page: Page,
+  feature: Card,
 };
 
 const Components = type => {
   if (typeof ComponentList[type] === 'undefined') {
-    return <div>error!</div>;
+    return ComponentNotFound;
   }
   return ComponentList[type];
 };

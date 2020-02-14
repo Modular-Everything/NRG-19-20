@@ -43,7 +43,7 @@ const getParam = function param(val) {
 // ============================================================================
 
 const StoryblokEntry = () => {
-  const [story, setStory] = useState(null);
+  const [story, setStory] = useState();
 
   const loadStory = function load() {
     window.storyblok.get(
@@ -95,19 +95,21 @@ const StoryblokEntry = () => {
     return <div />;
   }
 
-  const content = story.content;
+  const { content } = story;
 
-  console.log(content);
+  console.log(content.component);
 
   return (
-    <SbEditable content={content}>
-      <div>
-        {React.createElement(StoryblokComponents(content.component), {
-          key: content._uid,
-          blok: content,
-        })}
-      </div>
-    </SbEditable>
+    <>
+      <SbEditable content={content}>
+        <div>
+          {React.createElement(StoryblokComponents(content.component), {
+            key: content._uid,
+            blok: content,
+          })}
+        </div>
+      </SbEditable>
+    </>
   );
 };
 
