@@ -23,25 +23,6 @@ const LoadStoryblokBridge = function injectBridge(cb) {
 
 // ============================================================================
 
-const getParam = function param(val) {
-  let result = '';
-  let tmp = [];
-
-  window.location.search
-    .substr(1)
-    .split('&')
-    .forEach(function decode(item) {
-      tmp = item.split('=');
-      if (tmp[0] === val) {
-        result = decodeURIComponent(tmp[1]);
-      }
-    });
-
-  return result;
-};
-
-// ============================================================================
-
 const StoryblokEntry = () => {
   const [story, setStory] = useState();
 
@@ -97,13 +78,12 @@ const StoryblokEntry = () => {
 
   const { content } = story;
 
-  console.log(content.component);
-
   return (
     <>
       <SbEditable content={content}>
         <div>
           {React.createElement(StoryblokComponents(content.component), {
+            // eslint-disable-next-line no-underscore-dangle
             key: content._uid,
             blok: content,
           })}
