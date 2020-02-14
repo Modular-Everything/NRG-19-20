@@ -22,5 +22,13 @@ module.exports = {
       resolve: `gatsby-plugin-postcss`,
       options: {},
     },
+    {
+      resolve: `gatsby-source-storyblok`,
+      options: {
+        accessToken: `gNsoAMAmHOjdDUSVnF0xyQtt`,
+        homeSlug: `home`,
+        version: process.env.NODE_ENV === `production` ? `published` : `draft`,
+      },
+    },
   ],
 };
