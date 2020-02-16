@@ -9,7 +9,7 @@ import SbEditable from 'storyblok-react';
 import Image from '../Image';
 import Subtitle from '../Subtitle';
 import Title from '../Title';
-import TextBlock from '../TextBlock';
+// import TextBlock from '../TextBlock';
 import CallToAction from '../CallToAction';
 
 // ============================================================================
