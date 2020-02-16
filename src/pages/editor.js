@@ -40,15 +40,15 @@ const StoryblokEntry = () => {
   const disableLinks = useCallback(() => {
     const anchors = document.getElementsByTagName('a');
     for (let i = 0; i < anchors.length; i += 1) {
-      anchors[i].onclick = function clickEvent() {
-        return false;
-      };
+      // anchors[i].onclick = function clickEvent() {
+      //   return false;
+      // };
+      anchors[i].removeAttribute('href');
     }
   });
 
   const initStoryblokEvents = useCallback(() => {
     loadStory();
-    disableLinks();
 
     const sb = window.storyblok;
 
@@ -85,6 +85,7 @@ const StoryblokEntry = () => {
   }
 
   const { content } = story;
+  disableLinks();
 
   return (
     <>
