@@ -15,7 +15,8 @@ import CallToAction from '../CallToAction';
 // ============================================================================
 
 const Card = props => {
-  const { title, subtitle, cta, link, width, truncate } = props;
+  const { blok } = props;
+  const { title, subtitle, cta, width } = blok;
 
   const StyledCard = styled.li`
     ${tw`
@@ -37,13 +38,11 @@ const Card = props => {
     ${tw`p-6`}
   `;
 
-  const { blok } = props;
-
   return (
     <SbEditable content={blok}>
       <StyledCard>
         <Link
-          to={link}
+          to="/"
           css={css`
             display: block;
             @media (min-width: 640px) {
@@ -56,7 +55,7 @@ const Card = props => {
           <CardContent>
             <Subtitle is={subtitle} />
             <Title is={title} />
-            <TextBlock truncate={truncate} />
+            {/* <TextBlock truncate={truncate} /> */}
             <CallToAction is={cta} />
           </CardContent>
         </Link>
@@ -69,20 +68,6 @@ const Card = props => {
 
 Card.propTypes = {
   blok: PropTypes.shape.isRequired,
-  title: PropTypes.string,
-  subtitle: PropTypes.string,
-  cta: PropTypes.string,
-  link: PropTypes.string.isRequired,
-  width: PropTypes.string,
-  truncate: PropTypes.number,
-};
-
-Card.defaultProps = {
-  title: 'Title goes here',
-  subtitle: 'Sub-title',
-  cta: 'Call to Action',
-  width: '6',
-  truncate: null,
 };
 
 // ============================================================================
