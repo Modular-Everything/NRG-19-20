@@ -1,11 +1,17 @@
-import Card from '../Card';
-import Page from '../page';
 import ComponentNotFound from '../ComponentNotFound';
+import Page from '../Page';
+import Card from '../Card';
+import Grid from '../Grid';
+
+// ============================================================================
 
 const ComponentList = {
   page: Page,
-  feature: Card,
+  grid: Grid,
+  card: Card,
 };
+
+// ============================================================================
 
 const Components = type => {
   if (typeof ComponentList[type] === 'undefined') {
@@ -13,5 +19,7 @@ const Components = type => {
   }
   return ComponentList[type];
 };
+
+// ============================================================================
 
 export default Components;

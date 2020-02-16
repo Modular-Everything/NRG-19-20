@@ -1,26 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { useSpring, animated } from 'react-spring';
+
+import StoryblokComponents from '../StoryblokComponents';
+import Container from '../Container';
 
 // ============================================================================
 
-const CardsWrapper = ({ children, scroll }) => {
-  const fadeIn = useSpring({
-    to: {
-      opacity: 1,
-      transform: 'translate3d(0, 0, 0)',
-    },
-    from: {
-      opacity: 0,
-      transform: 'translate3d(0, 1.5rem, 0)',
-    },
-  });
+const Grid = props => {
+  const { node } = props;
+  const { isScroll } = node;
+  const components = node.columns.map(blok =>
+    React.createElement(StoryblokComponents(blok.component), {
+      // eslint-disable-next-line no-underscore-dangle
+      key: blok._uid,
+      blok,
+    })
+  );
 
   return (
-    <animated.div style={fadeIn}>
-      {scroll ? <Swiper>{children}</Swiper> : <Wrapper>{children}</Wrapper>}
-    </animated.div>
+    <Container>
+      {isScroll ? (
+        <Swiper>{components}</Swiper>
+      ) : (
+        <Wrapper>{components}</Wrapper>
+      )}
+    </Container>
   );
 };
 
@@ -60,18 +65,15 @@ const Swiper = styled.ul`
 
 // ============================================================================
 
-CardsWrapper.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]).isRequired,
-  scroll: PropTypes.bool,
+Grid.propTypes = {
+  node: PropTypes.shape.isRequired,
+  isScroll: PropTypes.bool,
 };
 
-CardsWrapper.defaultProps = {
-  scroll: false,
+Grid.defaultProps = {
+  isScroll: false,
 };
 
 // ============================================================================
 
-export default CardsWrapper;
+export default Grid;
