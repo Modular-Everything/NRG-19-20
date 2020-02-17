@@ -37,15 +37,6 @@ const StoryblokEntry = () => {
     );
   });
 
-  const disableLinks = () => {
-    const anchors = document.querySelectorAll('a');
-    anchors.forEach(anchor => {
-      const el = document.createElement('span');
-      el.innerHTML = anchor.innerHTML;
-      anchor.parentNode.replaceChild(el, anchor);
-    });
-  };
-
   const initStoryblokEvents = useCallback(() => {
     loadStory();
 
@@ -69,7 +60,6 @@ const StoryblokEntry = () => {
   }, [loadStory, story]);
 
   useEffect(() => {
-    disableLinks();
     LoadStoryblokBridge(() => {
       initStoryblokEvents();
     });
