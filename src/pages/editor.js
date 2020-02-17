@@ -11,12 +11,12 @@ const sbConfig = sbConfigs.length > 0 ? sbConfigs[0] : {};
 
 // ============================================================================
 
-const LoadStoryblokBridge = function injectBridge(cb) {
-  const script = document.createElement(`script`);
-  script.type = `text/javascript`;
+const LoadStoryblokBridge = cb => {
+  const script = document.createElement('script');
+  script.type = 'text/javascript';
   script.src = `//app.storyblok.com/f/storyblok-latest.js?t=${sbConfig.options.accessToken}`;
   script.onload = cb;
-  document.getElementsByTagName(`head`)[0].appendChild(script);
+  document.getElementsByTagName('head')[0].appendChild(script);
 };
 
 // ============================================================================
@@ -37,15 +37,14 @@ const StoryblokEntry = () => {
     );
   });
 
-  const disableLinks = useCallback(() => {
-    const anchors = document.getElementsByTagName('a');
-    for (let i = 0; i < anchors.length; i += 1) {
-      // anchors[i].onclick = function clickEvent() {
-      //   return false;
-      // };
-      anchors[i].removeAttribute('href');
-    }
-  });
+  const disableLinks = () => {
+    const anchors = document.querySelectorAll('a');
+    anchors.forEach(anchor => {
+      const el = document.createElement('span');
+      el.innerHTML = anchor.innerHTML;
+      anchor.parentNode.replaceChild(el, anchor);
+    });
+  };
 
   const initStoryblokEvents = useCallback(() => {
     loadStory();
@@ -58,13 +57,8 @@ const StoryblokEntry = () => {
 
     sb.on(['input'], payload => {
       const pl = payload;
-      if (story && payload.story.id === story.id) {
-        pl.story.content = sb.addComments(
-          payload.story.content,
-          payload.story.id
-        );
-        setStory(payload.story);
-      }
+      pl.story.content = sb.addComments(pl.story.content, pl.story.id);
+      setStory(payload.story);
     });
 
     sb.pingEditor(() => {
@@ -72,9 +66,10 @@ const StoryblokEntry = () => {
         sb.enterEditmode();
       }
     });
-  });
+  }, [loadStory, story]);
 
   useEffect(() => {
+    disableLinks();
     LoadStoryblokBridge(() => {
       initStoryblokEvents();
     });
@@ -85,7 +80,6 @@ const StoryblokEntry = () => {
   }
 
   const { content } = story;
-  disableLinks();
 
   return (
     <>
