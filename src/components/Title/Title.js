@@ -9,7 +9,7 @@ const StyledTitle = styled.h2`
   ${tw`
     text-3xl
     font-medium
-    leading-relaxed
+    leading-tight
     mb-4
   `};
   color: var(--color-black-primary);
