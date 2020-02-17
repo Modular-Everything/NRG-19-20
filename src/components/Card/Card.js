@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import tw from 'tailwind.macro';
-import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 import SbEditable from 'storyblok-react';
@@ -41,16 +40,7 @@ const Card = props => {
   return (
     <SbEditable content={blok}>
       <StyledCard>
-        <Link
-          to="/"
-          css={css`
-            display: block;
-            @media (min-width: 640px) {
-              display: ${width === 12 ? `grid` : `block`};
-              grid-template-columns: 1fr 1fr;
-            }
-          `}
-        >
+        <Link to="/">
           <Image isCard />
           <CardContent>
             <Subtitle is={subtitle} />
