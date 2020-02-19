@@ -6,9 +6,10 @@ import styled from '@emotion/styled';
 // ============================================================================
 
 const TextBlock = props => {
-  // console.log(props);
-  const { text } = props;
-  return <Text>{text}</Text>;
+  const { text, children } = props;
+  const copy = children ? children[0].props.value : text;
+
+  return <Text>{copy}</Text>;
 };
 
 // ============================================================================

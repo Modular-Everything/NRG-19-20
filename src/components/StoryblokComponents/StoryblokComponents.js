@@ -1,7 +1,8 @@
 import ComponentNotFound from '../ComponentNotFound';
 import Page from '../Page';
-import Card from '../Card';
 import Grid from '../Grid';
+import Card from '../Card';
+import Copy from '../Copy';
 
 // ============================================================================
 
@@ -9,6 +10,7 @@ const ComponentList = {
   page: Page,
   grid: Grid,
   card: Card,
+  copy: Copy,
 };
 
 // ============================================================================
