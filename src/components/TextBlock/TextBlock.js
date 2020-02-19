@@ -2,17 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import tw from 'tailwind.macro';
 import styled from '@emotion/styled';
-import Shiitake from 'shiitake';
 
 // ============================================================================
 
 const TextBlock = props => {
-  const { text, truncate } = props;
-  return (
-    <Text>
-      {truncate !== null ? <Shiitake lines={truncate}>{text}</Shiitake> : text}
-    </Text>
-  );
+  // console.log(props);
+  const { text } = props;
+  return <Text>{text}</Text>;
 };
 
 // ============================================================================
@@ -32,7 +28,6 @@ const Text = styled.div`
 
 TextBlock.propTypes = {
   text: PropTypes.string,
-  truncate: PropTypes.number.isRequired,
 };
 
 TextBlock.defaultProps = {

@@ -26,7 +26,9 @@ const Page = props => {
 // ============================================================================
 
 Page.propTypes = {
-  blok: PropTypes.shape.isRequired,
+  blok: PropTypes.shape({
+    content: PropTypes.array.isRequired,
+  }).isRequired,
 };
 
 // ============================================================================

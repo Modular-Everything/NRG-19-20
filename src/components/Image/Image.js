@@ -73,7 +73,7 @@ Image.defaultProps = {
   isHero: false,
   isCard: false,
   isStatic: false,
-  caption: false,
+  caption: undefined,
 };
 
 // ============================================================================

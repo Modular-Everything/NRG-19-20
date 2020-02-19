@@ -10,6 +10,7 @@ import Container from '../Container';
 const Grid = props => {
   const { node } = props;
   const { isScroll } = node;
+
   const components = node.columns.map(blok =>
     React.createElement(StoryblokComponents(blok.component), {
       // eslint-disable-next-line no-underscore-dangle
@@ -66,12 +67,16 @@ const Swiper = styled.ul`
 // ============================================================================
 
 Grid.propTypes = {
-  node: PropTypes.shape.isRequired,
-  isScroll: PropTypes.bool,
+  node: PropTypes.shape({
+    columns: PropTypes.array.isRequired,
+    isScroll: PropTypes.bool,
+  }),
 };
 
 Grid.defaultProps = {
-  isScroll: false,
+  node: PropTypes.shape({
+    isScroll: false,
+  }),
 };
 
 // ============================================================================

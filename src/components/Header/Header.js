@@ -126,7 +126,7 @@ const Header = props => {
   const logo = data.allFile.edges.map(img => img.node.publicURL);
 
   return (
-    <StyledHeader color={isOpen} hasHero={hasHero}>
+    <StyledHeader color={isOpen ? 1 : 0} hasHero={hasHero}>
       <Container display="flex">
         {!nav && (
           <div>

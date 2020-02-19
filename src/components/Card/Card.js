@@ -57,7 +57,12 @@ const Card = props => {
 // ============================================================================
 
 Card.propTypes = {
-  blok: PropTypes.shape.isRequired,
+  blok: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
+    cta: PropTypes.string.isRequired,
+    width: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 // ============================================================================
