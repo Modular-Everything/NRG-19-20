@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import tw from 'tailwind.macro';
 import styled from '@emotion/styled';
 import ReactMarkdown from 'react-markdown';
+import SbEditable from 'storyblok-react';
 
 import Title from '../Title';
 import TextBlock from '../TextBlock';
@@ -26,12 +27,14 @@ const Copy = props => {
   `;
 
   return (
-    <StyledCopy>
-      <ReactMarkdown
-        source={blok.markdown}
-        renderers={{ heading: Title, paragraph: TextBlock }}
-      />
-    </StyledCopy>
+    <SbEditable content={blok}>
+      <StyledCopy>
+        <ReactMarkdown
+          source={blok.markdown}
+          renderers={{ heading: Title, paragraph: TextBlock }}
+        />
+      </StyledCopy>
+    </SbEditable>
   );
 };
 
