@@ -6,8 +6,8 @@ import styled from '@emotion/styled';
 // ============================================================================
 
 const Title = props => {
-  const { children } = props;
-  const titleCopy = children[0] ? children[0].props.value : 'This is a title';
+  const { is: title, children } = props;
+  const titleCopy = children !== undefined ? children[0].props.value : title;
 
   return <StyledTitle>{titleCopy}</StyledTitle>;
 };
@@ -28,7 +28,13 @@ const StyledTitle = styled.h2`
 // ============================================================================
 
 Title.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.object).isRequired,
+  is: PropTypes.string,
+  children: PropTypes.arrayOf(PropTypes.object),
+};
+
+Title.defaultProps = {
+  is: 'Title goes here',
+  children: undefined,
 };
 
 // ============================================================================

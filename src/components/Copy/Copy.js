@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import tw from 'tailwind.macro';
 import styled from '@emotion/styled';
 import ReactMarkdown from 'react-markdown';
 import SbEditable from 'storyblok-react';
@@ -14,10 +13,6 @@ const Copy = props => {
   const { blok } = props;
 
   const StyledCopy = styled.li`
-    ${tw`
-      mt-16
-      mb-12
-    `}
     grid-column: span ${blok.width};
     height: fit-content;
 

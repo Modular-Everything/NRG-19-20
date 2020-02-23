@@ -44,7 +44,7 @@ const Card = props => {
           {/* <Image isCard /> */}
           <CardContent>
             <Subtitle is={subtitle} />
-            <Title is={title} />
+            <Title isCard is={title} />
             {/* <TextBlock truncate={truncate} /> */}
             <CallToAction is={cta} />
           </CardContent>
