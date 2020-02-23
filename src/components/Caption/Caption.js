@@ -13,7 +13,7 @@ const Caption = ({ is: caption }) => {
 
 const StyledCaption = styled.p`
   ${tw`
-    mt-0
+    mt-2
     mb-8
     text-sm
   `}
