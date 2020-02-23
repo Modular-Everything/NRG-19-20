@@ -28,6 +28,12 @@ const Card = props => {
     grid-column: span ${width};
     height: fit-content;
 
+    ${width === '12' &&
+      `& a {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }`}
+
     @media (max-width: 639px) {
       grid-column: span 12;
     }
