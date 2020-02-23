@@ -9,11 +9,15 @@ import TextBlock from '../TextBlock';
 import Title from '../Title';
 import Subtitle from '../Subtitle';
 import Tags from '../Tags';
+import ComponentNotFound from '../ComponentNotFound';
 
 // ============================================================================
 
 const ProjectIntro = props => {
   const { node } = props;
+
+  if (!node) return <ComponentNotFound />;
+
   const { copy, title, subtitle, color } = node;
 
   const Intro = styled.div`
