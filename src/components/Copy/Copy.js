@@ -13,7 +13,7 @@ import TextBlock from '../TextBlock';
 const Copy = props => {
   const { blok } = props;
 
-  const StyledCopy = styled.div`
+  const StyledCopy = styled.li`
     ${tw`
       mt-16
       mb-12
