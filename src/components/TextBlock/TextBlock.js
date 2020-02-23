@@ -6,8 +6,8 @@ import styled from '@emotion/styled';
 // ============================================================================
 
 const TextBlock = props => {
-  const { text, children } = props;
-  const textCopy = children ? children[0].props.value : text;
+  const { children } = props;
+  const textCopy = children ? children[0].props.value : '';
 
   return <StyledText>{textCopy}</StyledText>;
 };
@@ -28,22 +28,8 @@ const StyledText = styled.div`
 // ============================================================================
 
 TextBlock.propTypes = {
-  text: PropTypes.string,
-  children: PropTypes.shape({
-    props: PropTypes.arrayOf(PropTypes.string),
-  }),
+  children: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
-
-TextBlock.defaultProps = {
-  text:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-  children: PropTypes.shape({
-    props: PropTypes.shape({
-      value: '',
-    }),
-  }),
-};
-
 // ============================================================================
 
 export default TextBlock;
