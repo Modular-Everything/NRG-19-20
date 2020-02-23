@@ -6,15 +6,15 @@ import styled from '@emotion/styled';
 // ============================================================================
 
 const TextBlock = props => {
-  const { children } = props;
-  const textCopy = children ? children[0].props.value : '';
+  const { is: text, children } = props;
+  const textCopy = children !== undefined ? children[0].props.value : text;
 
   return <StyledText>{textCopy}</StyledText>;
 };
 
 // ============================================================================
 
-const StyledText = styled.div`
+const StyledText = styled.p`
   ${tw`
     text-sm
     mb-6
@@ -23,13 +23,24 @@ const StyledText = styled.div`
   `}
   color: var(--color-black-primary);
   font-family: 'Simplon BP', -apple-system, 'Helvetica Neue', sans-serif;
+
+  &:last-of-type {
+    ${tw`mb-0`}
+  }
 `;
 
 // ============================================================================
 
 TextBlock.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.object).isRequired,
+  is: PropTypes.string,
+  children: PropTypes.arrayOf(PropTypes.object),
 };
+
+TextBlock.defaultProps = {
+  is: 'Lorem ipsum...',
+  children: undefined,
+};
+
 // ============================================================================
 
 export default TextBlock;

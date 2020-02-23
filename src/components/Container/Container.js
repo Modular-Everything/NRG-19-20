@@ -6,9 +6,8 @@ import styled from '@emotion/styled';
 // ============================================================================
 
 const Container = props => {
-  const { children, display } = props;
+  const { children, display, columns } = props;
   const breakpoints = [640, 768, 936];
-
   const PageContainer = styled.div`
     ${tw`
       mx-auto
@@ -18,6 +17,7 @@ const Container = props => {
       w-full
     `}
     display: ${display};
+    ${columns !== 'grid' && `grid-template-columns: ${columns};`}
     ${breakpoints.map(
       minWidth =>
         `@media(min-width: ${minWidth}px) { max-width: ${minWidth}px }`
@@ -39,10 +39,12 @@ Container.propTypes = {
     PropTypes.node,
   ]).isRequired,
   display: PropTypes.string,
+  columns: PropTypes.string,
 };
 
 Container.defaultProps = {
   display: 'block',
+  columns: null,
 };
 
 // ============================================================================
