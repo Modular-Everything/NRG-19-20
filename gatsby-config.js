@@ -27,6 +27,7 @@ module.exports = {
       options: {
         accessToken: `MfgGrrnYEMkLpAaMaWRiogtt`,
         homeSlug: `home`,
+        includeLinks: true,
         version: process.env.NODE_ENV === `production` ? `published` : `draft`,
       },
     },

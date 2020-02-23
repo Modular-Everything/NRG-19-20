@@ -41,7 +41,7 @@ const Card = props => {
     <SbEditable content={blok}>
       <StyledCard>
         <Link to="/">
-          <Image isCard />
+          {/* <Image isCard /> */}
           <CardContent>
             <Subtitle is={subtitle} />
             <Title is={title} />
