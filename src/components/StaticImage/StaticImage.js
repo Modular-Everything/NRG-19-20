@@ -9,7 +9,7 @@ import Caption from '../Caption';
 
 // ============================================================================
 
-const Image = props => {
+const StaticImage = props => {
   const { blok } = props;
   const { image, caption, width } = blok;
 
@@ -34,7 +34,7 @@ const Image = props => {
 
 // ============================================================================
 
-Image.propTypes = {
+StaticImage.propTypes = {
   blok: PropTypes.shape({
     image: PropTypes.string.isRequired,
     caption: PropTypes.string.isRequired,
@@ -44,4 +44,4 @@ Image.propTypes = {
 
 // ============================================================================
 
-export default Image;
+export default StaticImage;

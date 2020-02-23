@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 import SbEditable from 'storyblok-react';
 
-import Image from '../Image';
+import CardImage from '../CardImage';
 import Subtitle from '../Subtitle';
 import Title from '../Title';
 // import TextBlock from '../TextBlock';
@@ -15,7 +15,7 @@ import CallToAction from '../CallToAction';
 
 const Card = props => {
   const { blok } = props;
-  const { title, subtitle, cta, width } = blok;
+  const { title, subtitle, cta, image, width } = blok;
 
   const StyledCard = styled.li`
     ${tw`
@@ -41,7 +41,7 @@ const Card = props => {
     <SbEditable content={blok}>
       <StyledCard>
         <Link to="/">
-          {/* <Image isCard /> */}
+          <CardImage is={image} />
           <CardContent>
             <Subtitle is={subtitle} />
             <Title isCard is={title} />
@@ -61,6 +61,7 @@ Card.propTypes = {
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string.isRequired,
     cta: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
     width: PropTypes.string.isRequired,
   }).isRequired,
 };
