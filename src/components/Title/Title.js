@@ -6,8 +6,8 @@ import styled from '@emotion/styled';
 // ============================================================================
 
 const Title = props => {
-  const { is: title, children } = props;
-  const titleCopy = children[0] ? children[0].props.value : title;
+  const { children } = props;
+  const titleCopy = children[0] ? children[0].props.value : 'This is a title';
 
   return <StyledTitle>{titleCopy}</StyledTitle>;
 };
@@ -28,18 +28,7 @@ const StyledTitle = styled.h2`
 // ============================================================================
 
 Title.propTypes = {
-  is: PropTypes.string.isRequired,
-  children: PropTypes.shape({
-    props: PropTypes.arrayOf(PropTypes.string),
-  }),
-};
-
-Title.defaultProps = {
-  children: PropTypes.shape({
-    props: PropTypes.shape({
-      value: '',
-    }),
-  }),
+  children: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 // ============================================================================
