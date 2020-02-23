@@ -6,7 +6,7 @@ import ProjectIntro from '../components/ProjectIntro';
 // ============================================================================
 
 export default () => (
-  <Layout hasHero isInverted>
+  <Layout>
     <ProjectIntro />
   </Layout>
 );
