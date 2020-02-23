@@ -2,27 +2,44 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import tw from 'tailwind.macro';
 import styled from '@emotion/styled';
-import Img from 'gatsby-image';
+// import Img from 'gatsby-image';
+import SbEditable from 'storyblok-react';
 
-import Container from '../Container';
 import Caption from '../Caption';
 
 // ============================================================================
 
 const Image = props => {
-  const { blok, isHero, isStatic, caption } = props;
+  const { blok } = props;
+  const { image, caption, width } = blok;
 
   const StyledImage = styled.li`
-    grid-column: span ${blok.width};
+    grid-column: span ${width};
+    height: fit-content;
+    & img {
+      ${tw`rounded`};
+    }
   `;
 
   return (
-    <StyledImage>
-      <img src={blok.image} alt="" />
-      {/* <Img css={tw`rounded block h-24`} fluid={fluidProps} /> */}
-      {/* {caption && <Caption is={caption} />} */}
-    </StyledImage>
+    <SbEditable content={blok}>
+      <StyledImage>
+        <img src={image} alt="" />
+        {/* <Img css={tw`rounded block h-24`} fluid={fluidProps} /> */}
+        {caption && <Caption is={caption} />}
+      </StyledImage>
+    </SbEditable>
   );
+};
+
+// ============================================================================
+
+Image.propTypes = {
+  blok: PropTypes.shape({
+    image: PropTypes.string.isRequired,
+    caption: PropTypes.string.isRequired,
+    width: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 // ============================================================================
