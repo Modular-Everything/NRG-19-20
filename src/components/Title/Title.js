@@ -7,9 +7,15 @@ import styled from '@emotion/styled';
 
 const Title = props => {
   const { is: title, children } = props;
-  const titleCopy = children !== undefined ? children[0].props.value : title;
 
-  return <StyledTitle>{titleCopy}</StyledTitle>;
+  if (typeof children === 'object') {
+    if (children.length === 0) {
+      return null;
+    }
+    return <StyledTitle>{children[0].props.value}</StyledTitle>;
+  }
+
+  return <StyledTitle>{title}</StyledTitle>;
 };
 
 // ============================================================================
