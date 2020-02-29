@@ -6,7 +6,8 @@ import styled from '@emotion/styled';
 // ============================================================================
 
 const HeroImage = props => {
-  const { is: image } = props;
+  const { node } = props;
+  const { image } = node;
 
   const StyledImage = styled.div`
     ${tw`-mt-32 mb-4 h-screen sm:h-auto`};
@@ -22,7 +23,9 @@ const HeroImage = props => {
 // ============================================================================
 
 HeroImage.propTypes = {
-  is: PropTypes.string.isRequired,
+  node: PropTypes.shape({
+    image: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 // ============================================================================

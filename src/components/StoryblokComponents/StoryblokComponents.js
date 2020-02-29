@@ -6,6 +6,7 @@ import Copy from '../Copy';
 import ProjectIntro from '../ProjectIntro';
 import PageIntro from '../PageIntro';
 import StaticImage from '../StaticImage';
+import HeroImage from '../HeroImage';
 import Video from '../Video';
 import Credits from '../Credits';
 
@@ -19,6 +20,7 @@ const ComponentList = {
   projectIntro: ProjectIntro,
   pageIntro: PageIntro,
   image: StaticImage,
+  heroImage: HeroImage,
   video: Video,
   credits: Credits,
 };
