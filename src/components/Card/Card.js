@@ -15,7 +15,7 @@ import CallToAction from '../CallToAction';
 
 const Card = props => {
   const { blok } = props;
-  const { title, subtitle, cta, image, width } = blok;
+  const { title, subtitle, cta, image, width, link } = blok;
 
   const StyledCard = styled.li`
     ${tw`
@@ -46,7 +46,7 @@ const Card = props => {
   return (
     <SbEditable content={blok}>
       <StyledCard>
-        <Link to="/">
+        <Link to={link !== undefined ? link.url : `/`}>
           <CardImage is={image} />
           <CardContent>
             <Subtitle is={subtitle} />
@@ -69,6 +69,7 @@ Card.propTypes = {
     cta: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     width: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
   }).isRequired,
 };
 
