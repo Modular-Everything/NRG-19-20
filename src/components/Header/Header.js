@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
+import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import tw from 'tailwind.macro';
 import styled from '@emotion/styled';
@@ -107,13 +108,18 @@ const NavigationButton = props => {
 // ============================================================================
 
 const Header = props => {
-  const { siteName, hasHero, isInverted } = props;
+  const { hasHero, isInverted } = props;
   const [nav, toggleNav] = useState(false);
   const [contact, toggleContact] = useState(false);
   const isOpen = !!(nav || contact);
 
   const data = useStaticQuery(graphql`
     query MyQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
       allFile(filter: { name: { regex: "/logo/" }, ext: { eq: ".svg" } }) {
         edges {
           node {
@@ -123,40 +129,47 @@ const Header = props => {
       }
     }
   `);
+  const SiteTitle = data.site.siteMetadata.title;
   const logo = data.allFile.edges.map(img => img.node.publicURL);
 
   return (
-    <StyledHeader color={isOpen ? 1 : 0} hasHero={hasHero}>
-      <Container display="flex">
-        {!nav && (
-          <div>
-            <button type="submit" onClick={() => toggleContact(!contact)}>
-              <ContactButton isOpen={contact} isInverted={isInverted} />
-            </button>
-          </div>
-        )}
+    <>
+      <Helmet>
+        <title>{SiteTitle}</title>
+      </Helmet>
 
-        {contact && <Contact />}
+      <StyledHeader color={isOpen ? 1 : 0} hasHero={hasHero}>
+        <Container display="flex">
+          {!nav && (
+            <div>
+              <button type="submit" onClick={() => toggleContact(!contact)}>
+                <ContactButton isOpen={contact} isInverted={isInverted} />
+              </button>
+            </div>
+          )}
 
-        {!contact && !nav ? (
-          <div>
-            <img src={logo[isInverted ? 1 : 0]} alt={siteName} />
-          </div>
-        ) : (
-          ''
-        )}
+          {contact && <Contact />}
 
-        {nav && <Navigation />}
+          {!contact && !nav ? (
+            <div>
+              <img src={logo[isInverted ? 1 : 0]} alt={SiteTitle} />
+            </div>
+          ) : (
+            ''
+          )}
 
-        {!contact && (
-          <div>
-            <button type="submit" onClick={() => toggleNav(!nav)}>
-              <NavigationButton isOpen={nav} isInverted={isInverted} />
-            </button>
-          </div>
-        )}
-      </Container>
-    </StyledHeader>
+          {nav && <Navigation />}
+
+          {!contact && (
+            <div>
+              <button type="submit" onClick={() => toggleNav(!nav)}>
+                <NavigationButton isOpen={nav} isInverted={isInverted} />
+              </button>
+            </div>
+          )}
+        </Container>
+      </StyledHeader>
+    </>
   );
 };
 
@@ -187,7 +200,6 @@ const StyledHeader = styled.header`
 // ============================================================================
 
 Header.propTypes = {
-  siteName: PropTypes.string.isRequired,
   hasHero: PropTypes.bool,
   isInverted: PropTypes.bool,
 };

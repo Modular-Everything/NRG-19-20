@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import StoryblokComponents from '../StoryblokComponents';
 
 import Layout from '../Layout';
+import Header from '../Header';
 
 // ============================================================================
 
@@ -11,6 +12,7 @@ const Page = props => {
 
   return (
     <Layout>
+      <Header hasHero={blok.isHero} isInverted={blok.isInverted} />
       {blok.content &&
         blok.content.map(node =>
           React.createElement(StoryblokComponents(node.component), {
@@ -28,6 +30,8 @@ const Page = props => {
 Page.propTypes = {
   blok: PropTypes.shape({
     content: PropTypes.array.isRequired,
+    isHero: PropTypes.bool.isRequired,
+    isInverted: PropTypes.bool.isRequired,
   }).isRequired,
 };
 
