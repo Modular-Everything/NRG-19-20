@@ -15,6 +15,7 @@ const Grid = props => {
     React.createElement(StoryblokComponents(blok.component), {
       // eslint-disable-next-line no-underscore-dangle
       key: blok._uid,
+      grid: true,
       blok,
     })
   );
