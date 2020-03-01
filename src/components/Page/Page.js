@@ -4,6 +4,7 @@ import StoryblokComponents from '../StoryblokComponents';
 
 import Layout from '../Layout';
 import Header from '../Header';
+import Footer from '../Footer';
 
 // ============================================================================
 
@@ -21,6 +22,7 @@ const Page = props => {
             node,
           })
         )}
+      <Footer />
     </Layout>
   );
 };
