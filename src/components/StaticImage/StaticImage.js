@@ -24,7 +24,7 @@ const StaticImage = props => {
   return (
     <SbEditable content={blok}>
       <StyledImage>
-        <img src={image} alt="" />
+        <img css={tw`w-full`} src={image} alt="" />
         {/* <Img css={tw`rounded block h-24`} fluid={fluidProps} /> */}
         {caption && <Caption is={caption} />}
       </StyledImage>
