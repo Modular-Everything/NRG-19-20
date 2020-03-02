@@ -17,6 +17,7 @@ const StyledCaption = styled.p`
     mb-8
     text-sm
   `}
+  font-family: 'Simplon BP', -apple-system, 'Helvetica Neue', sans-serif;
   color: var(--color-white-secondary);
 `;
 
