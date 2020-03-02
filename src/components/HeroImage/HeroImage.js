@@ -6,11 +6,12 @@ import styled from '@emotion/styled';
 // ============================================================================
 
 const HeroImage = props => {
-  const { node } = props;
+  const { node, isHero } = props;
   const { image } = node;
 
   const StyledImage = styled.div`
-    ${tw`-mt-32 mb-4 h-screen sm:h-auto`};
+    ${tw`mb-4 h-screen sm:h-auto`};
+    ${isHero && tw`-mt-32 `}
   `;
 
   return (
@@ -26,6 +27,11 @@ HeroImage.propTypes = {
   node: PropTypes.shape({
     image: PropTypes.string.isRequired,
   }).isRequired,
+  isHero: PropTypes.bool,
+};
+
+HeroImage.defaultProps = {
+  isHero: false,
 };
 
 // ============================================================================

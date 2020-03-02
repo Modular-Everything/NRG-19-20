@@ -11,6 +11,8 @@ import Footer from '../Footer';
 const Page = props => {
   const { blok } = props;
 
+  console.log(props);
+
   return (
     <Layout>
       <Header hasHero={blok.isHero} isInverted={blok.isInverted} />
@@ -20,6 +22,7 @@ const Page = props => {
             // eslint-disable-next-line no-underscore-dangle
             key: node._uid,
             node,
+            isHero: blok.isHero,
           })
         )}
       <Footer />
