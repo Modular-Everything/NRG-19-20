@@ -9,7 +9,6 @@ import TempImg from '../../../static/images/video-temp.png';
 
 const Video = props => {
   const { grid } = props;
-  console.log(grid);
 
   if (grid) {
     return (
