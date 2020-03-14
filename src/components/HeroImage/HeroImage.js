@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import tw from 'tailwind.macro';
 import styled from '@emotion/styled';
+import SbEditable from 'storyblok-react';
 
 // ============================================================================
 
@@ -12,11 +13,17 @@ const HeroImage = props => {
   const StyledImage = styled.div`
     ${tw`mb-4 h-screen sm:h-auto`};
     ${isHero && tw`-mt-32 `}
+
+    img {
+      ${tw`w-full`}
+    }
   `;
 
   return (
     <StyledImage>
-      <img src={image} alt="" />
+      <SbEditable content={node}>
+        <img src={image} alt="" />
+      </SbEditable>
     </StyledImage>
   );
 };

@@ -37,7 +37,7 @@ const StyledVideoContained = styled.div`
 `;
 
 const StyledVideoFull = styled.div`
-  ${tw`mb-4`}
+  ${tw`mb-4 w-full`}
 `;
 
 // ============================================================================
