@@ -34,6 +34,7 @@
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
     "react-markdown": "^4.3.1",
+    "react-player": "^1.15.2",
     "react-spring": "^8.0.27",
     "shiitake": "^3.0.2",
     "storyblok-react": "0.0.10",

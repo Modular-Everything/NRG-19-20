@@ -1,26 +1,72 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import tw from 'tailwind.macro';
 import styled from '@emotion/styled';
+import ReactPlayer from 'react-player';
 
-import TempImg from '../../../static/images/video-temp.png';
+// ============================================================================
+
+const Player = props => {
+  const { videoUrl } = props;
+  const ref = React.createRef();
+  const [playing, setPlaying] = useState(false);
+
+  const PlayVideo = function PlayVideo() {
+    setPlaying(true);
+  };
+
+  return (
+    <>
+      <ReactPlayer
+        ref={ref}
+        url={videoUrl}
+        playing={playing}
+        controls
+        config={{
+          file: { attributes: { id: 'audio-element' } },
+          vimeo: {
+            preload: true,
+            playerOptions: {
+              responsive: true,
+            },
+          },
+          youtube: {
+            preload: true,
+            embedOptions: {
+              responsive: true,
+            },
+          },
+        }}
+        width="100%"
+        height="auto"
+      />
+      <PlayButton
+        type="button"
+        onClick={() => PlayVideo()}
+        style={{
+          opacity: playing ? 0 : 1,
+        }}
+      />
+    </>
+  );
+};
 
 // ============================================================================
 
 const Video = props => {
-  const { grid } = props;
+  const { grid, blok, node } = props;
 
   if (grid) {
     return (
       <StyledVideoContained>
-        <img src={TempImg} alt="Video is on its way" />
+        <Player videoUrl={blok.videoUrl} />
       </StyledVideoContained>
     );
   }
 
   return (
     <StyledVideoFull>
-      <img src={TempImg} alt="Video is on its way" />
+      <Player videoUrl={node.videoUrl} />
     </StyledVideoFull>
   );
 };
@@ -28,7 +74,8 @@ const Video = props => {
 // ============================================================================
 
 const StyledVideoContained = styled.div`
-  ${tw`mb-4`}
+  ${tw`mb-4 relative`}
+  min-height: 200px;
   grid-column: span 12;
 
   & img {
@@ -37,13 +84,59 @@ const StyledVideoContained = styled.div`
 `;
 
 const StyledVideoFull = styled.div`
-  ${tw`mb-4 w-full`}
+  ${tw`mb-4 w-full relative`}
+  min-height: 200px;
+`;
+
+const PlayButton = styled.span`
+  ${tw`
+    absolute
+    inset-x-0
+    shadow-xl
+    bg-white
+    mx-auto
+    rounded-full
+    shadow-xl
+    flex
+    justify-center
+    items-center
+    text-red-600
+    cursor-pointer
+  `}
+  top: calc(50% - 58px);
+  width: 116px;
+  height: 116px;
+  font-size: 72px;
+
+  &::before {
+    content: '';
+    box-sizing: border-box;
+    display: block;
+    width: 32px;
+    height: 46px;
+    border-style: solid;
+    border-width: 23px 0 23px 32px;
+    border-color: transparent transparent transparent var(--color-brand);
+    margin-left: 6px;
+    transition-property: opacity;
+    transition-duration: 250ms;
+  }
 `;
 
 // ============================================================================
 
 Video.propTypes = {
   grid: PropTypes.bool.isRequired,
+  blok: PropTypes.shape({
+    videoUrl: PropTypes.string.isRequired,
+  }).isRequired,
+  node: PropTypes.shape({
+    videoUrl: PropTypes.string.isRequired,
+  }).isRequired,
+};
+
+Player.propTypes = {
+  videoUrl: PropTypes.string.isRequired,
 };
 
 // ============================================================================
