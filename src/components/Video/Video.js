@@ -128,15 +128,28 @@ const PlayButton = styled.span`
 Video.propTypes = {
   grid: PropTypes.bool.isRequired,
   blok: PropTypes.shape({
-    videoUrl: PropTypes.string.isRequired,
-  }).isRequired,
+    videoUrl: PropTypes.string,
+  }),
   node: PropTypes.shape({
-    videoUrl: PropTypes.string.isRequired,
-  }).isRequired,
+    videoUrl: PropTypes.string,
+  }),
+};
+
+Video.defaultProps = {
+  blok: PropTypes.shape({
+    videoUrl: 'https://vimeo.com/362097506',
+  }),
+  node: PropTypes.shape({
+    videoUrl: 'https://vimeo.com/362097506',
+  }),
 };
 
 Player.propTypes = {
-  videoUrl: PropTypes.string.isRequired,
+  videoUrl: PropTypes.string,
+};
+
+Player.defaultProps = {
+  videoUrl: 'https://vimeo.com/362097506',
 };
 
 // ============================================================================
