@@ -11,8 +11,6 @@ import Footer from '../Footer';
 const Page = props => {
   const { blok } = props;
 
-  console.log(props);
-
   return (
     <Layout>
       <Header hasHero={blok.isHero} isInverted={blok.isInverted} />
