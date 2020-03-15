@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import tw from 'tailwind.macro';
 import styled from '@emotion/styled';
 import SbEditable from 'storyblok-react';
+import ReactMarkdown from 'react-markdown';
 
 import Container from '../Container';
 import TextBlock from '../TextBlock';
@@ -52,7 +53,7 @@ const ProjectIntro = props => {
           </ProjectMeta>
 
           <ProjectDesc>
-            <TextBlock is={copy} />
+            <ReactMarkdown source={copy} renderers={{ paragraph: TextBlock }} />
           </ProjectDesc>
         </Container>
       </Intro>
