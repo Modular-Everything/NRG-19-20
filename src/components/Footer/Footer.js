@@ -96,7 +96,7 @@ const AnimateRotation = keyframes`
 `;
 
 const MakersImg = styled.img`
-  animation: ${AnimateRotation} 30s infinite;
+  animation: ${AnimateRotation} 30s linear infinite;
 `;
 
 const Social = styled.ul`
