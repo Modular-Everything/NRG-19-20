@@ -1,16 +1,66 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import tw from 'tailwind.macro';
+import styled from '@emotion/styled';
 
-import TempImg from '../../../static/images/credits-temp.png';
+import Container from '../Container';
 
 // ============================================================================
 
-const Credits = () => {
+const Credits = props => {
+  const { node } = props;
+
   return (
-    <div css={tw`mb-4`}>
-      <img src={TempImg} alt="On its way" />
-    </div>
+    <StyledCredits>
+      <Container>
+        <StyledUl>
+          {node.credits.map(credit => (
+            <Credit>
+              {credit.creditName}
+              <span>{credit.creditRole}</span>
+            </Credit>
+          ))}
+        </StyledUl>
+      </Container>
+    </StyledCredits>
   );
+};
+
+// ============================================================================
+
+const StyledCredits = styled.div`
+  ${tw`
+    py-16
+  `}
+  background-color: var(--color-white-quaternary);
+`;
+
+const StyledUl = styled.ul`
+  ${tw`
+    text-sm
+    font-medium
+  `}
+  font-family: 'Simplon BP', -apple-system, 'Helvetica Neue', sans-serif;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem;
+`;
+
+const Credit = styled.li`
+  & span {
+    ${tw`
+      block
+    `}
+    color: var(--color-brand);
+  }
+`;
+
+// ============================================================================
+
+Credits.propTypes = {
+  node: PropTypes.shape({
+    credits: PropTypes.array.isRequired,
+  }).isRequired,
 };
 
 // ============================================================================
