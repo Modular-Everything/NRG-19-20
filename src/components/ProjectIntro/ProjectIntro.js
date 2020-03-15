@@ -45,9 +45,9 @@ const ProjectIntro = props => {
               <Title is={title} />
             </div>
             <Tags color={color}>
-              <li>Experimental</li>
-              <li>Event Production</li>
-              <li>Spaces</li>
+              {node.tagList.map(tag => (
+                <li>{tag.tagName}</li>
+              ))}
             </Tags>
           </ProjectMeta>
 
@@ -80,6 +80,7 @@ ProjectIntro.propTypes = {
     color: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string.isRequired,
+    tagList: PropTypes.array.isRequired,
   }).isRequired,
 };
 
