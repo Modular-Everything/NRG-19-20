@@ -1,6 +1,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 import tw from 'tailwind.macro';
+import { keyframes } from '@emotion/core';
 import styled from '@emotion/styled';
 
 import Container from '../Container';
@@ -22,7 +23,7 @@ const Footer = () => {
 
           <div>
             <a href="/">
-              <img
+              <MakersImg
                 src={Makers}
                 alt="NRG &bull; Creators, Makers and Builders."
               />
@@ -83,6 +84,19 @@ const Contact = styled.a`
   &:hover {
     ${tw`underline`}
   }
+`;
+
+const AnimateRotation = keyframes`
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+`;
+
+const MakersImg = styled.img`
+  animation: ${AnimateRotation} 30s infinite;
 `;
 
 const Social = styled.ul`
