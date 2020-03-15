@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import StoryblokComponents from '../StoryblokComponents';
 
+import StoryblokComponents from '../StoryblokComponents';
 import Layout from '../Layout';
 import Header from '../Header';
 import Footer from '../Footer';
