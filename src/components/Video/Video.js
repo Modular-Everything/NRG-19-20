@@ -74,11 +74,12 @@ const Video = props => {
 // ============================================================================
 
 const StyledVideoContained = styled.div`
-  ${tw`mb-4 relative bg-black`}
+  ${tw`mb-4 relative bg-black rounded`}
   min-height: 200px;
   grid-column: span 12;
 
-  & img {
+  & div,
+  & iframe {
     ${tw`rounded`}
   }
 `;
@@ -86,6 +87,12 @@ const StyledVideoContained = styled.div`
 const StyledVideoFull = styled.div`
   ${tw`mb-4 w-full relative bg-black`}
   min-height: 200px;
+  border-radius: 50px;
+
+  & div,
+  & iframe {
+    border-radius: 50px;
+  }
 `;
 
 const PlayButton = styled.span`
