@@ -35,18 +35,17 @@ const Grid = props => {
 // ============================================================================
 
 const Wrapper = styled.ul`
-  ${tw`mt-4`}
+  ${tw`my-4`}
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: repeat(12, 1fr);
-  padding-bottom: 1rem;
 `;
 
 const Swiper = styled.ul`
+  ${tw`my-4`}
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: repeat(12, 1fr);
-  padding-bottom: 1rem;
 
   @media (max-width: 639px) {
     display: grid;
