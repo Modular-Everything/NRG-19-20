@@ -22,7 +22,8 @@ const Title = props => {
 
 const StyledTitle = styled.h2`
   ${tw`
-    text-3xl
+    text-2xl
+    md:text-3xl
     font-medium
     leading-tight
     mb-4
