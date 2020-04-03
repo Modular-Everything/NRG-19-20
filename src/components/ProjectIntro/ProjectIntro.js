@@ -68,12 +68,12 @@ const ProjectIntro = props => {
 // ============================================================================
 
 const ProjectMeta = styled.div`
-  ${tw`pr-12 text-right h-full`}
+  ${tw`sm:pr-12 sm:text-right sm:h-full`}
   display: grid;
 `;
 
 const ProjectDesc = styled.div`
-  ${tw`pl-12 self-start`}
+  ${tw`sm:pl-12 sm:self-start`}
 `;
 
 // ============================================================================

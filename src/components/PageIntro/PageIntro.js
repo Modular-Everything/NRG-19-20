@@ -73,10 +73,22 @@ const PageIntro = props => {
 // ============================================================================
 
 const PageMeta = styled.div`
-  ${tw`flex flex-col items-end pr-12 text-right h-full`}
+  ${tw`
+    sm:h-full
+    sm:flex
+    sm:flex-col
+    sm:items-end
+    sm:text-right
+    sm:pr-12
+  `}
 
   & div {
-    ${tw`flex flex-col items-end max-w-md`}
+    ${tw`
+      sm:flex
+      sm:flex-col
+      sm:items-end
+      sm:max-w-md
+    `}
   }
 `;
 
@@ -89,7 +101,7 @@ const Strapline = styled.p`
 `;
 
 const PageDesc = styled.div`
-  ${tw`pl-12`}
+  ${tw`sm:pl-12`}
   align-self: flex-start !important;
 
   & div {

@@ -17,12 +17,16 @@ const Container = props => {
       w-full
     `}
     display: ${display};
-    ${columns !== 'grid' && `grid-template-columns: ${columns};`}
+
+    @media (min-width: 639px) {
+      ${columns !== 'grid' && `grid-template-columns: ${columns};`}
+    }
+
     ${breakpoints.map(
       minWidth =>
         `@media(min-width: ${minWidth}px) { max-width: ${minWidth}px }`
     )}
-    
+
     & > div {
       ${tw`self-center`}
     }
