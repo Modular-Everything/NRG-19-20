@@ -14,7 +14,7 @@ const CardImage = props => {
   `;
 
   const StyledImage = styled.img`
-    ${tw`absolute object-cover rounded-t rounded-b-lg w-full h-full top-0`};
+    ${tw`absolute object-cover rounded-lg w-full h-full top-0`};
   `;
 
   return (

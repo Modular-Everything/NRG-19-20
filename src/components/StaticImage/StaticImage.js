@@ -17,7 +17,7 @@ const StaticImage = props => {
     grid-column: span ${width};
     height: fit-content;
     & img {
-      ${tw`rounded`};
+      ${tw`rounded-lg`};
     }
   `;
 
@@ -25,7 +25,6 @@ const StaticImage = props => {
     <SbEditable content={blok}>
       <StyledImage>
         <img css={tw`w-full`} src={image} alt="" />
-        {/* <Img css={tw`rounded block h-24`} fluid={fluidProps} /> */}
         {caption && <Caption is={caption} />}
       </StyledImage>
     </SbEditable>

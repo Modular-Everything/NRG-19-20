@@ -76,13 +76,13 @@ const Video = props => {
 // ============================================================================
 
 const StyledVideoContained = styled.div`
-  ${tw`relative bg-black rounded`}
+  ${tw`relative bg-black rounded-lg`}
   min-height: 200px;
   grid-column: span 12;
 
   & div,
   & iframe {
-    ${tw`rounded`}
+    ${tw`rounded-lg`}
   }
 `;
 

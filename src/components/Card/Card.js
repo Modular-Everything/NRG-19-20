@@ -21,8 +21,7 @@ const Card = props => {
     ${tw`
       bg-white
       cursor-pointer
-      rounded-t
-      rounded-b-lg
+      rounded-lg
       h-full
     `}
     box-shadow: 0 4px 10px 2px rgba(0, 0, 0, 0.1);
