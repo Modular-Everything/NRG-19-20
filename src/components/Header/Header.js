@@ -108,7 +108,7 @@ const NavigationButton = props => {
 // ============================================================================
 
 const Header = props => {
-  const { hasHero, isInverted } = props;
+  const { hasHero, isInverted, hasFade } = props;
   const [nav, toggleNav] = useState(false);
   const [contact, toggleContact] = useState(false);
   const isOpen = !!(nav || contact);
@@ -138,7 +138,7 @@ const Header = props => {
         <title>{SiteTitle}</title>
       </Helmet>
 
-      <StyledHeader color={isOpen ? 1 : 0} hasHero={hasHero}>
+      <StyledHeader color={isOpen ? 1 : 0} hasHero={hasHero} fade={hasFade}>
         <Container display="flex">
           {!nav && (
             <div>
@@ -182,13 +182,17 @@ const StyledHeader = styled.header`
     flex
     flex-col
     justify-center
-    bg-white
     relative
     w-full
     z-50
     h-24
     md:h-32
   `}
+  ${({ fade }) =>
+    fade &&
+    `
+      background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0));
+    `}
   ${({ hasHero }) =>
     hasHero
       ? ''
@@ -204,11 +208,13 @@ const StyledHeader = styled.header`
 Header.propTypes = {
   hasHero: PropTypes.bool,
   isInverted: PropTypes.bool,
+  hasFade: PropTypes.bool,
 };
 
 Header.defaultProps = {
   hasHero: false,
   isInverted: false,
+  hasFade: false,
 };
 
 ContactButton.propTypes = {

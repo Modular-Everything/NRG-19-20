@@ -13,7 +13,11 @@ const Page = props => {
 
   return (
     <Layout>
-      <Header hasHero={blok.isHero} isInverted={blok.isInverted} />
+      <Header
+        hasHero={blok.isHero}
+        isInverted={blok.isInverted}
+        hasFade={blok.hasFade}
+      />
       {blok.content &&
         blok.content.map(node =>
           React.createElement(StoryblokComponents(node.component), {
@@ -36,6 +40,7 @@ Page.propTypes = {
     content: PropTypes.array.isRequired,
     isHero: PropTypes.bool.isRequired,
     isInverted: PropTypes.bool.isRequired,
+    hasFade: PropTypes.bool.isRequired,
   }).isRequired,
 };
 
