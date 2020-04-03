@@ -17,7 +17,7 @@ const HeroImage = props => {
     ${isHero && isFirstBlok && tw`-mt-32`}
 
     img {
-      ${tw`w-full`}
+      ${tw`w-full h-full object-cover`}
     }
   `;
 
