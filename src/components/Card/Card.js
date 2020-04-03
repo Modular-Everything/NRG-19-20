@@ -25,13 +25,21 @@ const Card = props => {
       rounded-t
       rounded-b-lg
     `}
-    grid-column: span ${width};
+    grid-column: span ${width !== '12-Alt' ? width : '12'};
     height: fit-content;
+
+    & a {
+      display: grid;
+    }
 
     ${width === '12' &&
       `& a {
-        display: grid;
         grid-template-columns: 1fr 1fr;
+      }`}
+
+    ${width === '12-Alt' &&
+      `& a {
+        grid-template-columns: 1fr;
       }`}
 
     @media (max-width: 639px) {
@@ -41,6 +49,16 @@ const Card = props => {
 
   const CardContent = styled.div`
     ${tw`p-6`}
+    /* This is goofy-ass syntax... */
+    ${width === '12-Alt' &&
+      `
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        @media (max-width: 639px) {
+          grid-template-columns: 1fr;
+        }
+      `}
   `;
 
   return (
@@ -49,10 +67,14 @@ const Card = props => {
         <Link to={link !== undefined ? link.url : `/`}>
           <CardImage is={image} />
           <CardContent>
-            <Subtitle is={subtitle} />
-            <Title isCard is={title} />
-            {/* <TextBlock truncate={truncate} /> */}
-            <CallToAction is={cta} />
+            <div>
+              <Subtitle is={subtitle} />
+              <Title isCard is={title} />
+            </div>
+            <div>
+              {/* <TextBlock truncate={truncate} /> */}
+              <CallToAction is={cta} />
+            </div>
           </CardContent>
         </Link>
       </StyledCard>
