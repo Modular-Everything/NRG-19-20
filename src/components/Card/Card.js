@@ -20,11 +20,11 @@ const Card = props => {
   const StyledCard = styled.li`
     ${tw`
       bg-white
-      shadow-lg
       cursor-pointer
       rounded-t
       rounded-b-lg
     `}
+    box-shadow: 0 4px 10px 2px rgba(0, 0, 0, 0.1);
     grid-column: span ${width !== '12-Alt' ? width : '12'};
     height: fit-content;
 
