@@ -5,12 +5,12 @@ import tw from 'tailwind.macro';
 
 import StoryblokComponents from '../StoryblokComponents';
 import Container from '../Container';
+import Title from '../Title';
 
 // ============================================================================
 
 const Grid = props => {
   const { node } = props;
-  const { isScroll } = node;
 
   const components = node.columns.map(blok =>
     React.createElement(StoryblokComponents(blok.component), {
@@ -23,11 +23,14 @@ const Grid = props => {
 
   return (
     <Container>
-      {isScroll ? (
-        <Swiper>{components}</Swiper>
-      ) : (
-        <Wrapper>{components}</Wrapper>
-      )}
+      <Wrapper>
+        {node.rowTitle && (
+          <li className="title">
+            <Title is={node.rowTitle} />
+          </li>
+        )}
+        {components}
+      </Wrapper>
     </Container>
   );
 };
@@ -35,50 +38,48 @@ const Grid = props => {
 // ============================================================================
 
 const Wrapper = styled.ul`
-  ${tw`my-4`}
-  display: grid;
-  grid-gap: 1rem;
-  grid-template-columns: repeat(12, 1fr);
-`;
-
-const Swiper = styled.ul`
-  ${tw`my-4`}
+  ${tw`my-20`}
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: repeat(12, 1fr);
 
-  @media (max-width: 639px) {
-    display: grid;
-    grid-template-columns: 0 repeat(3, calc(50% - 40px)) 1px;
-    grid-gap: 1rem;
-    overflow: scroll;
-    -webkit-overflow-scrolling: touch;
-    margin: 0 -1rem;
-
-    &::before,
-    &::after {
-      content: '';
-    }
-
-    & li {
-      grid-column: auto;
-    }
+  & .title {
+    grid-column: span 12;
   }
 `;
+
+// const Swiper = styled.ul`
+//   ${tw`my-4`}
+//   display: grid;
+//   grid-gap: 1rem;
+//   grid-template-columns: repeat(12, 1fr);
+
+//   @media (max-width: 639px) {
+//     display: grid;
+//     grid-template-columns: 0 repeat(3, calc(50% - 40px)) 1px;
+//     grid-gap: 1rem;
+//     overflow: scroll;
+//     -webkit-overflow-scrolling: touch;
+//     margin: 0 -1rem;
+
+//     &::before,
+//     &::after {
+//       content: '';
+//     }
+
+//     & li {
+//       grid-column: auto;
+//     }
+//   }
+// `;
 
 // ============================================================================
 
 Grid.propTypes = {
   node: PropTypes.shape({
     columns: PropTypes.array.isRequired,
-    isScroll: PropTypes.bool,
-  }),
-};
-
-Grid.defaultProps = {
-  node: PropTypes.shape({
-    isScroll: false,
-  }),
+    rowTitle: PropTypes.string,
+  }).isRequired,
 };
 
 // ============================================================================
