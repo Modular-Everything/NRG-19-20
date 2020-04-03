@@ -8,14 +8,19 @@ import styled from '@emotion/styled';
 const CardImage = props => {
   const { is: image } = props;
 
+  const ImageWrap = styled.div`
+    ${tw`relative`}
+    padding-top: 66.666667%;
+  `;
+
   const StyledImage = styled.img`
-    ${tw`rounded-t rounded-b-lg w-full`};
+    ${tw`absolute object-cover rounded-t rounded-b-lg w-full h-full top-0`};
   `;
 
   return (
-    <>
+    <ImageWrap>
       <StyledImage src={image} alt="" />
-    </>
+    </ImageWrap>
   );
 };
 
