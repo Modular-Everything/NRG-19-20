@@ -8,14 +8,14 @@ import SbEditable from 'storyblok-react';
 import CardImage from '../CardImage';
 import Subtitle from '../Subtitle';
 import Title from '../Title';
-// import TextBlock from '../TextBlock';
+import TextBlock from '../TextBlock';
 import CallToAction from '../CallToAction';
 
 // ============================================================================
 
 const Card = props => {
   const { blok } = props;
-  const { title, subtitle, cta, image, width, link } = blok;
+  const { title, subtitle, cta, image, width, link, excerpt } = blok;
 
   const StyledCard = styled.li`
     ${tw`
@@ -72,7 +72,7 @@ const Card = props => {
               <Title isCard is={title} />
             </div>
             <div>
-              {/* <TextBlock truncate={truncate} /> */}
+              <TextBlock is={excerpt} />
               <CallToAction is={cta} />
             </div>
           </CardContent>
@@ -92,6 +92,7 @@ Card.propTypes = {
     image: PropTypes.string.isRequired,
     width: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
+    excerpt: PropTypes.string.isRequired,
   }).isRequired,
 };
 

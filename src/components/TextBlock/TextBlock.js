@@ -29,10 +29,6 @@ const StyledText = styled.p`
   `}
   color: var(--color-black-primary);
   font-family: 'Simplon BP', -apple-system, 'Helvetica Neue', sans-serif;
-
-  &:last-of-type {
-    ${tw`mb-0`}
-  }
 `;
 
 // ============================================================================
