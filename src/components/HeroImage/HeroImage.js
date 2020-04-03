@@ -7,12 +7,14 @@ import SbEditable from 'storyblok-react';
 // ============================================================================
 
 const HeroImage = props => {
-  const { node, isHero } = props;
+  const { node, isHero, firstBlok } = props;
   const { image } = node;
+
+  const isFirstBlok = firstBlok === node.component;
 
   const StyledImage = styled.div`
     ${tw`mb-4 h-screen sm:h-auto`};
-    ${isHero && tw`-mt-32 `}
+    ${isHero && isFirstBlok && tw`-mt-32`}
 
     img {
       ${tw`w-full`}
@@ -31,8 +33,10 @@ const HeroImage = props => {
 // ============================================================================
 
 HeroImage.propTypes = {
+  firstBlok: PropTypes.string.isRequired,
   node: PropTypes.shape({
     image: PropTypes.string.isRequired,
+    component: PropTypes.string.isRequired,
   }).isRequired,
   isHero: PropTypes.bool,
 };

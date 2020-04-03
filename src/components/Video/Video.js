@@ -54,7 +54,9 @@ const Player = props => {
 // ============================================================================
 
 const Video = props => {
-  const { grid, blok, node } = props;
+  const { isHero, grid, blok, node, firstBlok } = props;
+
+  const isFirstBlok = firstBlok === node.component;
 
   if (grid) {
     return (
@@ -65,7 +67,7 @@ const Video = props => {
   }
 
   return (
-    <StyledVideoFull>
+    <StyledVideoFull isHero={isHero} isFirstBlok={isFirstBlok}>
       <Player videoUrl={node.videoUrl} />
     </StyledVideoFull>
   );
@@ -86,13 +88,9 @@ const StyledVideoContained = styled.div`
 
 const StyledVideoFull = styled.div`
   ${tw`mb-4 w-full relative bg-black`}
+  ${props =>
+    props.isHero && props.isFirstBlok && tw`-mt-32 `}
   min-height: 200px;
-  border-radius: 50px;
-
-  & div,
-  & iframe {
-    border-radius: 50px;
-  }
 `;
 
 const PlayButton = styled.span`
@@ -133,16 +131,20 @@ const PlayButton = styled.span`
 // ============================================================================
 
 Video.propTypes = {
+  firstBlok: PropTypes.string.isRequired,
+  isHero: PropTypes.bool,
   grid: PropTypes.bool.isRequired,
   blok: PropTypes.shape({
     videoUrl: PropTypes.string,
   }),
   node: PropTypes.shape({
     videoUrl: PropTypes.string,
+    component: PropTypes.string.isRequired,
   }),
 };
 
 Video.defaultProps = {
+  isHero: false,
   blok: PropTypes.shape({
     videoUrl: 'https://vimeo.com/362097506',
   }),
