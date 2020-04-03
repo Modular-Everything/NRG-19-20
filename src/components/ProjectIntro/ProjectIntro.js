@@ -22,7 +22,7 @@ const ProjectIntro = props => {
   const { copy, title, subtitle, color } = node;
 
   const Intro = styled.div`
-    ${tw`py-20`}
+    ${tw`py-12 sm:py-20`}
     background-color: ${
       color === `red` ? `var(--color-brand)` : `var(--color-${color}-primary)`
     };

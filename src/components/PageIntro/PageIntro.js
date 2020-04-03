@@ -22,7 +22,7 @@ const PageIntro = props => {
   const { copy, title, subtitle, color, strapline, cta, ctaLink } = node;
 
   const Intro = styled.div`
-    ${tw`py-20`}
+    ${tw`py-12 sm:py-20`}
     font-family: 'Simplon BP', -apple-system, 'Helvetica Neue', sans-serif;
     background-color: ${color === `red`
       ? `var(--color-brand)`

@@ -11,7 +11,7 @@ const Container = props => {
   const PageContainer = styled.div`
     ${tw`
       mx-auto
-      px-4
+      px-8
       justify-between
       align-middle
       w-full
