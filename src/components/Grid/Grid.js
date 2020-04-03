@@ -38,7 +38,7 @@ const Grid = props => {
 // ============================================================================
 
 const Wrapper = styled.ul`
-  ${tw`my-20`}
+  ${tw`my-4 sm:my-20`}
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: repeat(12, 1fr);
