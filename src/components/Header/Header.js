@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
+import { Link, graphql, useStaticQuery } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import tw from 'tailwind.macro';
@@ -152,7 +152,9 @@ const Header = props => {
 
           {!contact && !nav ? (
             <div>
-              <img src={logo[isInverted ? 1 : 0]} alt={SiteTitle} />
+              <Link to="/">
+                <img src={logo[isInverted ? 1 : 0]} alt={SiteTitle} />
+              </Link>
             </div>
           ) : (
             ''
