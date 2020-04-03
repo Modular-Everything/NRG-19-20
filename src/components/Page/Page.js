@@ -21,6 +21,7 @@ const Page = props => {
             key: node._uid,
             node,
             isHero: blok.isHero,
+            firstBlok: blok.content[0].component,
           })
         )}
       <Footer />
