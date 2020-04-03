@@ -1,5 +1,6 @@
 import ComponentNotFound from '../ComponentNotFound';
 import Page from '../Page';
+import Services from '../Services';
 import Grid from '../Grid';
 import Card from '../Card';
 import Copy from '../Copy';
@@ -14,6 +15,7 @@ import Credits from '../Credits';
 
 const ComponentList = {
   page: Page,
+  services: Services,
   grid: Grid,
   card: Card,
   copy: Copy,
