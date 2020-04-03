@@ -3,17 +3,40 @@ import PropTypes from 'prop-types';
 import tw from 'tailwind.macro';
 import styled from '@emotion/styled';
 
-import Arrow from '../../../static/images/arrow.svg';
+import ArrowRed from '../../../static/images/arrowRed.svg';
+import ArrowWhite from '../../../static/images/arrowWhite.svg';
 
 // ============================================================================
 
 const CallToAction = props => {
-  const { is: cta } = props;
+  const { is: cta, color } = props;
+
+  if (color === 'red') {
+    return (
+      <StyledCTA color="white">
+        {cta}
+        <span>
+          <img src={ArrowWhite} alt="->" />
+        </span>
+      </StyledCTA>
+    );
+  }
+
+  if (color === 'black') {
+    return (
+      <StyledCTA color="white">
+        {cta}
+        <span>
+          <img src={ArrowWhite} alt="->" />
+        </span>
+      </StyledCTA>
+    );
+  }
   return (
-    <StyledCTA>
+    <StyledCTA color="red">
       {cta}
       <span>
-        <img src={Arrow} alt="->" />
+        <img src={ArrowRed} alt="->" />
       </span>
     </StyledCTA>
   );
@@ -29,7 +52,7 @@ const StyledCTA = styled.div`
     flex-row
     items-center
   `}
-  color: var(--color-brand);
+  color: ${({ color }) => color};
   font-family: 'Simplon BP', -apple-system, 'Helvetica Neue', sans-serif;
 
   & span {
@@ -41,6 +64,7 @@ const StyledCTA = styled.div`
 
 CallToAction.propTypes = {
   is: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
 };
 
 // ============================================================================

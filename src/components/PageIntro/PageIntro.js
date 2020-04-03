@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import tw from 'tailwind.macro';
 import styled from '@emotion/styled';
@@ -6,6 +7,7 @@ import SbEditable from 'storyblok-react';
 import ReactMarkdown from 'react-markdown';
 
 import Container from '../Container';
+import CallToAction from '../CallToAction';
 import TextBlock from '../TextBlock';
 import Title from '../Title';
 import ComponentNotFound from '../ComponentNotFound';
@@ -17,21 +19,20 @@ const PageIntro = props => {
 
   if (!node) return <ComponentNotFound />;
 
-  const { copy, title, subtitle, color, strapline } = node;
+  const { copy, title, subtitle, color, strapline, cta, ctaLink } = node;
 
   const Intro = styled.div`
     ${tw`py-20`}
-    background-color: ${
-      color === `red` ? `var(--color-brand)` : `var(--color-${color}-primary)`
-    };
+    font-family: 'Simplon BP', -apple-system, 'Helvetica Neue', sans-serif;
+    background-color: ${color === `red`
+      ? `var(--color-brand)`
+      : `var(--color-${color}-primary)`};
     & p,
     & h3,
     & h2 {
-            color: ${
-              color === `white`
-                ? `var(--color-black-primary)`
-                : `var(--color-white-primary)`
-            };
+      color: ${color === `white`
+        ? `var(--color-black-primary)`
+        : `var(--color-white-primary)`};
     }
     & h3 {
       ${tw`mb-2`}
@@ -56,6 +57,11 @@ const PageIntro = props => {
                 source={copy}
                 renderers={{ paragraph: TextBlock }}
               />
+              {cta && (
+                <Link to={`/${ctaLink && ctaLink.cached_url}`}>
+                  <CallToAction is={cta} color={color} />
+                </Link>
+              )}
             </div>
           </PageDesc>
         </Container>
@@ -101,6 +107,8 @@ PageIntro.propTypes = {
     title: PropTypes.string,
     subtitle: PropTypes.string,
     strapline: PropTypes.string,
+    cta: PropTypes.string,
+    ctaLink: PropTypes.string,
   }),
 };
 
@@ -109,6 +117,8 @@ PageIntro.defaultProps = {
     title: '',
     subtitle: '',
     strapline: '',
+    cta: null,
+    ctaLink: '/',
   }),
 };
 
