@@ -13,7 +13,7 @@ const HeroImage = props => {
   const isFirstBlok = firstBlok === node.component;
 
   const StyledImage = styled.div`
-    ${tw`mb-4 h-screen sm:h-auto`};
+    ${tw`h-screen sm:h-auto`};
     ${isHero && isFirstBlok && tw`-mt-32`}
 
     img {

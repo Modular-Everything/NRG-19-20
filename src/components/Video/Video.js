@@ -76,7 +76,7 @@ const Video = props => {
 // ============================================================================
 
 const StyledVideoContained = styled.div`
-  ${tw`mb-4 relative bg-black rounded`}
+  ${tw`relative bg-black rounded`}
   min-height: 200px;
   grid-column: span 12;
 
@@ -87,7 +87,7 @@ const StyledVideoContained = styled.div`
 `;
 
 const StyledVideoFull = styled.div`
-  ${tw`mb-4 w-full relative bg-black`}
+  ${tw`w-full relative bg-black`}
   ${props =>
     props.isHero && props.isFirstBlok && tw`-mt-32 `}
   min-height: 200px;

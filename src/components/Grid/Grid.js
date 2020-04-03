@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
+import tw from 'tailwind.macro';
 
 import StoryblokComponents from '../StoryblokComponents';
 import Container from '../Container';
@@ -34,6 +35,7 @@ const Grid = props => {
 // ============================================================================
 
 const Wrapper = styled.ul`
+  ${tw`mt-4`}
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: repeat(12, 1fr);

@@ -20,7 +20,7 @@ const PageIntro = props => {
   const { copy, title, subtitle, color, strapline } = node;
 
   const Intro = styled.div`
-    ${tw`py-20 mb-4`}
+    ${tw`py-20`}
     background-color: var(${
       color === 'red' ? '--color-brand' : '--color-black-primary'
     });
