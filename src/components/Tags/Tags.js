@@ -24,10 +24,15 @@ const Tags = props => {
       text-sm
     `}
       font-family: 'Simplon BP', -apple-system, 'Helvetica Neue', sans-serif;
-      background: var(--color-white-primary);
-      color: var(
-        ${color === 'red' ? `--color-brand` : `--color-black-primary`}
-      );
+      background: ${color === 'white'
+        ? `transparent`
+        : `var(--color-white-primary)`};
+      color: ${color === 'red'
+        ? `var(--color-brand)`
+        : `var(--color-black-primary)`};
+      border: ${color === 'white'
+        ? `1px solid var(--color-black-primary)`
+        : `none`};
     }
   `;
 

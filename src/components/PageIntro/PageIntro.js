@@ -22,7 +22,7 @@ const PageIntro = props => {
   const Intro = styled.div`
     ${tw`py-20`}
     background-color: var(${
-      color === 'red' ? '--color-brand' : '--color-black-primary'
+      color === `red` ? `--color-brand` : `--color-{color}-primary`
     });
     & p,
     & h3,
