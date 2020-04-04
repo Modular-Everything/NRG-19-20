@@ -6,11 +6,13 @@ import styled from '@emotion/styled';
 // ============================================================================
 
 const CardImage = props => {
-  const { is: image } = props;
+  const { is: image, altRatio } = props;
 
   const ImageWrap = styled.div`
     ${tw`relative`}
-    padding-top: 66.666667%;
+    ${altRatio
+      ? `padding-top: calc(632 / 1346 * 100%);`
+      : `padding-top: calc(897 / 1346 * 100%);`}
   `;
 
   const StyledImage = styled.img`
@@ -28,6 +30,11 @@ const CardImage = props => {
 
 CardImage.propTypes = {
   is: PropTypes.string.isRequired,
+  altRatio: PropTypes.bool,
+};
+
+CardImage.defaultProps = {
+  altRatio: false,
 };
 
 // ============================================================================
