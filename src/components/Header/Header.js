@@ -108,7 +108,7 @@ const NavigationButton = props => {
 // ============================================================================
 
 const Header = props => {
-  const { hasHero, isInverted, hasFade } = props;
+  const { hasHero, isInverted, hasFade, name } = props;
   const [nav, toggleNav] = useState(false);
   const [contact, toggleContact] = useState(false);
   const isOpen = !!(nav || contact);
@@ -135,7 +135,10 @@ const Header = props => {
   return (
     <>
       <Helmet>
-        <title>{SiteTitle}</title>
+        <title>
+          {SiteTitle}
+          {name !== `Home` ? ` — ${name}` : ``}
+        </title>
       </Helmet>
 
       <StyledHeader color={isOpen ? 1 : 0} hasHero={hasHero} fade={hasFade}>
@@ -209,6 +212,7 @@ Header.propTypes = {
   hasHero: PropTypes.bool,
   isInverted: PropTypes.bool,
   hasFade: PropTypes.bool,
+  name: PropTypes.string.isRequired,
 };
 
 Header.defaultProps = {

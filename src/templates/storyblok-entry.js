@@ -28,6 +28,7 @@ class StoryblokEntry extends React.Component {
         {React.createElement(Components(content.component), {
           key: content._uid,
           blok: content,
+          name: this.props.pageContext.story.name,
         })}
       </>
     );

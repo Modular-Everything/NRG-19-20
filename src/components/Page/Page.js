@@ -9,11 +9,12 @@ import Footer from '../Footer';
 // ============================================================================
 
 const Page = props => {
-  const { blok } = props;
+  const { name, blok } = props;
 
   return (
     <Layout>
       <Header
+        name={name}
         hasHero={blok.isHero}
         isInverted={blok.isInverted}
         hasFade={blok.hasFade}
