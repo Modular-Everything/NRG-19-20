@@ -13,7 +13,7 @@ import LogoDark from '../../../static/images/logo-dark.svg';
 // ============================================================================
 
 const Header = props => {
-  const { hasHero, isInverted, hasFade, name } = props;
+  const { hasHero, isInverted, hasFade, name, noGutter } = props;
 
   const data = useStaticQuery(graphql`
     query MetaData {
@@ -46,6 +46,7 @@ const Header = props => {
         hasHero={hasHero}
         hasFade={hasFade}
         isInverted={isInverted}
+        noGutter={noGutter}
       >
         <Container display="flex">
           <div>
@@ -165,7 +166,8 @@ const HeaderBG = styled.header`
 
   ${props =>
     !props.hasHero &&
-    `box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); margin-bottom: 1rem;'}`}
+    `box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.06); ${!props.noGutter &&
+      `margin-bottom: 1rem`};'}`}
 
   ${props => props.isInverted && `color: var(--color-white-primary);`}
   
@@ -242,10 +244,12 @@ Header.propTypes = {
   isInverted: PropTypes.bool,
   hasFade: PropTypes.bool,
   name: PropTypes.string.isRequired,
+  noGutter: PropTypes.bool,
 };
 
 Header.defaultProps = {
   hasHero: false,
   isInverted: false,
   hasFade: false,
+  noGutter: false,
 };

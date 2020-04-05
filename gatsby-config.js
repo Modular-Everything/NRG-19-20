@@ -31,5 +31,12 @@ module.exports = {
         version: process.env.NODE_ENV === `production` ? `published` : `draft`,
       },
     },
+    {
+      resolve: `gatsby-source-googlemaps-static`,
+      options: {
+        key: `AIzaSyCWJEXadbLXqPLYd7eXVhXkfoKFmwzu4bs`,
+        center: `33.9919993,-118.4160509 || Los+Angeles,California`,
+      },
+    },
   ],
 };

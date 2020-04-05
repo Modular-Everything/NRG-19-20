@@ -24,6 +24,7 @@
     "gatsby-plugin-resolve-src": "^2.0.0",
     "gatsby-plugin-sharp": "^2.3.10",
     "gatsby-source-filesystem": "^2.1.43",
+    "gatsby-source-googlemaps-static": "^1.1.1",
     "gatsby-source-storyblok": "^0.2.6",
     "gatsby-transformer-sharp": "^2.3.9",
     "postcss": "^7.0.25",
