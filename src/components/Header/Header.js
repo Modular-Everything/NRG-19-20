@@ -66,13 +66,19 @@ const Header = props => {
                 ${mode.menuOpen && `opacity: 0`}
               `}
             >
-              {!mode.contactOpen ? <Plus active={false} /> : <Plus active />}
+              {!mode.contactOpen ? (
+                <Plus active={false} inverted={!hasHero} />
+              ) : (
+                <Plus active inverted={false} />
+              )}
             </button>
           </div>
 
           {!mode.contactOpen && !mode.menuOpen && (
             <LogoContainer>
-              <img src={isInverted ? LogoLight : LogoDark} alt={SiteTitle} />
+              <Link to="/">
+                <img src={isInverted ? LogoLight : LogoDark} alt={SiteTitle} />
+              </Link>
             </LogoContainer>
           )}
 
@@ -165,7 +171,11 @@ const Header = props => {
                 ${mode.contactOpen && `opacity: 0`}
               `}
             >
-              {!mode.menuOpen ? <Burger active={false} /> : <Burger active />}
+              {!mode.menuOpen ? (
+                <Burger active={false} inverted={!hasHero} />
+              ) : (
+                <Burger active inverted={false} />
+              )}
             </button>
           </div>
         </Container>
@@ -186,8 +196,10 @@ const HeaderBG = styled.header`
 
   ${props =>
     !props.hasHero &&
-    `box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.06); ${!props.noGutter &&
-      `margin-bottom: 1rem`};'}`}
+    `
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    ${!props.noGutter && `margin-bottom: 1rem;`}
+  `}
 
   ${props => props.isInverted && `color: var(--color-white-primary);`}
   

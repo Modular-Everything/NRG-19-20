@@ -8,12 +8,12 @@ import Line from '../Line';
 // ============================================================================
 
 const Burger = props => {
-  const { active } = props;
+  const { active, inverted } = props;
 
   return (
     <Symbol active={active}>
-      <Line extended />
-      <Line extended />
+      <Line extended inverted={inverted} />
+      <Line extended inverted={inverted} />
     </Symbol>
   );
 };
@@ -48,8 +48,10 @@ const Symbol = styled.div`
 
 Burger.propTypes = {
   active: PropTypes.bool,
+  inverted: PropTypes.bool,
 };
 
 Burger.defaultProps = {
   active: false,
+  inverted: false,
 };

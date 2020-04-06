@@ -8,12 +8,12 @@ import Line from '../Line';
 // ============================================================================
 
 const Plus = props => {
-  const { active } = props;
+  const { active, inverted } = props;
 
   return (
     <Symbol active={active}>
-      <Line />
-      <Line />
+      <Line inverted={inverted} />
+      <Line inverted={inverted} />
     </Symbol>
   );
 };
@@ -37,8 +37,10 @@ const Symbol = styled.div`
 
 Plus.propTypes = {
   active: PropTypes.bool,
+  inverted: PropTypes.bool,
 };
 
 Plus.defaultProps = {
   active: false,
+  inverted: false,
 };
