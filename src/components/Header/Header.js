@@ -219,10 +219,6 @@ const HeaderBG = styled.header`
       self-start mt-8
       sm:mt-0 sm:self-center
     `}
-
-    &:nth-of-type(2) {
-      ${tw`mt-6`}
-    }
   }
 `;
 
@@ -259,6 +255,11 @@ const Navigation = styled.div`
 const Contact = styled.div`
   font-family: 'Simplon BP', -apple-system, 'Helvetica Neue', sans-serif;
 
+  ${tw`
+    ml-24 left-0 absolute
+    sm:relative sm:ml-0
+  `}
+
   & small {
     ${tw`text-xs`}
   }
@@ -278,14 +279,18 @@ const Contact = styled.div`
 
   & ul {
     ${tw`
-      flex flex-row text-2xl -mt-2
+      flex flex-col text-2xl -mt-2
+      sm:flex-row
     `}
 
     & li {
-      ${tw`mr-12 leading-tight`}
+      ${tw`
+        leading-tight mb-4
+        sm:mb-0 sm:mr-12
+      `}
 
       &:last-of-type {
-        ${tw`mr-0`}
+        ${tw`sm:mr-0`}
       }
     }
   }
