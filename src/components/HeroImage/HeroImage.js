@@ -14,7 +14,7 @@ const HeroImage = props => {
 
   const StyledImage = styled.div`
     ${tw`h-screen sm:h-auto`};
-    ${isHero && isFirstBlok && tw`-mt-32`}
+    ${isHero && isFirstBlok && tw`-mt-40`}
 
     img {
       ${tw`w-full h-full object-cover`}
