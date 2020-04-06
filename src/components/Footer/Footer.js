@@ -33,11 +33,51 @@ const Footer = () => {
 
         <Bottom>
           <Social>
-            <li>Instagram</li>
-            <li>Twitter</li>
-            <li>Facebook</li>
-            <li>Vimeo</li>
-            <li>LinkedIn</li>
+            <li>
+              <a
+                href="https://instagram.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Instagram
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://twitter.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Twitter
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://facebook.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Facebook
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://vimeo.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Vimeo
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://linkedin.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+              </a>
+            </li>
           </Social>
           <p>&copy; NRG 2020</p>
         </Bottom>
@@ -117,6 +157,10 @@ const Social = styled.ul`
     flex-wrap
   `}
 
+  & a:hover {
+    ${tw`underline`}
+  }
+
   & li {
     ${tw`mr-4 py-1 sm:py-0`}
 
@@ -125,10 +169,6 @@ const Social = styled.ul`
     }
   }
 `;
-
-// ============================================================================
-
-// Footer.propTypes = {};
 
 // ============================================================================
 
