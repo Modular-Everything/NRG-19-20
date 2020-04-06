@@ -108,6 +108,7 @@ const PlayButton = styled.span`
   }
 
   @media (min-width: 768px) {
+    padding: 0;
     top: calc(50% - 3rem);
 
     & p {
