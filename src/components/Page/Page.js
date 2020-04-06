@@ -37,6 +37,7 @@ const Page = props => {
 // ============================================================================
 
 Page.propTypes = {
+  name: PropTypes.string.isRequired,
   blok: PropTypes.shape({
     content: PropTypes.array.isRequired,
     isHero: PropTypes.bool.isRequired,
