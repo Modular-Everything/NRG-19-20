@@ -27,9 +27,9 @@ const Container = props => {
         `@media(min-width: ${minWidth}px) { max-width: ${minWidth}px }`
     )}
 
-    & > div {
+    /* & > div {
       ${tw`self-center`}
-    }
+    } */
   `;
 
   return <PageContainer>{children}</PageContainer>;

@@ -179,11 +179,10 @@ export default Header;
 // ============================================================================
 
 const HeaderBG = styled.header`
-  transition: 250ms ease all;
-
   ${tw`
-    relative h-32 flex content-center z-50 font-sans
-    `}
+    relative h-32 flex z-50 font-sans w-full
+    sm:content-center
+  `}
 
   ${props =>
     !props.hasHero &&
@@ -201,14 +200,34 @@ const HeaderBG = styled.header`
     `
       background-color: var(--color-black-primary);
       color: var(--color-white-primary);
+
+      @media (max-width: 639px) {
+        width: 100%;
+        top: 0;
+        bottom: 0;
+        height: 100vh;
+        position: fixed;
+      }
   `}
+
+  & div > div {
+    ${tw`
+      self-start mt-10
+      sm:mt-0 sm:self-center
+    `}
+
+    &:nth-of-type(2) {
+      ${tw`mt-8`}
+    }
+  }
 `;
 
 const Navigation = styled.div`
   font-family: 'Simplon BP', -apple-system, 'Helvetica Neue', sans-serif;
 
   ${tw`
-    flex justify-end w-full mr-12
+    flex w-full
+    sm:justify-end sm:mr-12
   `}
 
   & a {
@@ -219,7 +238,8 @@ const Navigation = styled.div`
 
   & ul {
     ${tw`
-      flex flex-row text-2xl
+      flex flex-col text-2xl
+      sm:flex-row
     `}
 
     & li {
