@@ -54,21 +54,23 @@ const Header = props => {
         noGutter={noGutter}
       >
         <Container display="flex">
-          <div>
-            <button
-              type="button"
-              onClick={() => setMode({ contactOpen: !mode.contactOpen })}
-              css={css`
-                display: flex;
-                justify-content: center;
-                height: 24px;
-                width: 24px;
-                ${mode.menuOpen && `opacity: 0`}
-              `}
-            >
-              {!mode.contactOpen ? <Plus active={false} /> : <Plus active />}
-            </button>
-          </div>
+          {!mode.menuOpen && (
+            <div>
+              <button
+                type="button"
+                onClick={() => setMode({ contactOpen: !mode.contactOpen })}
+                css={css`
+                  display: flex;
+                  justify-content: center;
+                  height: 24px;
+                  width: 24px;
+                  ${mode.menuOpen && `opacity: 0`}
+                `}
+              >
+                {!mode.contactOpen ? <Plus active={false} /> : <Plus active />}
+              </button>
+            </div>
+          )}
 
           {!mode.contactOpen && !mode.menuOpen && (
             <LogoContainer>
@@ -153,21 +155,23 @@ const Header = props => {
             </Navigation>
           )}
 
-          <div>
-            <button
-              type="button"
-              onClick={() => setMode({ menuOpen: !mode.menuOpen })}
-              css={css`
-                display: flex;
-                justify-content: center;
-                height: 24px;
-                width: 32px;
-                ${mode.contactOpen && `opacity: 0`}
-              `}
-            >
-              {!mode.menuOpen ? <Burger active={false} /> : <Burger active />}
-            </button>
-          </div>
+          {!mode.contactOpen && (
+            <div>
+              <button
+                type="button"
+                onClick={() => setMode({ menuOpen: !mode.menuOpen })}
+                css={css`
+                  display: flex;
+                  justify-content: center;
+                  height: 24px;
+                  width: 32px;
+                  ${mode.contactOpen && `opacity: 0`}
+                `}
+              >
+                {!mode.menuOpen ? <Burger active={false} /> : <Burger active />}
+              </button>
+            </div>
+          )}
         </Container>
       </HeaderBG>
     </>
@@ -212,12 +216,12 @@ const HeaderBG = styled.header`
 
   & div > div {
     ${tw`
-      self-start mt-10
+      self-start mt-8
       sm:mt-0 sm:self-center
     `}
 
     &:nth-of-type(2) {
-      ${tw`mt-8`}
+      ${tw`mt-6`}
     }
   }
 `;
@@ -238,12 +242,12 @@ const Navigation = styled.div`
 
   & ul {
     ${tw`
-      flex flex-col text-2xl
-      sm:flex-row
+      flex flex-col text-3xl
+      sm:flex-row sm:text-2xl
     `}
 
     & li {
-      ${tw`mr-8`}
+      ${tw`mr-8 mb-4 sm:mb-0`}
 
       &:last-of-type {
         ${tw`mr-0`}
