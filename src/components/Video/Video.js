@@ -89,7 +89,7 @@ const StyledVideoContained = styled.div`
 const StyledVideoFull = styled.div`
   ${tw`w-full relative bg-black`}
   ${props =>
-    props.isHero && props.isFirstBlok && tw`-mt-32 `}
+    props.isHero && props.isFirstBlok && tw`-mt-40`}
   min-height: 200px;
 `;
 
