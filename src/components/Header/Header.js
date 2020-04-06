@@ -186,6 +186,10 @@ const HeaderBG = styled.header`
 const Navigation = styled.div`
   font-family: 'Simplon BP', -apple-system, 'Helvetica Neue', sans-serif;
 
+  ${tw`
+    flex justify-end w-full mr-12
+  `}
+
   & a {
     &:hover {
       color: var(--color-brand);
