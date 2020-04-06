@@ -54,23 +54,21 @@ const Header = props => {
         noGutter={noGutter}
       >
         <Container display="flex">
-          {!mode.menuOpen && (
-            <div>
-              <button
-                type="button"
-                onClick={() => setMode({ contactOpen: !mode.contactOpen })}
-                css={css`
-                  display: flex;
-                  justify-content: center;
-                  height: 24px;
-                  width: 24px;
-                  ${mode.menuOpen && `opacity: 0`}
-                `}
-              >
-                {!mode.contactOpen ? <Plus active={false} /> : <Plus active />}
-              </button>
-            </div>
-          )}
+          <div>
+            <button
+              type="button"
+              onClick={() => setMode({ contactOpen: !mode.contactOpen })}
+              css={css`
+                display: flex;
+                justify-content: center;
+                height: 24px;
+                width: 24px;
+                ${mode.menuOpen && `opacity: 0`}
+              `}
+            >
+              {!mode.contactOpen ? <Plus active={false} /> : <Plus active />}
+            </button>
+          </div>
 
           {!mode.contactOpen && !mode.menuOpen && (
             <LogoContainer>
@@ -155,23 +153,21 @@ const Header = props => {
             </Navigation>
           )}
 
-          {!mode.contactOpen && (
-            <div>
-              <button
-                type="button"
-                onClick={() => setMode({ menuOpen: !mode.menuOpen })}
-                css={css`
-                  display: flex;
-                  justify-content: center;
-                  height: 24px;
-                  width: 32px;
-                  ${mode.contactOpen && `opacity: 0`}
-                `}
-              >
-                {!mode.menuOpen ? <Burger active={false} /> : <Burger active />}
-              </button>
-            </div>
-          )}
+          <div>
+            <button
+              type="button"
+              onClick={() => setMode({ menuOpen: !mode.menuOpen })}
+              css={css`
+                display: flex;
+                justify-content: center;
+                height: 24px;
+                width: 32px;
+                ${mode.contactOpen && `opacity: 0`}
+              `}
+            >
+              {!mode.menuOpen ? <Burger active={false} /> : <Burger active />}
+            </button>
+          </div>
         </Container>
       </HeaderBG>
     </>
