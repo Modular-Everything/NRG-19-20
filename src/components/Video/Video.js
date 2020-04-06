@@ -99,7 +99,7 @@ const PlayButton = styled.span`
     md:text-red-600 md:bg-white md:inset-x-0 md:mx-auto md:rounded-full md:shadow-xl md:flex md:justify-center md:items-center md:w-24 md:h-24
     lg:w-32 lg:h-32
   `}
-  padding: 50% 90% 0 0;
+  padding: 50% 50% 0 0;
   bottom: 1rem;
   display: flex;
 
