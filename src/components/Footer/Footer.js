@@ -49,7 +49,7 @@ const Footer = () => {
 // ============================================================================
 
 const StyledFooter = styled.footer`
-  ${tw`py-12`}
+  ${tw`py-6 sm:py-12`}
   color: var(--color-white-primary);
   background-color: var(--color-black-primary);
   font-family: 'Simplon BP', -apple-system, 'Helvetica Neue', sans-serif;
@@ -61,24 +61,31 @@ const Top = styled.div`
     justify-between
     text-sm
   `}
+
+  & p {
+    ${tw`
+      hidden sm:block
+    `}
+  }
 `;
 
 const Bottom = styled.div`
   ${tw`
-    flex
-    justify-between
-    text-sm
-    mt-8
+    text-sm mt-8
+    sm:flex sm:justify-between
   `}
+
+  & p {
+    ${tw`
+      mt-24 sm:mt-0
+    `}
+  }
 `;
 
 const Contact = styled.a`
   ${tw`
-    mt-4
-    block
-    text-3xl
-    font-medium
-    leading-tight
+    mt-4 block text-sm font-medium leading-tight
+    sm:text-3xl
   `}
 
   &:hover {
@@ -96,6 +103,9 @@ const AnimateRotation = keyframes`
 `;
 
 const MakersImg = styled.img`
+  ${tw`
+    hidden sm:block
+  `}
   animation: ${AnimateRotation} 30s linear infinite;
 `;
 
@@ -103,10 +113,12 @@ const Social = styled.ul`
   ${tw`
     flex
     justify-start
+    text-sm
+    flex-wrap
   `}
 
   & li {
-    ${tw`mr-4`}
+    ${tw`mr-4 py-1 sm:py-0`}
 
     &:last-of-type {
       ${tw`m-0`}
