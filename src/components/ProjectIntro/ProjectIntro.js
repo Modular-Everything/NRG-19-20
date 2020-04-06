@@ -22,7 +22,7 @@ const ProjectIntro = props => {
   const { copy, title, subtitle, color } = node;
 
   const Intro = styled.div`
-    ${tw`py-12 sm:py-20`}
+    ${tw`py-10 sm:py-20`}
     background-color: ${
       color === `red` ? `var(--color-brand)` : `var(--color-${color}-primary)`
     };
@@ -74,6 +74,10 @@ const ProjectMeta = styled.div`
 
 const ProjectDesc = styled.div`
   ${tw`sm:pl-12 sm:self-start`}
+
+  & p:last-of-type {
+    ${tw`mb-0`}
+  }
 `;
 
 // ============================================================================

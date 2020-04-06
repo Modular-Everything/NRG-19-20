@@ -9,20 +9,37 @@ const Tags = props => {
   const { color, children } = props;
 
   const StyledTags = styled.ul`
-    display: grid;
+    /* display: grid;
     grid-template-columns: repeat(3, auto);
-    grid-gap: 1rem;
-    justify-content: flex-end;
-    align-self: flex-end;
+    grid-gap: 1rem; */
+
+    ${tw`
+      flex
+      flex-wrap
+      sm:justify-end
+      sm:self-end
+    `}
 
     & li {
       ${tw`
-      py-1
-      px-2
-      rounded-sm
-      text-center
-      text-sm
-    `}
+        py-1
+        px-2
+        rounded-sm
+        text-center
+        text-sm
+        ml-3
+        mb-6
+        sm:mb-3
+      `}
+
+      &:first-of-type {
+        ${tw`ml-0`}
+      }
+
+      &:last-of-type {
+        ${tw`ml-3`}
+      }
+
       font-family: 'Simplon BP', -apple-system, 'Helvetica Neue', sans-serif;
       background: ${color === 'white'
         ? `transparent`
