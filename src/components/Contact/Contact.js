@@ -11,13 +11,7 @@ import MapImg from '../../../static/images/map.png';
 const Contact = () => {
   return (
     <Layout>
-      <Header
-        name="Contact"
-        hasHero={false}
-        isInverted={false}
-        hasFade={false}
-        noGutter
-      />
+      <Header name="Contact" noGutter />
       <img src={MapImg} alt="" />
       <Footer />
     </Layout>

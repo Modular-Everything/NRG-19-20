@@ -64,6 +64,10 @@ const Header = props => {
                 height: 24px;
                 width: 24px;
                 ${mode.menuOpen && `opacity: 0`}
+
+                @media (max-width: 639px) {
+                  margin-top: 0.5rem;
+                }
               `}
             >
               {!mode.contactOpen ? (
@@ -169,6 +173,10 @@ const Header = props => {
                 height: 24px;
                 width: 32px;
                 ${mode.contactOpen && `opacity: 0`}
+
+                @media (max-width: 639px) {
+                  margin-top: 0.5rem;
+                }
               `}
             >
               {!mode.menuOpen ? (
@@ -190,16 +198,13 @@ export default Header;
 
 const HeaderBG = styled.header`
   ${tw`
-    relative h-32 flex z-50 font-sans w-full
-    sm:content-center
+    relative h-auto flex z-50 font-sans w-full
+    sm:content-center sm:h-32
   `}
 
-  ${props =>
-    !props.hasHero &&
-    `
-    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    ${!props.noGutter && `margin-bottom: 1rem;`}
-  `}
+  ${props => !props.hasHero && `box-shadow: 0 -5px 10px 0 rgba(0, 0, 0, 0.1);`}
+
+  ${props => !props.noGutter && `margin-bottom: 1rem;`}
 
   ${props => props.isInverted && `color: var(--color-white-primary);`}
   
@@ -224,8 +229,8 @@ const HeaderBG = styled.header`
 
   & div > div {
     ${tw`
-      self-start mt-8
-      sm:mt-0 sm:self-center
+      self-start my-8
+      sm:my-0 sm:self-center
     `}
   }
 `;
