@@ -6,16 +6,16 @@ import styled from '@emotion/styled';
 // ============================================================================
 
 const Title = props => {
-  const { is: title, children } = props;
+  const { is: title, children, red } = props;
 
   if (typeof children === 'object') {
     if (children.length === 0) {
       return null;
     }
-    return <StyledTitle>{children[0].props.value}</StyledTitle>;
+    return <StyledTitle red={red}>{children[0].props.value}</StyledTitle>;
   }
 
-  return <StyledTitle>{title}</StyledTitle>;
+  return <StyledTitle red={red}>{title}</StyledTitle>;
 };
 
 // ============================================================================
@@ -28,7 +28,8 @@ const StyledTitle = styled.h2`
     leading-tight
     mb-4
   `};
-  color: var(--color-black-primary);
+  color: ${props =>
+    props.red ? `var(--color-brand)` : `var(--color-black-primary)`};
   font-family: 'Simplon BP', -apple-system, 'Helvetica Neue', sans-serif;
 `;
 
@@ -36,11 +37,13 @@ const StyledTitle = styled.h2`
 
 Title.propTypes = {
   is: PropTypes.string,
+  red: PropTypes.bool,
   children: PropTypes.arrayOf(PropTypes.object),
 };
 
 Title.defaultProps = {
   is: 'Title goes here',
+  red: false,
   children: undefined,
 };
 
