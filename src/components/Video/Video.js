@@ -21,17 +21,12 @@ const Player = props => {
         ref={ref}
         url={videoUrl}
         playing={playing}
+        controls
         config={{
           file: { attributes: { id: 'audio-element' } },
           vimeo: {
             preload: true,
             playerOptions: {
-              responsive: true,
-            },
-          },
-          youtube: {
-            preload: true,
-            embedOptions: {
               responsive: true,
             },
           },
@@ -45,9 +40,7 @@ const Player = props => {
         style={{
           display: playing ? 'none' : 'flex',
         }}
-      >
-        <p>Play</p>
-      </PlayButton>
+      />
     </>
   );
 };
@@ -95,8 +88,7 @@ const StyledVideoFull = styled.div`
 
 const PlayButton = styled.span`
   ${tw`
-    absolute cursor-pointer text-white text-sm
-    md:text-red-600 md:bg-white md:inset-x-0 md:mx-auto md:rounded-full md:shadow-xl md:flex md:justify-center md:items-center md:w-24 md:h-24
+    absolute cursor-pointer text-red-600 bg-white inset-x-0 mx-auto rounded-full shadow-xl flex justify-center items-center w-24 h-24
     lg:w-32 lg:h-32
   `}
   padding: 50% 50% 0 0;
@@ -107,30 +99,22 @@ const PlayButton = styled.span`
     ${tw`ml-2 leading-4`}
   }
 
-  @media (min-width: 768px) {
-    padding: 0;
-    top: calc(50% - 3rem);
-
-    & p {
-      display: none;
-    }
-  }
+  padding: 0;
+  top: calc(50% - 3rem);
 
   &::before {
-    border-color: transparent transparent transparent var(--color-white-primary);
+    border-color: transparent transparent transparent var(--color-brand);
     content: '';
     box-sizing: border-box;
     display: block;
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 8px 0 8px 12px;
-    margin-left: 1rem;
+    border-width: 16px 0 16px 24px;
+    margin-left: 6px;
 
     @media (min-width: 768px) {
       border-width: 23px 0 23px 32px;
-      border-color: transparent transparent transparent var(--color-brand);
-      margin-left: 6px;
       transition-property: opacity;
       transition-duration: 250ms;
     }
