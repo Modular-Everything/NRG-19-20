@@ -71,9 +71,9 @@ const Header = props => {
           </div>
 
           {!mode.contactOpen && !mode.menuOpen && (
-            <div>
+            <LogoContainer>
               <img src={isInverted ? LogoLight : LogoDark} alt={SiteTitle} />
-            </div>
+            </LogoContainer>
           )}
 
           {mode.contactOpen && !mode.menuOpen && (
@@ -266,6 +266,14 @@ const Contact = styled.div`
     }
   }
 `;
+
+const LogoContainer = styled.div`
+  ${tw`
+    w-24
+    sm:w-auto
+  `}
+`;
+
 // ============================================================================
 
 Header.propTypes = {
