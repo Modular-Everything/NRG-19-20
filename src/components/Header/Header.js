@@ -1,4 +1,5 @@
 /** @jsx jsx */
+// eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import PropTypes from 'prop-types';
