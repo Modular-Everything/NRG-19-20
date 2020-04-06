@@ -42,8 +42,12 @@ const StyledUl = styled.ul`
   `}
   font-family: 'Simplon BP', -apple-system, 'Helvetica Neue', sans-serif;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
   grid-gap: 1rem;
+  grid-template-columns: 1fr;
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 `;
 
 const Credit = styled.li`

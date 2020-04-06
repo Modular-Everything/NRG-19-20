@@ -14,8 +14,13 @@ const StaticImage = props => {
   const { image, caption, width } = blok;
 
   const StyledImage = styled.li`
-    grid-column: span ${width};
+    grid-column: span 12;
     height: fit-content;
+
+    @media (min-width: 640px) {
+      grid-column: span ${width};
+    }
+
     & img {
       ${tw`rounded-lg`};
     }
