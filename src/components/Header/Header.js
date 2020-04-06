@@ -91,8 +91,8 @@ const Header = props => {
                 <li>
                   <small>Work with us</small>
                   <div>
-                    <a href="mailto:solutions@madewithnrg.com">
-                      solutions
+                    <a href="mailto:talent@madewithnrg.com">
+                      talent
                       <span>@madewithnrg.com</span>
                     </a>
                   </div>
@@ -100,8 +100,8 @@ const Header = props => {
                 <li>
                   <small>Everything else</small>
                   <div>
-                    <a href="mailto:solutions@madewithnrg.com">
-                      solutions
+                    <a href="mailto:questions@madewithnrg.com">
+                      questions
                       <span>@madewithnrg.com</span>
                     </a>
                   </div>
@@ -242,6 +242,10 @@ const Contact = styled.div`
   & a {
     ${tw`leading-none`}
     color: var(--color-brand);
+
+    &:hover {
+      color: var(--color-white);
+    }
 
     & span {
       ${tw`block`}
