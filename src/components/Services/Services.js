@@ -13,7 +13,7 @@ const Services = props => {
 
   return (
     <Layout>
-      <Header hasHero name="Services" />
+      <Header name="Services" noGutter />
       {blok.content &&
         blok.content.map(node =>
           React.createElement(StoryblokComponents(node.component), {
