@@ -202,7 +202,7 @@ const HeaderBG = styled.header`
     sm:content-center sm:h-32
   `}
 
-  ${props => !props.hasHero && `box-shadow: 0 -5px 10px 0 rgba(0, 0, 0, 0.1);`}
+  ${props => !props.hasHero && `box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);`}
 
   ${props => !props.noGutter && `margin-bottom: 1rem;`}
 
