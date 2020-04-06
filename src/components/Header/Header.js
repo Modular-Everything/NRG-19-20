@@ -10,6 +10,8 @@ import styled from '@emotion/styled';
 import tw from 'tailwind.macro';
 
 import Container from '../Container';
+import Plus from '../Plus';
+import Burger from '../Burger';
 import LogoLight from '../../../static/images/logo-light.svg';
 import LogoDark from '../../../static/images/logo-dark.svg';
 
@@ -57,10 +59,14 @@ const Header = props => {
               type="button"
               onClick={() => setMode({ contactOpen: !mode.contactOpen })}
               css={css`
+                display: flex;
+                justify-content: center;
+                height: 24px;
+                width: 24px;
                 ${mode.menuOpen && `opacity: 0`}
               `}
             >
-              {!mode.contactOpen ? `+` : `x`}
+              {!mode.contactOpen ? <Plus active={false} /> : <Plus active />}
             </button>
           </div>
 
@@ -152,10 +158,14 @@ const Header = props => {
               type="button"
               onClick={() => setMode({ menuOpen: !mode.menuOpen })}
               css={css`
+                display: flex;
+                justify-content: center;
+                height: 24px;
+                width: 32px;
                 ${mode.contactOpen && `opacity: 0`}
               `}
             >
-              {!mode.menuOpen ? `=` : `x`}
+              {!mode.menuOpen ? <Burger active={false} /> : <Burger active />}
             </button>
           </div>
         </Container>
