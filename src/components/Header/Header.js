@@ -1,10 +1,12 @@
+/** @jsx jsx */
 import React, { useState } from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
-import tw from 'tailwind.macro';
+import { jsx, css } from '@emotion/core';
 import styled from '@emotion/styled';
+import tw from 'tailwind.macro';
 
 import Container from '../Container';
 import LogoLight from '../../../static/images/logo-light.svg';
@@ -53,6 +55,9 @@ const Header = props => {
             <button
               type="button"
               onClick={() => setMode({ contactOpen: !mode.contactOpen })}
+              css={css`
+                ${mode.menuOpen && `opacity: 0`}
+              `}
             >
               {!mode.contactOpen ? `+` : `x`}
             </button>
@@ -60,7 +65,7 @@ const Header = props => {
 
           {!mode.contactOpen && !mode.menuOpen && (
             <div>
-              <img src={isInverted ? LogoLight : LogoDark} alt="NRG" />
+              <img src={isInverted ? LogoLight : LogoDark} alt={SiteTitle} />
             </div>
           )}
 
@@ -145,6 +150,9 @@ const Header = props => {
             <button
               type="button"
               onClick={() => setMode({ menuOpen: !mode.menuOpen })}
+              css={css`
+                ${mode.contactOpen && `opacity: 0`}
+              `}
             >
               {!mode.menuOpen ? `=` : `x`}
             </button>
@@ -160,6 +168,8 @@ export default Header;
 // ============================================================================
 
 const HeaderBG = styled.header`
+  transition: 250ms ease all;
+
   ${tw`
     relative h-32 flex content-center z-50 font-sans
     `}
