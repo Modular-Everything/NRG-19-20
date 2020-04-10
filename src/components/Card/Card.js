@@ -17,8 +17,6 @@ const Card = props => {
   const { blok } = props;
   const { title, subtitle, cta, image, width, link, excerpt } = blok;
 
-  console.log(link);
-
   const StyledCard = styled.li`
     ${tw`
       bg-white
