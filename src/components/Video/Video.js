@@ -22,6 +22,7 @@ const Player = props => {
         url={videoUrl}
         playing={playing}
         controls
+        className="react-player"
         config={{
           file: { attributes: { id: 'audio-element' } },
           vimeo: {
@@ -32,7 +33,7 @@ const Player = props => {
           },
         }}
         width="100%"
-        height="auto"
+        height="100%"
       />
       <PlayButton
         type="button"
@@ -83,7 +84,20 @@ const StyledVideoFull = styled.div`
   ${tw`w-full relative bg-black`}
   ${props =>
     props.isHero && props.isFirstBlok && tw`-mt-40`}
-  min-height: 200px;
+  min-height: 600px;
+  height: 100vh;
+
+  .react-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    & div div {
+      ${tw`
+        h-screen p-0
+      `}
+    }
+  }
 `;
 
 const PlayButton = styled.span`
