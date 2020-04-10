@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StaticGoogleMap, Marker } from 'react-static-google-map';
 
 import styled from '@emotion/styled';
 import tw from 'tailwind.macro';
@@ -15,16 +14,25 @@ import Title from '../Title';
 
 // ============================================================================
 
-const Contact = () => {
+const Contact = props => {
+  const { blok } = props;
+  const {
+    map,
+    mapMobile,
+    number,
+    address,
+    mapLink,
+    socialMedia,
+    workWithUs,
+    workWithYou,
+    everythingElse,
+  } = blok;
+
   return (
     <Layout>
       <Header name="Contact" noGutter />
       <Map>
-        <a
-          href="https://goo.gl/maps/nodGFLUruHzDCsKV7"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href={mapLink.cached_url} target="_blank" rel="noopener noreferrer">
           <Overlay>
             <Container>
               <p>
@@ -35,50 +43,53 @@ const Contact = () => {
               </p>
             </Container>
           </Overlay>
-          <StaticGoogleMap
-            size="640x280"
-            className="img-fluid"
-            apiKey="AIzaSyCWJEXadbLXqPLYd7eXVhXkfoKFmwzu4bs"
-            zoom="13"
-            scale="4"
-            center="33.99771,-118.4222736"
-          >
-            <Marker location="33.99771,-118.4222736" scale="4" />
-          </StaticGoogleMap>
+          <picture>
+            <source media="(max-width: 767px)" srcSet={mapMobile} />
+            <source media="(min-width: 768px)" srcSet={map} />
+            <img src={map} alt="NRG Map" />
+          </picture>
         </a>
       </Map>
 
       <Container>
-        <Cards>
-          <Card>
+        <Cards className="gridded">
+          <Card className="find">
             <Subtitle is="Visit Us" />
             <Title is="Stop by for a coffee" />
-            <Address>
-              NRG Marketing
-              <br />
-              11912 W. Washington Blvd
-              <br />
-              Los Angeles, CA 90066
-            </Address>
+            <Address css={{ whiteSpace: 'pre-wrap' }}>{address}</Address>
           </Card>
 
-          <Card>
+          <Card className="call">
             <Subtitle is="Call Us" />
-            <Title red is="(310) 255-7995" />
+            <Title red is={number} />
           </Card>
 
-          <Card>
-            <p>SOCIAL_MEDIA_ICONS</p>
+          <Card className="social">
+            <ul>
+              {socialMedia.map(node => (
+                <a
+                  href={node.url.cached_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <li>
+                    <img src={node.icon} alt="Social" />
+                  </li>
+                </a>
+              ))}
+            </ul>
           </Card>
+        </Cards>
 
-          <Card>
+        <Cards>
+          <Card className="email">
             <Subtitle is="Email Us" />
             <ul>
               <li>
                 <small>Work with you</small>
                 <div>
-                  <a href="mailto:solutions@madewithnrg.com">
-                    solutions
+                  <a href={`mailto:${workWithYou}@madewithnrg.com`}>
+                    {workWithYou}
                     <span>@madewithnrg.com</span>
                   </a>
                 </div>
@@ -86,8 +97,8 @@ const Contact = () => {
               <li>
                 <small>Work with us</small>
                 <div>
-                  <a href="mailto:talent@madewithnrg.com">
-                    talent
+                  <a href={`mailto:${workWithUs}@madewithnrg.com`}>
+                    {workWithUs}
                     <span>@madewithnrg.com</span>
                   </a>
                 </div>
@@ -95,8 +106,8 @@ const Contact = () => {
               <li>
                 <small>Everything else</small>
                 <div>
-                  <a href="mailto:questions@madewithnrg.com">
-                    questions
+                  <a href={`mailto:${everythingElse}@madewithnrg.com`}>
+                    {everythingElse}
                     <span>@madewithnrg.com</span>
                   </a>
                 </div>
@@ -144,45 +155,84 @@ const Overlay = styled.div`
 `;
 
 const Cards = styled.section`
-  ${tw`mb-12`}
+  ${tw`mb-8 md:mb-16`}
   font-family: 'Simplon BP', -apple-system, 'Helvetica Neue', sans-serif;
-  display: grid;
-  grid-row-gap: 2rem;
-  grid-column-gap: 4rem;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(5, 1fr);
+
+  &.gridded {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 1fr;
+    grid-row-gap: 2rem;
+
+    @media (min-width: 640px) {
+      grid-column-gap: 2rem;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (min-width: 768px) {
+      grid-row-gap: 2rem;
+      grid-column-gap: 4rem;
+    }
+  }
 `;
 
 const Card = styled.div`
   ${tw`
-      bg-white rounded-lg px-6 py-12
+      bg-white rounded-lg p-6
     `}
   box-shadow: 0 4px 10px 2px rgba(0, 0, 0, 0.1);
+
+  & h2 {
+    ${tw`mb-0`}
+  }
 
   & h3 {
     ${tw`mb-4`}
   }
 
-  &:nth-of-type(1) {
-    grid-column: span 6;
-    grid-row: span 3;
-  }
-  &:nth-of-type(2) {
-    grid-column: span 6;
+  &.find {
     grid-row: span 2;
   }
-  &:nth-of-type(3) {
-    ${tw`p-6`}
-    grid-column: span 6;
+
+  &.call {
     grid-row: span 1;
   }
-  &:nth-of-type(4) {
-    grid-column: span 12;
-    grid-row: span 4;
-    margin-top: 2rem;
 
+  &.social {
+    grid-row: span 1;
+
+    & ul {
+      ${tw`
+        flex flex-row justify-around
+      `}
+    }
+
+    & li {
+      ${tw`
+        mr-8
+      `}
+      height: 24px;
+      width: 24px;
+
+      @media (min-width: 768px) {
+        height: 28px;
+        width: 28px;
+      }
+
+      &:last-of-type {
+        ${tw`mr-0`}
+      }
+
+      & img {
+        object-fit: cover;
+        height: 100%;
+      }
+    }
+  }
+
+  &.email {
     ${tw`
-    mx-auto absolute w-full
+    mx-auto w-full py-10
     sm:relative sm:ml-0
   `}
 
@@ -205,7 +255,10 @@ const Card = styled.div`
 
     & ul {
       ${tw`
-      flex flex-col md:flex-row md:text-2xl lg:text-3xl xl:text-4xl justify-between flex-wrap
+      flex flex-col justify-between flex-wrap
+      md:flex-row md:text-2xl
+      lg:text-3xl
+      xl:text-4xl
     `}
 
       & li {
@@ -224,7 +277,8 @@ const Card = styled.div`
 
 const Address = styled.address`
   ${tw`
-    not-italic text-sm pt-3
+    not-italic text-sm pt-3 mt-4
+    sm:mt-10
   `}
 `;
 
@@ -232,6 +286,19 @@ const Address = styled.address`
 
 Contact.propTypes = {
   blok: PropTypes.shape({
-    content: PropTypes.array.isRequired,
+    map: PropTypes.string.isRequired,
+    mapMobile: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
+    address: PropTypes.string.isRequired,
+    mapLink: PropTypes.objectOf({
+      cached_url: PropTypes.string.isRequired,
+    }).isRequired,
+    socialMedia: PropTypes.arrayOf({
+      icon: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
+    }),
+    workWithUs: PropTypes.string.isRequired,
+    workWithYou: PropTypes.string.isRequired,
+    everythingElse: PropTypes.string.isRequired,
   }).isRequired,
 };

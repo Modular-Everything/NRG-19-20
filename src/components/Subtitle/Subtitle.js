@@ -15,7 +15,7 @@ const Subtitle = props => {
 const StyledSubtitle = styled.h3`
   ${tw`
     text-xs
-    sm:text-sm
+    md:text-sm
     uppercase
     tracking-wider
   `}
