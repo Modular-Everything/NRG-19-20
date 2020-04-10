@@ -33,7 +33,7 @@ const Player = props => {
           },
         }}
         width="100%"
-        height="100%"
+        height="auto"
       />
       <PlayButton
         type="button"
@@ -84,19 +84,17 @@ const StyledVideoFull = styled.div`
   ${tw`w-full relative bg-black`}
   ${props =>
     props.isHero && props.isFirstBlok && tw`-mt-40`}
-  min-height: 600px;
-  height: 100vh;
+  min-height: 400px;
 
-  .react-player {
-    position: absolute;
-    top: 0;
-    left: 0;
+  @media (max-width: 639px) {
+    height: 50vh;
 
-    & div div {
-      padding: 0 !important;
-      ${tw`
-        h-screen
-      `}
+    .react-player {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding-top: 15%;
     }
   }
 `;
