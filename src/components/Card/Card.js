@@ -5,6 +5,7 @@ import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 import SbEditable from 'storyblok-react';
 
+import CardVideo from '../CardVideo';
 import CardImage from '../CardImage';
 import Subtitle from '../Subtitle';
 import Title from '../Title';
@@ -66,11 +67,17 @@ const Card = props => {
       `}
   `;
 
+  const ext = RegExp(/(.mp4)/);
+
   return (
     <SbEditable content={blok}>
       <StyledCard>
         <Link to={link !== undefined ? link.cached_url : `/`}>
-          <CardImage is={image} altRatio={width === '12-Alt'} />
+          {ext.test(image) ? (
+            <CardVideo is={image} />
+          ) : (
+            <CardImage is={image} altRatio={width === '12-Alt'} />
+          )}
           <CardContent>
             <div>
               <Subtitle is={subtitle} />
