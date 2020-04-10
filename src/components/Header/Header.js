@@ -55,27 +55,29 @@ const Header = props => {
       >
         <Container display="flex">
           <div>
-            <button
-              type="button"
-              onClick={() => setMode({ contactOpen: !mode.contactOpen })}
-              css={css`
-                display: flex;
-                justify-content: center;
-                height: 24px;
-                width: 24px;
-                ${mode.menuOpen && `opacity: 0`}
+            {!mode.menuOpen && (
+              <button
+                type="button"
+                onClick={() => setMode({ contactOpen: !mode.contactOpen })}
+                css={css`
+                  display: flex;
+                  justify-content: center;
+                  height: 24px;
+                  width: 24px;
+                  ${mode.menuOpen && `opacity: 0`}
 
-                @media (max-width: 639px) {
-                  margin-top: 0.5rem;
-                }
-              `}
-            >
-              {!mode.contactOpen ? (
-                <Plus active={false} inverted={!hasHero} />
-              ) : (
-                <Plus active inverted={false} />
-              )}
-            </button>
+                  @media (max-width: 639px) {
+                    margin-top: 0.5rem;
+                  }
+                `}
+              >
+                {!mode.contactOpen ? (
+                  <Plus active={false} inverted={!hasHero} />
+                ) : (
+                  <Plus active inverted={false} />
+                )}
+              </button>
+            )}
           </div>
 
           {!mode.contactOpen && !mode.menuOpen && (
@@ -164,27 +166,29 @@ const Header = props => {
           )}
 
           <div>
-            <button
-              type="button"
-              onClick={() => setMode({ menuOpen: !mode.menuOpen })}
-              css={css`
-                display: flex;
-                justify-content: center;
-                height: 24px;
-                width: 32px;
-                ${mode.contactOpen && `opacity: 0`}
+            {!mode.contactOpen && (
+              <button
+                type="button"
+                onClick={() => setMode({ menuOpen: !mode.menuOpen })}
+                css={css`
+                  display: flex;
+                  justify-content: center;
+                  height: 24px;
+                  width: 32px;
+                  ${mode.contactOpen && `opacity: 0`}
 
-                @media (max-width: 639px) {
-                  margin-top: 0.5rem;
-                }
-              `}
-            >
-              {!mode.menuOpen ? (
-                <Burger active={false} inverted={!hasHero} />
-              ) : (
-                <Burger active inverted={false} />
-              )}
-            </button>
+                  @media (max-width: 639px) {
+                    margin-top: 0.5rem;
+                  }
+                `}
+              >
+                {!mode.menuOpen ? (
+                  <Burger active={false} inverted={!hasHero} />
+                ) : (
+                  <Burger active inverted={false} />
+                )}
+              </button>
+            )}
           </div>
         </Container>
       </HeaderBG>
