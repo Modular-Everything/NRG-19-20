@@ -117,7 +117,7 @@ const Bottom = styled.div`
 
   & p {
     ${tw`
-      mt-24 sm:mt-0
+      mr-6 mt-24 sm:mt-0
     `}
   }
 `;
