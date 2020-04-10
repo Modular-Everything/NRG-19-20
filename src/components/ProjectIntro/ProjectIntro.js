@@ -72,7 +72,7 @@ const ProjectIntro = props => {
 
 const ProjectMeta = styled.div`
   ${tw`
-    sm:h-full sm:flex sm:flex-col sm:items-end sm:text-right sm:pr-6
+    sm:pr-12 sm:text-right sm:h-full
     md:pr-12
   `}
   display: grid;
