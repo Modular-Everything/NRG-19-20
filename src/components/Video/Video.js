@@ -93,8 +93,9 @@ const StyledVideoFull = styled.div`
     left: 0;
 
     & div div {
+      padding: 0 !important;
       ${tw`
-        h-screen p-0
+        h-screen
       `}
     }
   }
@@ -103,6 +104,8 @@ const StyledVideoFull = styled.div`
 const PlayButton = styled.span`
   ${tw`
     absolute cursor-pointer text-red-600 bg-white inset-x-0 mx-auto rounded-full shadow-xl flex justify-center items-center w-24 h-24
+    invisible
+    sm:block
     lg:w-32 lg:h-32
   `}
   padding: 50% 50% 0 0;
