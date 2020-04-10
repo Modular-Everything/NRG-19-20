@@ -21,17 +21,29 @@ const StaticImage = props => {
       grid-column: span ${width};
     }
 
-    & img {
+    & img, {
+    & video {
       ${tw`rounded-lg`};
     }
   `;
 
+  const ext = RegExp(/(.mp4)/);
+
   return (
     <SbEditable content={blok}>
-      <StyledImage>
-        <img css={tw`w-full`} src={image} alt="" />
-        {caption && <Caption is={caption} />}
-      </StyledImage>
+      {ext.test(image) ? (
+        <StyledImage>
+          <video height="100%" width="100%" autoPlay loop muted playsInline>
+            <source src={image} type="video/mp4" />
+          </video>
+          {caption && <Caption is={caption} />}
+        </StyledImage>
+      ) : (
+        <StyledImage>
+          <img css={tw`w-full`} src={image} alt="" />
+          {caption && <Caption is={caption} />}
+        </StyledImage>
+      )}
     </SbEditable>
   );
 };
