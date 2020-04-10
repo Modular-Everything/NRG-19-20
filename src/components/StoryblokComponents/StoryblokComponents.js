@@ -11,6 +11,7 @@ import StaticImage from '../StaticImage';
 import HeroImage from '../HeroImage';
 import Video from '../Video';
 import Credits from '../Credits';
+import Spacer from '../Spacer';
 
 // ============================================================================
 
@@ -27,6 +28,7 @@ const ComponentList = {
   heroImage: HeroImage,
   video: Video,
   credits: Credits,
+  spacer: Spacer,
 };
 
 // ============================================================================
