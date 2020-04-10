@@ -22,11 +22,10 @@ const Title = props => {
 
 const StyledTitle = styled.h2`
   ${tw`
-    text-2xl
-    md:text-3xl
-    font-medium
-    leading-tight
-    mb-4
+    text-lg font-medium leading-normal mb-4
+    sm:text-xl
+    md:text-2xl
+    lg:text-3xl lg:leading-tight
   `};
   color: ${props =>
     props.red ? `var(--color-brand)` : `var(--color-black-primary)`};

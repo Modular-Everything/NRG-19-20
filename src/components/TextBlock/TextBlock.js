@@ -22,10 +22,8 @@ const TextBlock = props => {
 
 const StyledText = styled.p`
   ${tw`
-    text-sm
-    mb-4
-    font-medium
-    leading-snug
+    text-sm mb-4 font-medium leading-snug
+    lg:text-base
   `}
   color: var(--color-black-primary);
   font-family: 'Simplon BP', -apple-system, 'Helvetica Neue', sans-serif;

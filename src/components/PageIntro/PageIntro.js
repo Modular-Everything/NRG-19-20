@@ -22,7 +22,7 @@ const PageIntro = props => {
   const { copy, title, subtitle, color, strapline, cta, ctaLink } = node;
 
   const Intro = styled.div`
-    ${tw`py-10 sm:py-20`}
+    ${tw`py-10 sm:py-14 md:py-20`}
     font-family: 'Simplon BP', -apple-system, 'Helvetica Neue', sans-serif;
     background-color: ${color === `red`
       ? `var(--color-brand)`
@@ -77,20 +77,13 @@ const PageIntro = props => {
 
 const PageMeta = styled.div`
   ${tw`
-    sm:h-full
-    sm:flex
-    sm:flex-col
-    sm:items-end
-    sm:text-right
-    sm:pr-12
+    sm:h-full sm:flex sm:flex-col sm:items-end sm:text-right sm:pr-6
+    md:pr-12
   `}
 
   & div {
     ${tw`
-      sm:flex
-      sm:flex-col
-      sm:items-end
-      sm:max-w-md
+      sm:flex sm:flex-col sm:items-end sm:max-w-md
     `}
   }
 `;
@@ -104,7 +97,10 @@ const Strapline = styled.p`
 `;
 
 const PageDesc = styled.div`
-  ${tw`sm:pl-12`}
+  ${tw`
+    sm:pl-6
+    md:pl-12
+  `}
   align-self: flex-start !important;
 
   & div {

@@ -71,12 +71,18 @@ const ProjectIntro = props => {
 // ============================================================================
 
 const ProjectMeta = styled.div`
-  ${tw`sm:pr-12 sm:text-right sm:h-full`}
+  ${tw`
+    sm:h-full sm:flex sm:flex-col sm:items-end sm:text-right sm:pr-6
+    md:pr-12
+  `}
   display: grid;
 `;
 
 const ProjectDesc = styled.div`
-  ${tw`sm:pl-12 sm:self-start`}
+  ${tw`
+    sm:pl-6
+    md:pl-12
+  `}
 
   & p:last-of-type {
     ${tw`mb-0`}

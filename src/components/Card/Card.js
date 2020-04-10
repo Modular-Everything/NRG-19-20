@@ -26,8 +26,16 @@ const Card = props => {
       h-full
     `}
     box-shadow: 0 4px 10px 2px rgba(0, 0, 0, 0.1);
-    grid-column: span ${width !== '12-Alt' ? width : '12'};
     transition: 150ms ease all;
+    grid-column: span 12;
+
+    @media (min-width: 500px) {
+      grid-column: span ${width !== '4' ? '12' : '6'};
+    }
+
+    @media (min-width: 768px) {
+      grid-column: span ${width !== '12-Alt' ? width : '12'};
+    }
 
     &:hover {
       transform: scale(0.97);
@@ -41,21 +49,20 @@ const Card = props => {
     ${width === '12' &&
       `& a {
         grid-template-columns: 1fr 1fr;
+
+        @media (max-width: 639px) {
+          grid-template-columns: 1fr;
+        }
       }`}
 
     ${width === '12-Alt' &&
       `& a {
         grid-template-columns: 1fr;
       }`}
-
-    @media (max-width: 639px) {
-      grid-column: span 12;
-    }
   `;
 
   const CardContent = styled.div`
     ${tw`p-6`}
-    /* This is goofy-ass syntax... */
     ${width === '12-Alt' &&
       `
         display: grid;

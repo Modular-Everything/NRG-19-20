@@ -45,6 +45,12 @@ const Wrapper = styled.ul`
 
   & .title {
     grid-column: span 12;
+
+    & h2 {
+      @media (max-width: 768px) {
+        margin-bottom: 0;
+      }
+    }
   }
 `;
 

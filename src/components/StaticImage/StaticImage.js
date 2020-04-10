@@ -17,7 +17,7 @@ const StaticImage = props => {
     grid-column: span 12;
     height: fit-content;
 
-    @media (min-width: 640px) {
+    @media (min-width: 768px) {
       grid-column: span ${width};
     }
 

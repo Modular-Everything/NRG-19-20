@@ -16,7 +16,7 @@ const Copy = props => {
     grid-column: span ${blok.width};
     height: fit-content;
 
-    @media (max-width: 639px) {
+    @media (max-width: 768px) {
       grid-column: span 12;
     }
   `;
