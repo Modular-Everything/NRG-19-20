@@ -43,6 +43,10 @@ const Wrapper = styled.ul`
   grid-gap: 1rem;
   grid-template-columns: repeat(12, 1fr);
 
+  @media (min-width: 768px) {
+    grid-gap: 2rem;
+  }
+
   & .title {
     grid-column: span 12;
 
