@@ -26,6 +26,12 @@ const Card = props => {
     `}
     box-shadow: 0 4px 10px 2px rgba(0, 0, 0, 0.1);
     grid-column: span ${width !== '12-Alt' ? width : '12'};
+    transition: 150ms ease all;
+
+    &:hover {
+      transform: scale(0.97);
+      box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.15);
+    }
 
     & a {
       display: grid;
