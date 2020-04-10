@@ -27,6 +27,9 @@ const PageIntro = props => {
     background-color: ${color === `red`
       ? `var(--color-brand)`
       : `var(--color-${color}-primary)`};
+
+    ${props.firstBlok === 'pageIntro' && tw`-mt-4`}
+
     & p,
     & h3,
     & h2 {
