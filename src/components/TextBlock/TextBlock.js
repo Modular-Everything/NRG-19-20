@@ -22,11 +22,15 @@ const TextBlock = props => {
 
 const StyledText = styled.p`
   ${tw`
-    text-sm mb-4 font-medium leading-snug
-    lg:text-base
+    mb-4 font-medium leading-snug
   `}
   color: var(--color-black-primary);
   font-family: 'Simplon BP', -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 0.875em;
+
+  @media (min-width: 1024px) {
+    font-size: 1.125em;
+  }
 `;
 
 // ============================================================================

@@ -22,14 +22,25 @@ const Title = props => {
 
 const StyledTitle = styled.h2`
   ${tw`
-    text-lg font-medium leading-normal mb-4
-    sm:text-xl
-    md:text-2xl
-    lg:text-3xl lg:leading-tight
+    font-medium leading-normal mb-4
+    lg:leading-tight
   `};
   color: ${props =>
     props.red ? `var(--color-brand)` : `var(--color-black-primary)`};
   font-family: 'Simplon BP', -apple-system, 'Helvetica Neue', sans-serif;
+  font-size: 1.125em;
+
+  @media (min-width: 640px) {
+    font-size: 1.25em;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 1.5em;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 1.875em;
+  }
 `;
 
 // ============================================================================

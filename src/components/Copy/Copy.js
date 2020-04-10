@@ -15,6 +15,7 @@ const Copy = props => {
   const StyledCopy = styled.li`
     grid-column: span ${blok.width};
     height: fit-content;
+    font-size: ${blok.fontScale}%;
 
     @media (max-width: 768px) {
       grid-column: span 12;
@@ -39,6 +40,7 @@ Copy.propTypes = {
   blok: PropTypes.shape({
     markdown: PropTypes.string.isRequired,
     width: PropTypes.string.isRequired,
+    fontScale: PropTypes.number.isRequired,
   }).isRequired,
 };
 
