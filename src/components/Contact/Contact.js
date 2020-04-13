@@ -255,8 +255,8 @@ const Card = styled.div`
 
     & ul {
       ${tw`
-      flex flex-col justify-between flex-wrap
-      md:flex-row md:text-2xl
+      flex flex-col justify-between flex-wrap text-2xl
+      md:flex-row md:text-xl
       lg:text-3xl
       xl:text-4xl
     `}
@@ -264,11 +264,13 @@ const Card = styled.div`
       & li {
         ${tw`
         leading-tight mb-4
-        sm:mb-0 sm:mr-12
+        sm:mr-8
+        md:mr-2 md:mb-0
+        lg:mr-12
       `}
 
         &:last-of-type {
-          ${tw`sm:mr-0`}
+          ${tw`sm:mr-0 mb-0`}
         }
       }
     }
