@@ -48,9 +48,9 @@ const PageIntro = props => {
         <Container display="grid" columns="1fr 1fr">
           <PageMeta>
             <div>
-              <Subtitle>{subtitle}</Subtitle>
+              <TextBlock is={subtitle} />
               <Title is={title} />
-              <Strapline>{strapline}</Strapline>
+              <TextBlock is={strapline} />
             </div>
           </PageMeta>
 
@@ -81,19 +81,19 @@ const PageMeta = styled.div`
     md:pr-12
   `}
 
+  & p {
+    ${tw`mb-4 sm:mb-2`}
+
+    &:last-of-type {
+      ${tw`mt-4 mb-4 sm:mt-1 sm:mb-0`}
+    }
+  }
+
   & div {
     ${tw`
       sm:flex sm:flex-col sm:items-end sm:max-w-md
     `}
   }
-`;
-
-const Subtitle = styled.h3`
-  ${tw`text-sm`}
-`;
-
-const Strapline = styled.p`
-  ${tw`text-sm max-w-lg`}
 `;
 
 const PageDesc = styled.div`
