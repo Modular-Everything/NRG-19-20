@@ -93,6 +93,7 @@ const StyledFooter = styled.footer`
   color: var(--color-white-primary);
   background-color: var(--color-black-primary);
   font-family: 'Simplon BP', -apple-system, 'Helvetica Neue', sans-serif;
+  box-shadow: 0 500px 0 500px var(--color-black-primary);
 `;
 
 const Top = styled.div`
