@@ -129,7 +129,7 @@ const Contact = styled.a`
   `}
 
   &:hover {
-    ${tw`underline`}
+    color: var(--color-brand);
   }
 `;
 
@@ -158,7 +158,7 @@ const Social = styled.ul`
   `}
 
   & a:hover {
-    ${tw`underline`}
+    color: var(--color-brand);
   }
 
   & li {
