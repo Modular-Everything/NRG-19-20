@@ -26,8 +26,16 @@ const Divider = styled.div`
 
 Spacer.propTypes = {
   node: PropTypes.objectOf({
-    spacing: PropTypes.string.isRequired,
-  }).isRequired,
+    spacing: PropTypes.string,
+    guide: PropTypes.bool,
+  }),
+};
+
+Spacer.defaultProps = {
+  node: {
+    spacing: 4,
+    guide: false,
+  },
 };
 
 // ============================================================================
