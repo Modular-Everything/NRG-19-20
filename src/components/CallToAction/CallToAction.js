@@ -47,10 +47,11 @@ const CallToAction = props => {
 const StyledCTA = styled.div`
   ${tw`
     font-medium
-    text-sm
     flex
     flex-row
     items-center
+    text-sm
+    lg:text-base
   `}
   color: ${({ color }) => color};
   font-family: 'Simplon BP', -apple-system, 'Helvetica Neue', sans-serif;
