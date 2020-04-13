@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+import Fade from 'react-reveal/Fade';
+
 import tw from 'tailwind.macro';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
@@ -79,23 +82,25 @@ const Card = props => {
   return (
     <SbEditable content={blok}>
       <StyledCard>
-        <Link to={link !== undefined ? link.cached_url : `/`}>
-          {ext.test(image) ? (
-            <CardVideo is={image} />
-          ) : (
-            <CardImage is={image} altRatio={width === '12-Alt'} />
-          )}
-          <CardContent>
-            <div>
-              <Subtitle is={subtitle} />
-              <Title isCard is={title} />
-            </div>
-            <div>
-              <TextBlock is={excerpt} />
-              <CallToAction is={cta} />
-            </div>
-          </CardContent>
-        </Link>
+        <Fade ssrFadeout>
+          <Link to={link !== undefined ? link.cached_url : `/`}>
+            {ext.test(image) ? (
+              <CardVideo is={image} />
+            ) : (
+              <CardImage is={image} altRatio={width === '12-Alt'} />
+            )}
+            <CardContent>
+              <div>
+                <Subtitle is={subtitle} />
+                <Title isCard is={title} />
+              </div>
+              <div>
+                <TextBlock is={excerpt} />
+                <CallToAction is={cta} />
+              </div>
+            </CardContent>
+          </Link>
+        </Fade>
       </StyledCard>
     </SbEditable>
   );

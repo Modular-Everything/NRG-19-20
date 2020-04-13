@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+import Fade from 'react-reveal/Fade';
+
 import tw from 'tailwind.macro';
 import styled from '@emotion/styled';
 
@@ -53,7 +56,11 @@ const Tags = props => {
     }
   `;
 
-  return <StyledTags>{children}</StyledTags>;
+  return (
+    <StyledTags>
+      <Fade ssrFadeout>{children}</Fade>
+    </StyledTags>
+  );
 };
 
 // ============================================================================

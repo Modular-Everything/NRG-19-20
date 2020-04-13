@@ -1,5 +1,7 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+
+import Fade from 'react-reveal/Fade';
+
 import tw from 'tailwind.macro';
 import { keyframes } from '@emotion/core';
 import styled from '@emotion/styled';
@@ -12,76 +14,78 @@ import Makers from '../../../static/images/makers.svg';
 const Footer = () => {
   return (
     <StyledFooter>
-      <Container>
-        <Top>
-          <div>
-            <p>Like what you see?</p>
-            <Contact href="mailto:info@madewithnrg.com">
-              info@madewithnrg.com
-            </Contact>
-          </div>
+      <Fade ssrFadeout>
+        <Container>
+          <Top>
+            <div>
+              <p>Like what you see?</p>
+              <Contact href="mailto:info@madewithnrg.com">
+                info@madewithnrg.com
+              </Contact>
+            </div>
 
-          <div>
-            <a href="/">
-              <MakersImg
-                src={Makers}
-                alt="NRG &bull; Creators, Makers and Builders."
-              />
-            </a>
-          </div>
-        </Top>
+            <div>
+              <a href="/">
+                <MakersImg
+                  src={Makers}
+                  alt="NRG &bull; Creators, Makers and Builders."
+                />
+              </a>
+            </div>
+          </Top>
 
-        <Bottom>
-          <Social>
-            <li>
-              <a
-                href="https://instagram.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Instagram
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://twitter.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Twitter
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://facebook.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Facebook
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://vimeo.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Vimeo
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://linkedin.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                LinkedIn
-              </a>
-            </li>
-          </Social>
-          <p>&copy; NRG 2020</p>
-        </Bottom>
-      </Container>
+          <Bottom>
+            <Social>
+              <li>
+                <a
+                  href="https://instagram.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Instagram
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://twitter.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Twitter
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://facebook.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Facebook
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://vimeo.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Vimeo
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://linkedin.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  LinkedIn
+                </a>
+              </li>
+            </Social>
+            <p>&copy; NRG 2020</p>
+          </Bottom>
+        </Container>
+      </Fade>
     </StyledFooter>
   );
 };

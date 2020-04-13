@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+import Fade from 'react-reveal/Fade';
+
 import tw from 'tailwind.macro';
 import styled from '@emotion/styled';
-// import Img from 'gatsby-image';
 import SbEditable from 'storyblok-react';
 
 import Caption from '../Caption';
@@ -21,7 +23,7 @@ const StaticImage = props => {
       grid-column: span ${width};
     }
 
-    & img, {
+    & img,
     & video {
       ${tw`rounded-lg`};
     }
@@ -33,15 +35,19 @@ const StaticImage = props => {
     <SbEditable content={blok}>
       {ext.test(image) ? (
         <StyledImage>
-          <video height="100%" width="100%" autoPlay loop muted playsInline>
-            <source src={image} type="video/mp4" />
-          </video>
-          {caption && <Caption is={caption} />}
+          <Fade ssrFadeout>
+            <video height="100%" width="100%" autoPlay loop muted playsInline>
+              <source src={image} type="video/mp4" />
+            </video>
+            {caption && <Caption is={caption} />}
+          </Fade>
         </StyledImage>
       ) : (
         <StyledImage>
-          <img css={tw`w-full`} src={image} alt="" />
-          {caption && <Caption is={caption} />}
+          <Fade ssrFadeout>
+            <img css={tw`w-full`} src={image} alt="" />
+            {caption && <Caption is={caption} />}
+          </Fade>
         </StyledImage>
       )}
     </SbEditable>

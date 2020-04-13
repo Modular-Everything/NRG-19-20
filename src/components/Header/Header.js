@@ -5,6 +5,8 @@ import { useStaticQuery, graphql, Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
+import Fade from 'react-reveal/Fade';
+
 import { jsx, css } from '@emotion/core';
 import styled from '@emotion/styled';
 import tw from 'tailwind.macro';
@@ -82,42 +84,49 @@ const Header = props => {
 
           {!mode.contactOpen && !mode.menuOpen && (
             <LogoContainer>
-              <Link to="/">
-                <img src={isInverted ? LogoLight : LogoDark} alt={SiteTitle} />
-              </Link>
+              <Fade ssrFadeout>
+                <Link to="/">
+                  <img
+                    src={isInverted ? LogoLight : LogoDark}
+                    alt={SiteTitle}
+                  />
+                </Link>
+              </Fade>
             </LogoContainer>
           )}
 
           {mode.contactOpen && !mode.menuOpen && (
             <Contact>
               <ul>
-                <li>
-                  <small>Work with you</small>
-                  <div>
-                    <a href="mailto:solutions@madewithnrg.com">
-                      solutions
-                      <span>@madewithnrg.com</span>
-                    </a>
-                  </div>
-                </li>
-                <li>
-                  <small>Work with us</small>
-                  <div>
-                    <a href="mailto:talent@madewithnrg.com">
-                      talent
-                      <span>@madewithnrg.com</span>
-                    </a>
-                  </div>
-                </li>
-                <li>
-                  <small>Everything else</small>
-                  <div>
-                    <a href="mailto:questions@madewithnrg.com">
-                      questions
-                      <span>@madewithnrg.com</span>
-                    </a>
-                  </div>
-                </li>
+                <Fade cascade ssrFadeout>
+                  <li>
+                    <small>Work with you</small>
+                    <div>
+                      <a href="mailto:solutions@madewithnrg.com">
+                        solutions
+                        <span>@madewithnrg.com</span>
+                      </a>
+                    </div>
+                  </li>
+                  <li>
+                    <small>Work with us</small>
+                    <div>
+                      <a href="mailto:talent@madewithnrg.com">
+                        talent
+                        <span>@madewithnrg.com</span>
+                      </a>
+                    </div>
+                  </li>
+                  <li>
+                    <small>Everything else</small>
+                    <div>
+                      <a href="mailto:questions@madewithnrg.com">
+                        questions
+                        <span>@madewithnrg.com</span>
+                      </a>
+                    </div>
+                  </li>
+                </Fade>
               </ul>
             </Contact>
           )}
@@ -125,42 +134,44 @@ const Header = props => {
           {!mode.contactOpen && mode.menuOpen && (
             <Navigation>
               <ul>
-                <li>
-                  <Link
-                    to="/about"
-                    activeStyle={{ color: 'red' }}
-                    partiallyActive
-                  >
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/services"
-                    activeStyle={{ color: 'red' }}
-                    partiallyActive
-                  >
-                    Services
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/work"
-                    activeStyle={{ color: 'red' }}
-                    partiallyActive
-                  >
-                    Work
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/contact"
-                    activeStyle={{ color: 'red' }}
-                    partiallyActive
-                  >
-                    Contact
-                  </Link>
-                </li>
+                <Fade cascade ssrFadeout>
+                  <li>
+                    <Link
+                      to="/about"
+                      activeStyle={{ color: 'red' }}
+                      partiallyActive
+                    >
+                      About
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/services"
+                      activeStyle={{ color: 'red' }}
+                      partiallyActive
+                    >
+                      Services
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/work"
+                      activeStyle={{ color: 'red' }}
+                      partiallyActive
+                    >
+                      Work
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/contact"
+                      activeStyle={{ color: 'red' }}
+                      partiallyActive
+                    >
+                      Contact
+                    </Link>
+                  </li>
+                </Fade>
               </ul>
             </Navigation>
           )}

@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+import Fade from 'react-reveal/Fade';
+
 import tw from 'tailwind.macro';
 import styled from '@emotion/styled';
 
@@ -12,10 +15,18 @@ const TextBlock = props => {
     if (children.length === 0) {
       return null;
     }
-    return <StyledText>{children[0].props.value}</StyledText>;
+    return (
+      <StyledText>
+        <Fade ssrFadeout>{children[0].props.value}</Fade>
+      </StyledText>
+    );
   }
 
-  return <StyledText>{text}</StyledText>;
+  return (
+    <StyledText>
+      <Fade ssrFadeout>{text}</Fade>
+    </StyledText>
+  );
 };
 
 // ============================================================================

@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+import Fade from 'react-reveal/Fade';
+
 import tw from 'tailwind.macro';
 import styled from '@emotion/styled';
 
@@ -7,7 +10,11 @@ import styled from '@emotion/styled';
 
 const Subtitle = props => {
   const { is: subtitle } = props;
-  return <StyledSubtitle>{subtitle}</StyledSubtitle>;
+  return (
+    <StyledSubtitle>
+      <Fade ssrFadeOut>{subtitle}</Fade>
+    </StyledSubtitle>
+  );
 };
 
 // ============================================================================

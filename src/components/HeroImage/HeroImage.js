@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+import Fade from 'react-reveal/Fade';
+
 import tw from 'tailwind.macro';
 import styled from '@emotion/styled';
 import SbEditable from 'storyblok-react';
@@ -24,7 +27,9 @@ const HeroImage = props => {
   return (
     <StyledImage>
       <SbEditable content={node}>
-        <img src={image} alt="" />
+        <Fade ssrFadeout>
+          <img src={image} alt="" />
+        </Fade>
       </SbEditable>
     </StyledImage>
   );

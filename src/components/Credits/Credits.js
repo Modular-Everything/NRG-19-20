@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+import Fade from 'react-reveal/Fade';
+
 import tw from 'tailwind.macro';
 import styled from '@emotion/styled';
 
@@ -12,16 +15,18 @@ const Credits = props => {
 
   return (
     <StyledCredits>
-      <Container>
-        <StyledUl>
-          {node.credits.map(credit => (
-            <Credit>
-              {credit.creditName}
-              <span>{credit.creditRole}</span>
-            </Credit>
-          ))}
-        </StyledUl>
-      </Container>
+      <Fade ssrFadeout>
+        <Container>
+          <StyledUl>
+            {node.credits.map(credit => (
+              <Credit>
+                {credit.creditName}
+                <span>{credit.creditRole}</span>
+              </Credit>
+            ))}
+          </StyledUl>
+        </Container>
+      </Fade>
     </StyledCredits>
   );
 };

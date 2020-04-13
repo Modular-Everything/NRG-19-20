@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+import Fade from 'react-reveal/Fade';
+
 import tw from 'tailwind.macro';
 import styled from '@emotion/styled';
 
@@ -14,10 +17,14 @@ const CallToAction = props => {
   if (color === 'red') {
     return (
       <StyledCTA color="white">
-        {cta}
-        <span>
-          <img src={ArrowWhite} alt="->" />
-        </span>
+        <Fade ssrFadeout>
+          {cta}
+          <span>
+            <Fade left ssrFadeout>
+              <img src={ArrowWhite} alt="->" />
+            </Fade>
+          </span>
+        </Fade>
       </StyledCTA>
     );
   }
@@ -25,19 +32,27 @@ const CallToAction = props => {
   if (color === 'black') {
     return (
       <StyledCTA color="white">
-        {cta}
-        <span>
-          <img src={ArrowWhite} alt="->" />
-        </span>
+        <Fade ssrFadeout>
+          {cta}
+          <span>
+            <Fade left ssrFadeout>
+              <img src={ArrowWhite} alt="->" />
+            </Fade>
+          </span>
+        </Fade>
       </StyledCTA>
     );
   }
   return (
     <StyledCTA color="red">
-      {cta}
-      <span>
-        <img src={ArrowRed} alt="->" />
-      </span>
+      <Fade ssrFadeout>
+        {cta}
+        <span>
+          <Fade left ssrFadeout>
+            <img src={ArrowRed} alt="->" />
+          </Fade>
+        </span>
+      </Fade>
     </StyledCTA>
   );
 };

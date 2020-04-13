@@ -5,6 +5,8 @@ import styled from '@emotion/styled';
 import SbEditable from 'storyblok-react';
 import ReactMarkdown from 'react-markdown';
 
+import Fade from 'react-reveal/Fade';
+
 import Container from '../Container';
 import TextBlock from '../TextBlock';
 import Title from '../Title';
@@ -46,23 +48,28 @@ const ProjectIntro = props => {
   return (
     <SbEditable content={node}>
       <Intro>
-        <Container display="grid" columns="1fr 1fr">
-          <ProjectMeta>
-            <div>
-              <Subtitle is={subtitle} />
-              <Title is={title} />
-            </div>
-            <Tags color={color}>
-              {node.tagList.map(tag => (
-                <li>{tag.tagName}</li>
-              ))}
-            </Tags>
-          </ProjectMeta>
+        <Fade ssrFadeout>
+          <Container display="grid" columns="1fr 1fr">
+            <ProjectMeta>
+              <div>
+                <Subtitle is={subtitle} />
+                <Title is={title} />
+              </div>
+              <Tags color={color}>
+                {node.tagList.map(tag => (
+                  <li>{tag.tagName}</li>
+                ))}
+              </Tags>
+            </ProjectMeta>
 
-          <ProjectDesc>
-            <ReactMarkdown source={copy} renderers={{ paragraph: TextBlock }} />
-          </ProjectDesc>
-        </Container>
+            <ProjectDesc>
+              <ReactMarkdown
+                source={copy}
+                renderers={{ paragraph: TextBlock }}
+              />
+            </ProjectDesc>
+          </Container>
+        </Fade>
       </Intro>
     </SbEditable>
   );

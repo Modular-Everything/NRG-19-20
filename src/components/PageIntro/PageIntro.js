@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
+import ReactMarkdown from 'react-markdown';
+
+import Fade from 'react-reveal/Fade';
+
 import tw from 'tailwind.macro';
 import styled from '@emotion/styled';
 import SbEditable from 'storyblok-react';
-import ReactMarkdown from 'react-markdown';
 
 import Container from '../Container';
 import CallToAction from '../CallToAction';
@@ -45,29 +48,31 @@ const PageIntro = props => {
   return (
     <SbEditable content={node}>
       <Intro>
-        <Container display="grid" columns="1fr 1fr">
-          <PageMeta>
-            <div>
-              <TextBlock is={subtitle} />
-              <Title is={title} />
-              <TextBlock is={strapline} />
-            </div>
-          </PageMeta>
+        <Fade ssrFadeout>
+          <Container display="grid" columns="1fr 1fr">
+            <PageMeta>
+              <div>
+                <TextBlock is={subtitle} />
+                <Title is={title} />
+                <TextBlock is={strapline} />
+              </div>
+            </PageMeta>
 
-          <PageDesc>
-            <div>
-              <ReactMarkdown
-                source={copy}
-                renderers={{ paragraph: TextBlock }}
-              />
-              {cta && (
-                <Link to={`/${ctaLink && ctaLink.cached_url}`}>
-                  <CallToAction is={cta} color={color} />
-                </Link>
-              )}
-            </div>
-          </PageDesc>
-        </Container>
+            <PageDesc>
+              <div>
+                <ReactMarkdown
+                  source={copy}
+                  renderers={{ paragraph: TextBlock }}
+                />
+                {cta && (
+                  <Link to={`/${ctaLink && ctaLink.cached_url}`}>
+                    <CallToAction is={cta} color={color} />
+                  </Link>
+                )}
+              </div>
+            </PageDesc>
+          </Container>
+        </Fade>
       </Intro>
     </SbEditable>
   );

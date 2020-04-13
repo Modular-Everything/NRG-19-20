@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+import Fade from 'react-reveal/Fade';
+
 import tw from 'tailwind.macro';
 import styled from '@emotion/styled';
 
@@ -12,10 +15,18 @@ const Title = props => {
     if (children.length === 0) {
       return null;
     }
-    return <StyledTitle red={red}>{children[0].props.value}</StyledTitle>;
+    return (
+      <StyledTitle red={red}>
+        <Fade ssrFadeout>{children[0].props.value}</Fade>
+      </StyledTitle>
+    );
   }
 
-  return <StyledTitle red={red}>{title}</StyledTitle>;
+  return (
+    <StyledTitle red={red}>
+      <Fade ssrFadeout>{title}</Fade>
+    </StyledTitle>
+  );
 };
 
 // ============================================================================

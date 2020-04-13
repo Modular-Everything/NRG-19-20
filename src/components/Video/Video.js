@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+
+import Fade from 'react-reveal/Fade';
+
 import tw from 'tailwind.macro';
 import styled from '@emotion/styled';
 import ReactPlayer from 'react-player';
@@ -16,7 +19,14 @@ const Player = props => {
   };
 
   return (
-    <>
+    <div>
+      <PlayButton
+        type="button"
+        onClick={() => PlayVideo()}
+        style={{
+          display: playing ? 'none' : 'flex',
+        }}
+      />
       <ReactPlayer
         ref={ref}
         url={videoUrl}
@@ -35,14 +45,7 @@ const Player = props => {
         width="100%"
         height="auto"
       />
-      <PlayButton
-        type="button"
-        onClick={() => PlayVideo()}
-        style={{
-          display: playing ? 'none' : 'flex',
-        }}
-      />
-    </>
+    </div>
   );
 };
 
@@ -55,14 +58,18 @@ const Video = props => {
   if (grid) {
     return (
       <StyledVideoContained>
-        <Player videoUrl={blok.videoUrl} />
+        <Fade ssrFadeout>
+          <Player videoUrl={blok.videoUrl} />
+        </Fade>
       </StyledVideoContained>
     );
   }
 
   return (
     <StyledVideoFull isHero={isHero} isFirstBlok={isFirstBlok}>
-      <Player videoUrl={node.videoUrl} />
+      <Fade ssrFadeout>
+        <Player videoUrl={node.videoUrl} />
+      </Fade>
     </StyledVideoFull>
   );
 };
@@ -101,14 +108,14 @@ const StyledVideoFull = styled.div`
 
 const PlayButton = styled.span`
   ${tw`
-    absolute cursor-pointer text-red-600 bg-white inset-x-0 mx-auto rounded-full shadow-xl flex justify-center items-center w-24 h-24
-    invisible
-    sm:block
+    absolute cursor-pointer text-red-600 bg-white inset-x-0 mx-auto rounded-full shadow-xl flex justify-center items-center w-24 h-24 invisible
+    sm:block sm:visible
     lg:w-32 lg:h-32
   `}
   padding: 50% 50% 0 0;
   bottom: 1rem;
   display: flex;
+  z-index: 999;
 
   & p {
     ${tw`ml-2 leading-4`}

@@ -37,6 +37,7 @@
     "react-helmet": "^5.2.1",
     "react-markdown": "^4.3.1",
     "react-player": "^1.15.2",
+    "react-reveal": "^1.2.2",
     "react-spring": "^8.0.27",
     "react-static-google-map": "^0.5.4",
     "shiitake": "^3.0.2",
