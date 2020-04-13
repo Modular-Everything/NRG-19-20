@@ -22,21 +22,13 @@ const Title = props => {
 
 const StyledTitle = styled.h2`
   ${tw`
-    font-medium leading-normal mb-4
+    font-medium leading-normal my-2
     lg:leading-tight
   `};
   color: ${props =>
     props.red ? `var(--color-brand)` : `var(--color-black-primary)`};
   font-family: 'Simplon BP', -apple-system, 'Helvetica Neue', sans-serif;
-  font-size: 1.125em;
-
-  @media (min-width: 640px) {
-    font-size: 1.25em;
-  }
-
-  @media (min-width: 768px) {
-    font-size: 1.5em;
-  }
+  font-size: 1.5em;
 
   @media (min-width: 1024px) {
     font-size: 1.875em;
