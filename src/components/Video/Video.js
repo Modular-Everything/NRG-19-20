@@ -5,12 +5,12 @@ import Fade from 'react-reveal/Fade';
 
 import tw from 'tailwind.macro';
 import styled from '@emotion/styled';
-import ReactPlayer from 'react-player';
+import Vimeo from '@u-wave/react-vimeo';
 
 // ============================================================================
 
 const Player = props => {
-  const { videoUrl } = props;
+  const { videoUrl, textural } = props;
   const ref = React.createRef();
   const [playing, setPlaying] = useState(false);
 
@@ -19,33 +19,30 @@ const Player = props => {
   };
 
   return (
-    <div>
-      <PlayButton
-        type="button"
-        onClick={() => PlayVideo()}
-        style={{
-          display: playing ? 'none' : 'flex',
-        }}
-      />
-      <ReactPlayer
+    <>
+      {!textural && (
+        <PlayButton
+          type="button"
+          onClick={() => PlayVideo()}
+          style={{
+            display: playing ? 'none' : 'flex',
+          }}
+        />
+      )}
+      <Vimeo
         ref={ref}
-        url={videoUrl}
-        playing={playing}
-        controls
+        video={videoUrl}
+        paused={playing}
+        background={textural}
+        loop={textural}
+        autoplay={textural}
+        muted={textural}
+        responsive={!textural}
         className="react-player"
-        config={{
-          file: { attributes: { id: 'audio-element' } },
-          vimeo: {
-            preload: true,
-            playerOptions: {
-              responsive: true,
-            },
-          },
-        }}
+        height="100%"
         width="100%"
-        height="auto"
       />
-    </div>
+    </>
   );
 };
 
@@ -59,17 +56,19 @@ const Video = props => {
     return (
       <StyledVideoContained>
         <Fade ssrFadeout>
-          <Player videoUrl={blok.videoUrl} />
+          <Player videoUrl={blok.videoUrl} textural={blok.textural} />
         </Fade>
       </StyledVideoContained>
     );
   }
 
   return (
-    <StyledVideoFull isHero={isHero} isFirstBlok={isFirstBlok}>
-      <Fade ssrFadeout>
-        <Player videoUrl={node.videoUrl} />
-      </Fade>
+    <StyledVideoFull
+      isHero={isHero}
+      isFirstBlok={isFirstBlok}
+      textural={node.textural}
+    >
+      <Player videoUrl={node.videoUrl} textural={node.textural} />
     </StyledVideoFull>
   );
 };
@@ -89,20 +88,21 @@ const StyledVideoContained = styled.div`
 
 const StyledVideoFull = styled.div`
   ${tw`w-full relative bg-black`}
+  ${props => props.isHero && props.isFirstBlok && tw`-mt-40`}
+  ${props => !props.textural && `min-height: 400px`}
   ${props =>
-    props.isHero && props.isFirstBlok && tw`-mt-40`}
-  min-height: 400px;
+    props.textural &&
+    `
+      height: 100vh;
+  `}
 
-  @media (max-width: 639px) {
-    height: 50vh;
-
-    .react-player {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      padding-top: 15%;
-    }
+  & .react-player iframe {
+    height: 100%;
+    width: 177.77777778vh; /* 100 * 16 / 9 */
+    min-width: 100%;
+    min-height: 100vh; /* 100 * 9 / 16 */
+    margin: 0 auto;
+    text-align: center;
   }
 `;
 
@@ -148,7 +148,8 @@ const PlayButton = styled.span`
 Video.propTypes = {
   firstBlok: PropTypes.string.isRequired,
   isHero: PropTypes.bool,
-  grid: PropTypes.bool.isRequired,
+  textural: PropTypes.bool,
+  grid: PropTypes.bool,
   blok: PropTypes.shape({
     videoUrl: PropTypes.string,
   }),
@@ -160,6 +161,8 @@ Video.propTypes = {
 
 Video.defaultProps = {
   isHero: false,
+  grid: false,
+  textural: false,
   blok: PropTypes.shape({
     videoUrl: 'https://vimeo.com/362097506',
   }),
@@ -170,6 +173,7 @@ Video.defaultProps = {
 
 Player.propTypes = {
   videoUrl: PropTypes.string,
+  textural: PropTypes.string.isRequired,
 };
 
 Player.defaultProps = {
