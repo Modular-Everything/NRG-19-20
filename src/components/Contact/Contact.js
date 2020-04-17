@@ -146,7 +146,8 @@ const Overlay = styled.div`
   );
 
   & p {
-    ${tw`flex items-center text-white absolute bottom-0 mb-8 text-sm`}
+    font-family: 'Simplon BP', -apple-system, 'Helvetica Neue', sans-serif;
+    ${tw`flex items-center text-white absolute bottom-0 mb-8 text-sm md:text-base`}
 
     & img {
       ${tw`w-3 ml-2`}
