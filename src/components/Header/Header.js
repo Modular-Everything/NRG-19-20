@@ -213,7 +213,7 @@ export default Header;
 
 const HeaderBG = styled.header`
   ${tw`
-    relative h-auto flex z-50 font-sans w-full
+    relative h-auto flex z-50 font-sans w-full py-8
     sm:content-center sm:h-32
   `}
 
@@ -242,12 +242,12 @@ const HeaderBG = styled.header`
       }
   `}
 
-  & div > div {
+  /* & div > div {
     ${tw`
       self-start my-8
       sm:my-0 sm:self-center
     `}
-  }
+  } */
 `;
 
 const Navigation = styled.div`
