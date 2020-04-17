@@ -56,7 +56,7 @@ const Header = props => {
         noGutter={noGutter}
       >
         <Container display="flex">
-          <div>
+          <div className="plus">
             {!mode.menuOpen && (
               <button
                 type="button"
@@ -176,7 +176,7 @@ const Header = props => {
             </Navigation>
           )}
 
-          <div>
+          <div className="burger">
             {!mode.contactOpen && (
               <button
                 type="button"
@@ -242,12 +242,12 @@ const HeaderBG = styled.header`
       }
   `}
 
-  /* & div > div {
+  & .plus, & .burger {
     ${tw`
-      self-start my-8
-      sm:my-0 sm:self-center
+      mt-0
+      sm:mt-4
     `}
-  } */
+  }
 `;
 
 const Navigation = styled.div`
@@ -266,8 +266,8 @@ const Navigation = styled.div`
 
   & ul {
     ${tw`
-      flex flex-col text-3xl
-      sm:flex-row sm:text-2xl
+      flex flex-col text-3xl mt-0
+      sm:flex-row sm:text-2xl sm:mt-3
     `}
 
     & li {
@@ -307,7 +307,7 @@ const Contact = styled.div`
 
   & ul {
     ${tw`
-      flex flex-col text-2xl -mt-2
+      flex flex-col text-2xl -mt-3
       sm:flex-row
     `}
 
