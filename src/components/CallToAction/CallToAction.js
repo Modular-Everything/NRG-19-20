@@ -20,9 +20,7 @@ const CallToAction = props => {
         <Fade ssrFadeout>
           {cta}
           <span>
-            <Fade left ssrFadeout>
-              <img src={ArrowWhite} alt="->" />
-            </Fade>
+            <img src={ArrowWhite} alt="->" />
           </span>
         </Fade>
       </StyledCTA>
@@ -35,9 +33,7 @@ const CallToAction = props => {
         <Fade ssrFadeout>
           {cta}
           <span>
-            <Fade left ssrFadeout>
-              <img src={ArrowWhite} alt="->" />
-            </Fade>
+            <img src={ArrowWhite} alt="->" />
           </span>
         </Fade>
       </StyledCTA>
@@ -48,9 +44,7 @@ const CallToAction = props => {
       <Fade ssrFadeout>
         {cta}
         <span>
-          <Fade left ssrFadeout>
-            <img src={ArrowRed} alt="->" />
-          </Fade>
+          <img src={ArrowRed} alt="->" />
         </span>
       </Fade>
     </StyledCTA>
@@ -66,7 +60,7 @@ const StyledCTA = styled.div`
     flex-row
     items-center
     text-sm
-    lg:text-base
+    lg:text-lg
   `}
   color: ${({ color }) => color};
   font-family: 'Simplon BP', -apple-system, 'Helvetica Neue', sans-serif;
