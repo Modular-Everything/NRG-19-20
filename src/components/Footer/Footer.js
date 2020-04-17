@@ -1,4 +1,5 @@
 import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 
 import Fade from 'react-reveal/Fade';
 
@@ -12,16 +13,24 @@ import Makers from '../../../static/images/makers.svg';
 // ============================================================================
 
 const Footer = () => {
+  const query = useStaticQuery(graphql`
+    {
+      storyblokEntry(name: { eq: "Footer" }) {
+        content
+      }
+    }
+  `);
+
+  const data = JSON.parse(query.storyblokEntry.content);
+
   return (
     <StyledFooter>
       <Fade ssrFadeout>
         <Container>
           <Top>
             <div>
-              <p>Like what you see?</p>
-              <Contact href="mailto:info@madewithnrg.com">
-                info@madewithnrg.com
-              </Contact>
+              <p>{data.caption}</p>
+              <Contact href={`mailto:${data.email}`}>{data.email}</Contact>
             </div>
 
             <div>
@@ -36,51 +45,17 @@ const Footer = () => {
 
           <Bottom>
             <Social>
-              <li>
-                <a
-                  href="https://instagram.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Instagram
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://twitter.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Twitter
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://facebook.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Facebook
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://vimeo.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Vimeo
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://linkedin.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  LinkedIn
-                </a>
-              </li>
+              {data.social.map(node => (
+                <li>
+                  <a
+                    href={node.url.cached_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {node.name}
+                  </a>
+                </li>
+              ))}
             </Social>
             <p>&copy; NRG 2020</p>
           </Bottom>

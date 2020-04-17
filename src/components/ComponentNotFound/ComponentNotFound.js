@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ComponentNotFound = () => {
-  return <div>Oh no an error</div>;
+  return <div>No preview available.</div>;
 };
 
 export default ComponentNotFound;
