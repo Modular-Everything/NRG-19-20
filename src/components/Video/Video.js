@@ -39,8 +39,6 @@ const Player = props => {
         muted={textural}
         responsive={!textural}
         className="react-player"
-        height="100%"
-        width="100%"
       />
     </>
   );
@@ -87,22 +85,35 @@ const StyledVideoContained = styled.div`
 `;
 
 const StyledVideoFull = styled.div`
-  ${tw`w-full relative bg-black`}
+  ${tw`w-full relative bg-black overflow-hidden`}
   ${props => props.isHero && props.isFirstBlok && tw`-mt-40`}
   ${props => !props.textural && `min-height: 400px`}
   ${props =>
     props.textural &&
     `
-      height: 100vh;
+      height: 90vh;
   `}
 
+  & .react-player {
+    transform: scale(3.5);
+
+    @media (min-width: 768px) {
+      transform: scale(2);
+    }
+
+    @media (min-width: 1024px) {
+      transform: scale(1.5);
+    }
+
+    ${tw`
+      w-full h-full
+    `}
+  }
+
   & .react-player iframe {
-    height: 100%;
-    width: 177.77777778vh; /* 100 * 16 / 9 */
-    min-width: 100%;
-    min-height: 100vh; /* 100 * 9 / 16 */
-    margin: 0 auto;
-    text-align: center;
+    ${tw`
+      h-full object-cover w-full
+    `}
   }
 `;
 
