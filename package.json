@@ -28,6 +28,7 @@
     "gatsby-source-filesystem": "^2.1.43",
     "gatsby-source-googlemaps-static": "^1.1.1",
     "gatsby-source-storyblok": "^0.2.6",
+    "gatsby-storyblok-image": "^0.2.2",
     "gatsby-transformer-sharp": "^2.3.9",
     "postcss": "^7.0.25",
     "postcss-import": "^12.0.1",

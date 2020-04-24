@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Img from 'gatsby-image';
+import { getFluidGatsbyImage } from 'gatsby-storyblok-image';
+
 import tw from 'tailwind.macro';
 import styled from '@emotion/styled';
 
@@ -7,21 +10,29 @@ import styled from '@emotion/styled';
 
 const CardImage = props => {
   const { is: image, altRatio } = props;
+  if (!image) return false;
+
+  const fluidProps = getFluidGatsbyImage(image, { maxWidth: 900 });
 
   const ImageWrap = styled.div`
-    ${tw`relative`}
-    ${altRatio
-      ? `padding-top: calc(632 / 1346 * 100%);`
-      : `padding-top: calc(897 / 1346 * 100%);`}
+    & .gatsby-image-wrapper div {
+      ${altRatio
+        ? `padding-bottom: calc(632 / 1346 * 100%);`
+        : `padding-bottom: calc(897 / 1346 * 100%);`}
+    }
   `;
 
-  const StyledImage = styled.img`
-    ${tw`absolute object-cover rounded-lg w-full h-full top-0`};
+  const StyledImage = styled.div`
+    & img {
+      ${tw`rounded-lg w-full h-full top-0`};
+    }
   `;
 
   return (
     <ImageWrap>
-      <StyledImage src={image} alt="" />
+      <StyledImage>
+        <Img fluid={fluidProps} />
+      </StyledImage>
     </ImageWrap>
   );
 };
