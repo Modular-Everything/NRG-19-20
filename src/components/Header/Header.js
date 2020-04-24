@@ -59,6 +59,7 @@ const Header = props => {
           <div className="plus">
             {!mode.menuOpen && (
               <button
+                aria-label="Open Contact Menu"
                 type="button"
                 onClick={() => setMode({ contactOpen: !mode.contactOpen })}
                 css={css`
@@ -179,6 +180,7 @@ const Header = props => {
           <div className="burger">
             {!mode.contactOpen && (
               <button
+                aria-label="Open Navigation Menu"
                 type="button"
                 onClick={() => setMode({ menuOpen: !mode.menuOpen })}
                 css={css`
