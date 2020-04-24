@@ -20,7 +20,7 @@ import LogoDark from '../../../static/images/logo-dark.svg';
 // ============================================================================
 
 const Header = props => {
-  const { hasHero, isInverted, hasFade, name, noGutter } = props;
+  const { hasHero, isInverted, hasFade, name, noGutter, description } = props;
 
   const data = useStaticQuery(graphql`
     query MetaData {
@@ -43,10 +43,8 @@ const Header = props => {
     <>
       <Helmet>
         <html lang="en" />
-        <title>
-          {SiteTitle}
-          {name !== `Home` ? ` — ${name}` : ``}
-        </title>
+        <title>{name}</title>
+        {description && <meta name="Description" content={description} />}
       </Helmet>
 
       <HeaderBG
@@ -342,6 +340,7 @@ Header.propTypes = {
   hasFade: PropTypes.bool,
   name: PropTypes.string.isRequired,
   noGutter: PropTypes.bool,
+  description: PropTypes.string,
 };
 
 Header.defaultProps = {
@@ -349,4 +348,5 @@ Header.defaultProps = {
   isInverted: false,
   hasFade: false,
   noGutter: false,
+  description: 'Creators, makers and builders.',
 };
