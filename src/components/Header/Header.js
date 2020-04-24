@@ -42,6 +42,7 @@ const Header = props => {
   return (
     <>
       <Helmet>
+        <html lang="en" />
         <title>
           {SiteTitle}
           {name !== `Home` ? ` — ${name}` : ``}
