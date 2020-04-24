@@ -31,8 +31,8 @@ const Contact = props => {
   return (
     <Layout>
       <Header
-        name={blok.meta.title ? blok.meta.title : 'Contact'}
-        description={blok.meta.description && blok.meta.description}
+        name={blok.meta ? blok.meta.title : `NRG — Contact`}
+        description={blok.meta && blok.meta.description}
         noGutter
       />
       <Map>

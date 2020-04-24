@@ -14,8 +14,8 @@ const Page = props => {
   return (
     <Layout>
       <Header
-        name={blok.meta.title ? blok.meta.title : name}
-        description={blok.meta.description && blok.meta.description}
+        name={blok.meta ? blok.meta.title : `NRG${' '}—${' '}${name}`}
+        description={blok.meta && blok.meta.description}
         hasHero={blok.isHero}
         isInverted={blok.isInverted}
         hasFade={blok.hasFade}

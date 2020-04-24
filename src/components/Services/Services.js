@@ -14,7 +14,7 @@ const Services = props => {
   return (
     <Layout>
       <Header
-        name={blok.meta.title ? blok.meta.title : 'Services'}
+        name={blok.meta ? blok.meta.title : `Services`}
         description={blok.meta.description && blok.meta.description}
         noGutter
       />
