@@ -11,17 +11,11 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-netlify-headers`,
     `gatsby-plugin-resolve-src`,
+    `gatsby-plugin-emotion`,
+    `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-source-filesystem`,
       options: { path: `./static/images/` },
-    },
-    {
-      resolve: `gatsby-plugin-emotion`,
-      options: {},
-    },
-    {
-      resolve: `gatsby-plugin-postcss`,
-      options: {},
     },
     {
       resolve: `gatsby-source-storyblok`,
