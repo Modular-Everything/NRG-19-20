@@ -26,5 +26,14 @@ module.exports = {
         version: process.env.NODE_ENV === `production` ? `published` : `draft`,
       },
     },
+    {
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        // Setting a color is optional.
+        color: `#ff1200`,
+        // Disable the loading spinner.
+        showSpinner: false,
+      },
+    },
   ],
 };
