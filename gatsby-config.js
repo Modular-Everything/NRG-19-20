@@ -33,6 +33,18 @@ module.exports = {
         showSpinner: false,
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `NRG Agency`,
+        short_name: `NRG`,
+        start_url: `/`,
+        background_color: `#ff1200`,
+        theme_color: `#ff1200`,
+        display: `standalone`,
+        icon: `static/images/favicon.png`,
+      },
+    },
     `gatsby-plugin-offline`,
   ],
 };
