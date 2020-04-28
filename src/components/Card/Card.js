@@ -115,7 +115,7 @@ Card.propTypes = {
     cta: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     width: PropTypes.string.isRequired,
-    link: PropTypes.string.isRequired,
+    link: PropTypes.objectOf(PropTypes.string).isRequired,
     excerpt: PropTypes.string.isRequired,
   }).isRequired,
 };
