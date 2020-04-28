@@ -184,7 +184,7 @@ Video.defaultProps = {
 
 Player.propTypes = {
   videoUrl: PropTypes.string,
-  textural: PropTypes.string.isRequired,
+  textural: PropTypes.bool.isRequired,
 };
 
 Player.defaultProps = {
