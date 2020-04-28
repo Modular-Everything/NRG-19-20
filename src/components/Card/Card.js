@@ -83,7 +83,7 @@ const Card = props => {
     <SbEditable content={blok}>
       <StyledCard>
         <Fade ssrFadeout>
-          <Link to={link !== undefined ? link.cached_url : `/`}>
+          <Link to={link !== undefined ? `/${link.cached_url}` : `/`}>
             {ext.test(image) ? (
               <CardVideo is={image} />
             ) : (
