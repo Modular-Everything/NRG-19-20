@@ -17,8 +17,8 @@ const CardImage = props => {
   const ImageWrap = styled.div`
     & .gatsby-image-wrapper div {
       ${altRatio
-        ? `padding-bottom: calc(632 / 1346 * 100%);`
-        : `padding-bottom: calc(897 / 1346 * 100%);`}
+        ? `padding-bottom: calc(632 / 1346 * 100%) !important;`
+        : `padding-bottom: calc(897 / 1346 * 100%) !important;`}
     }
   `;
 
