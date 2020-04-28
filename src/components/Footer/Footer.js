@@ -46,7 +46,8 @@ const Footer = () => {
           <Bottom>
             <Social>
               {data.social.map(node => (
-                <li>
+                // eslint-disable-next-line no-underscore-dangle
+                <li key={node._uid}>
                   <a
                     href={node.url.cached_url}
                     target="_blank"
