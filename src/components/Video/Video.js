@@ -161,9 +161,7 @@ Video.propTypes = {
   isHero: PropTypes.bool,
   textural: PropTypes.bool,
   grid: PropTypes.bool,
-  blok: PropTypes.shape({
-    videoUrl: PropTypes.string,
-  }),
+  blok: PropTypes.func,
   node: PropTypes.shape({
     videoUrl: PropTypes.string,
     component: PropTypes.string.isRequired,

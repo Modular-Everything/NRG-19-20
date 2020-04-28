@@ -117,14 +117,14 @@ const PageDesc = styled.div`
 
 PageIntro.propTypes = {
   node: PropTypes.shape({
-    columns: PropTypes.array.isRequired,
+    columns: PropTypes.array,
     copy: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
     title: PropTypes.string,
     subtitle: PropTypes.string,
     strapline: PropTypes.string,
     cta: PropTypes.string,
-    ctaLink: PropTypes.string,
+    ctaLink: PropTypes.object,
   }),
 };
 

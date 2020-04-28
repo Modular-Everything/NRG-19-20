@@ -25,15 +25,14 @@ const Divider = styled.div`
 // ============================================================================
 
 Spacer.propTypes = {
-  node: PropTypes.objectOf({
-    spacing: PropTypes.string,
+  node: PropTypes.shape({
+    spacing: PropTypes.string.isRequired,
     guide: PropTypes.bool,
   }),
 };
 
 Spacer.defaultProps = {
   node: {
-    spacing: 4,
     guide: false,
   },
 };
