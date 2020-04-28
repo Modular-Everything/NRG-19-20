@@ -16,16 +16,16 @@ const TextBlock = props => {
       return null;
     }
     return (
-      <StyledText>
-        <Fade ssrFadeout>{children[0].props.value}</Fade>
-      </StyledText>
+      <Fade ssrFadeout>
+        <StyledText>{children[0].props.value}</StyledText>
+      </Fade>
     );
   }
 
   return (
-    <StyledText>
-      <Fade ssrFadeout>{text}</Fade>
-    </StyledText>
+    <Fade ssrFadeout>
+      <StyledText>{text}</StyledText>
+    </Fade>
   );
 };
 
