@@ -71,6 +71,7 @@ const Contact = props => {
                   href={node.url.cached_url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  key={node._uid}
                 >
                   <li>
                     <img src={node.icon} alt="Social" />
@@ -293,12 +294,12 @@ Contact.propTypes = {
     mapMobile: PropTypes.string.isRequired,
     number: PropTypes.string.isRequired,
     address: PropTypes.string.isRequired,
-    mapLink: PropTypes.objectOf({
+    mapLink: PropTypes.shape({
       cached_url: PropTypes.string.isRequired,
     }).isRequired,
     socialMedia: PropTypes.arrayOf({
       icon: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired,
+      url: PropTypes.objectOf(PropTypes.string).isRequired,
     }),
     workWithUs: PropTypes.string.isRequired,
     workWithYou: PropTypes.string.isRequired,
