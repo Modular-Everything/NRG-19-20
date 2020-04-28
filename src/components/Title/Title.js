@@ -31,7 +31,7 @@ const Title = props => {
 
 // ============================================================================
 
-const StyledTitle = styled.h2`
+const StyledTitle = styled.h1`
   ${tw`
     font-medium leading-normal my-2
     lg:leading-tight

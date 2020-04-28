@@ -19,7 +19,7 @@ const Subtitle = props => {
 
 // ============================================================================
 
-const StyledSubtitle = styled.h3`
+const StyledSubtitle = styled.h2`
   ${tw`
     text-xs
     md:text-sm
