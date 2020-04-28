@@ -11,9 +11,9 @@ const Plus = props => {
   const { active, inverted } = props;
 
   return (
-    <Symbol active={active}>
-      <Line inverted={inverted} />
-      <Line inverted={inverted} />
+    <Symbol active={active} aria-hidden="true">
+      <Line inverted={inverted} aria-hidden="true" />
+      <Line inverted={inverted} aria-hidden="true" />
     </Symbol>
   );
 };

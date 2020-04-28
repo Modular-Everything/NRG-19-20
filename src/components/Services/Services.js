@@ -13,7 +13,11 @@ const Services = props => {
 
   return (
     <Layout>
-      <Header name="Services" noGutter />
+      <Header
+        name={blok.meta ? blok.meta.title : `Services`}
+        description={blok.meta.description && blok.meta.description}
+        noGutter
+      />
       {blok.content &&
         blok.content.map(node =>
           React.createElement(StoryblokComponents(node.component), {
@@ -32,6 +36,10 @@ const Services = props => {
 Services.propTypes = {
   blok: PropTypes.shape({
     content: PropTypes.array.isRequired,
+    meta: PropTypes.objectOf({
+      title: PropTypes.string,
+      description: PropTypes.string,
+    }),
   }).isRequired,
 };
 

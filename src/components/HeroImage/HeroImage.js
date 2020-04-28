@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import Img from 'gatsby-image';
+import { getFluidGatsbyImage } from 'gatsby-storyblok-image';
 import Fade from 'react-reveal/Fade';
 
 import tw from 'tailwind.macro';
@@ -12,6 +13,10 @@ import SbEditable from 'storyblok-react';
 const HeroImage = props => {
   const { node, isHero, firstBlok } = props;
   const { image } = node;
+  if (!image) return false;
+
+  const imageNoHttp = image.replace(/(^\w+:|^)/, '');
+  const fluidProps = getFluidGatsbyImage(imageNoHttp, { maxWidth: 1920 });
 
   const isFirstBlok = firstBlok === node.component;
 
@@ -19,7 +24,7 @@ const HeroImage = props => {
     ${tw`h-screen sm:h-auto`};
     ${isHero && isFirstBlok && tw`-mt-40`}
 
-    img {
+    & .gatsby-image-wrapper div {
       ${tw`w-full h-screen object-cover`}
     }
   `;
@@ -28,7 +33,7 @@ const HeroImage = props => {
     <StyledImage>
       <SbEditable content={node}>
         <Fade ssrFadeout>
-          <img src={image} alt="" />
+          <Img fluid={fluidProps} alt="" />
         </Fade>
       </SbEditable>
     </StyledImage>
