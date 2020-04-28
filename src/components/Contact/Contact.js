@@ -30,7 +30,11 @@ const Contact = props => {
 
   return (
     <Layout>
-      <Header name="Contact" noGutter />
+      <Header
+        name={blok.meta ? blok.meta.title : `NRG — Contact`}
+        description={blok.meta && blok.meta.description}
+        noGutter
+      />
       <Map>
         <a href={mapLink.cached_url} target="_blank" rel="noopener noreferrer">
           <Overlay>
@@ -293,6 +297,10 @@ Contact.propTypes = {
     mapMobile: PropTypes.string.isRequired,
     number: PropTypes.string.isRequired,
     address: PropTypes.string.isRequired,
+    meta: PropTypes.objectOf({
+      title: PropTypes.string,
+      description: PropTypes.string,
+    }),
     mapLink: PropTypes.objectOf({
       cached_url: PropTypes.string.isRequired,
     }).isRequired,

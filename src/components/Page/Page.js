@@ -14,7 +14,8 @@ const Page = props => {
   return (
     <Layout>
       <Header
-        name={name}
+        name={blok.meta ? blok.meta.title : `NRG${' '}—${' '}${name}`}
+        description={blok.meta && blok.meta.description}
         hasHero={blok.isHero}
         isInverted={blok.isInverted}
         hasFade={blok.hasFade}
@@ -43,6 +44,10 @@ Page.propTypes = {
     isHero: PropTypes.bool.isRequired,
     isInverted: PropTypes.bool.isRequired,
     hasFade: PropTypes.bool.isRequired,
+    meta: PropTypes.objectOf({
+      title: PropTypes.string,
+      description: PropTypes.string,
+    }),
   }).isRequired,
 };
 

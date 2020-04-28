@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import Img from 'gatsby-image';
+import { getFluidGatsbyImage } from 'gatsby-storyblok-image';
 import Fade from 'react-reveal/Fade';
 
 import tw from 'tailwind.macro';
@@ -29,6 +30,9 @@ const StaticImage = props => {
     }
   `;
 
+  const imageNoHttp = image.replace(/(^\w+:|^)/, '');
+  const fluidProps = getFluidGatsbyImage(imageNoHttp, { maxWidth: 1080 });
+
   const ext = RegExp(/(.mp4)/);
 
   return (
@@ -45,7 +49,7 @@ const StaticImage = props => {
       ) : (
         <StyledImage>
           <Fade ssrFadeout>
-            <img css={tw`w-full`} src={image} alt="" />
+            <Img fluid={fluidProps} alt="" />
             {caption && <Caption is={caption} />}
           </Fade>
         </StyledImage>

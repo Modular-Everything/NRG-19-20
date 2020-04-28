@@ -20,7 +20,7 @@ import LogoDark from '../../../static/images/logo-dark.svg';
 // ============================================================================
 
 const Header = props => {
-  const { hasHero, isInverted, hasFade, name, noGutter } = props;
+  const { hasHero, isInverted, hasFade, name, noGutter, description } = props;
 
   const data = useStaticQuery(graphql`
     query MetaData {
@@ -42,10 +42,9 @@ const Header = props => {
   return (
     <>
       <Helmet>
-        <title>
-          {SiteTitle}
-          {name !== `Home` ? ` — ${name}` : ``}
-        </title>
+        <html lang="en" />
+        <title>{name}</title>
+        {description && <meta name="Description" content={description} />}
       </Helmet>
 
       <HeaderBG
@@ -59,6 +58,7 @@ const Header = props => {
           <div className="plus">
             {!mode.menuOpen && (
               <button
+                aria-label="Open Contact Menu"
                 type="button"
                 onClick={() => setMode({ contactOpen: !mode.contactOpen })}
                 css={css`
@@ -179,6 +179,7 @@ const Header = props => {
           <div className="burger">
             {!mode.contactOpen && (
               <button
+                aria-label="Open Navigation Menu"
                 type="button"
                 onClick={() => setMode({ menuOpen: !mode.menuOpen })}
                 css={css`
@@ -339,6 +340,7 @@ Header.propTypes = {
   hasFade: PropTypes.bool,
   name: PropTypes.string.isRequired,
   noGutter: PropTypes.bool,
+  description: PropTypes.string,
 };
 
 Header.defaultProps = {
@@ -346,4 +348,5 @@ Header.defaultProps = {
   isInverted: false,
   hasFade: false,
   noGutter: false,
+  description: 'Creators, makers and builders.',
 };

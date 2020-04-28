@@ -22,6 +22,7 @@ const Player = props => {
     <>
       {!textural && (
         <PlayButton
+          aria-label="Play Video"
           type="button"
           onClick={() => PlayVideo()}
           style={{
