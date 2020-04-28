@@ -74,7 +74,11 @@ const StyledCTA = styled.span`
 
 CallToAction.propTypes = {
   is: PropTypes.string.isRequired,
-  color: PropTypes.string.isRequired,
+  color: PropTypes.string,
+};
+
+CallToAction.defaultProps = {
+  color: 'red',
 };
 
 // ============================================================================
