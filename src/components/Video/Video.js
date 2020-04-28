@@ -157,11 +157,13 @@ const PlayButton = styled.span`
 // ============================================================================
 
 Video.propTypes = {
-  firstBlok: PropTypes.string.isRequired,
+  firstBlok: PropTypes.string,
   isHero: PropTypes.bool,
   textural: PropTypes.bool,
   grid: PropTypes.bool,
-  blok: PropTypes.func,
+  blok: PropTypes.shape({
+    videoUrl: PropTypes.string,
+  }),
   node: PropTypes.shape({
     videoUrl: PropTypes.string,
     component: PropTypes.string.isRequired,
@@ -169,6 +171,7 @@ Video.propTypes = {
 };
 
 Video.defaultProps = {
+  firstBlok: undefined,
   isHero: false,
   grid: false,
   textural: false,
@@ -182,11 +185,12 @@ Video.defaultProps = {
 
 Player.propTypes = {
   videoUrl: PropTypes.string,
-  textural: PropTypes.bool.isRequired,
+  textural: PropTypes.bool,
 };
 
 Player.defaultProps = {
   videoUrl: 'https://vimeo.com/362097506',
+  textural: false,
 };
 
 // ============================================================================

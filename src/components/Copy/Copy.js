@@ -40,7 +40,7 @@ Copy.propTypes = {
   blok: PropTypes.shape({
     markdown: PropTypes.string.isRequired,
     width: PropTypes.string.isRequired,
-    fontScale: PropTypes.number.isRequired,
+    fontScale: PropTypes.string.isRequired,
   }).isRequired,
 };
 
