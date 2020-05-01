@@ -33,7 +33,7 @@ const Player = props => {
       <Vimeo
         ref={ref}
         video={videoUrl}
-        paused={playing}
+        paused={!playing}
         background={textural}
         loop={textural}
         autoplay={textural}
@@ -112,9 +112,9 @@ const StyledVideoFull = styled.div`
   }
 
   & .react-player iframe {
-    ${tw`
+    /* ${tw`
       h-full object-cover w-full
-    `}
+    `} */
   }
 `;
 
