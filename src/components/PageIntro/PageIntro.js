@@ -18,7 +18,7 @@ import ComponentNotFound from '../ComponentNotFound';
 // ============================================================================
 
 const PageIntro = props => {
-  const { node } = props;
+  const { node, firstBlok } = props;
 
   if (!node) return <ComponentNotFound />;
 
@@ -31,16 +31,16 @@ const PageIntro = props => {
       ? `var(--color-brand)`
       : `var(--color-${color}-primary)`};
 
-    ${props.firstBlok === 'pageIntro' && tw`-mt-4`}
+    ${firstBlok === 'pageIntro' && tw`-mt-4`}
 
     & p,
-    & h3,
-    & h2 {
+    & h2,
+    & h1 {
       color: ${color === `white`
         ? `var(--color-black-primary)`
         : `var(--color-white-primary)`};
     }
-    & h3 {
+    & h2 {
       ${tw`mb-2`}
     }
   `;
