@@ -96,7 +96,7 @@ const Card = props => {
               </div>
               <div>
                 <TextBlock is={excerpt} />
-                <CallToAction is={cta} />
+                <CallToAction is={cta} color="white" />
               </div>
             </CardContent>
           </Link>

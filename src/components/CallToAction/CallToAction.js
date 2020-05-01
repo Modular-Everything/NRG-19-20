@@ -17,7 +17,7 @@ const CallToAction = props => {
   if (color === 'red') {
     return (
       <Fade ssrFadeout>
-        <StyledCTA color="white">
+        <StyledCTA ctaColor="white">
           {cta}
           <span>
             <img src={ArrowWhite} alt="->" />
@@ -30,7 +30,7 @@ const CallToAction = props => {
   if (color === 'black') {
     return (
       <Fade ssrFadeout>
-        <StyledCTA color="white">
+        <StyledCTA ctaColor="white">
           {cta}
           <span>
             <img src={ArrowWhite} alt="->" />
@@ -41,7 +41,7 @@ const CallToAction = props => {
   }
   return (
     <Fade ssrFadeout>
-      <StyledCTA color="red">
+      <StyledCTA ctaColor="red">
         {cta}
         <span>
           <img src={ArrowRed} alt="->" />
@@ -62,7 +62,7 @@ const StyledCTA = styled.span`
     text-sm
     lg:text-lg
   `}
-  color: ${({ color }) => color};
+  color: ${({ ctaColor }) => ctaColor};
   font-family: 'Simplon BP', -apple-system, 'Helvetica Neue', sans-serif;
 
   & span {
