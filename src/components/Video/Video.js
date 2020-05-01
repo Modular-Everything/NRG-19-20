@@ -7,6 +7,8 @@ import tw from 'tailwind.macro';
 import styled from '@emotion/styled';
 import Vimeo from '@u-wave/react-vimeo';
 
+import Placeholder from '../../../static/images/placeholder.webp';
+
 // ============================================================================
 
 const Player = props => {
@@ -66,6 +68,7 @@ const Video = props => {
       isHero={isHero}
       isFirstBlok={isFirstBlok}
       textural={node.textural}
+      bg={Placeholder}
     >
       <Player videoUrl={node.videoUrl} textural={node.textural} />
     </StyledVideoFull>
@@ -87,6 +90,8 @@ const StyledVideoContained = styled.div`
 
 const StyledVideoFull = styled.div`
   ${tw`w-full relative bg-black overflow-hidden`}
+    background-size: cover;
+  ${props => props.bg && `background-image: url(${props.bg});`}
   ${props => props.isHero && props.isFirstBlok && tw`-mt-40`}
   ${props => !props.textural && `min-height: 400px`}
   ${props =>
