@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import Fade from 'react-reveal/Fade';
-
 import tw from 'tailwind.macro';
 import styled from '@emotion/styled';
 import Vimeo from '@u-wave/react-vimeo';
@@ -54,9 +52,7 @@ const Video = props => {
   if (grid) {
     return (
       <StyledVideoContained>
-        <Fade ssrFadeout>
-          <Player videoUrl={blok.videoUrl} textural={blok.textural} />
-        </Fade>
+        <Player videoUrl={blok.videoUrl} textural={blok.textural} />
       </StyledVideoContained>
     );
   }
@@ -112,9 +108,9 @@ const StyledVideoFull = styled.div`
   }
 
   & .react-player iframe {
-    /* ${tw`
-      h-full object-cover w-full
-    `} */
+    ${tw`
+      h-full w-full object-fit
+    `}
   }
 `;
 
