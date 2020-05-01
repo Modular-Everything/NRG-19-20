@@ -75,7 +75,7 @@ const Video = props => {
 // ============================================================================
 
 const StyledVideoContained = styled.div`
-  ${tw`relative bg-transparent rounded-lg overflow-hidden`}
+  ${tw`relative bg-black rounded-lg overflow-hidden`}
   min-height: 200px;
   grid-column: span 12;
 
@@ -86,7 +86,7 @@ const StyledVideoContained = styled.div`
 `;
 
 const StyledVideoFull = styled.div`
-  ${tw`w-full relative bg-transparent overflow-hidden`}
+  ${tw`w-full relative bg-black overflow-hidden`}
   ${props => props.isHero && props.isFirstBlok && tw`-mt-40`}
   ${props => !props.textural && `min-height: 400px`}
   ${props =>
