@@ -58,31 +58,6 @@ const Wrapper = styled.ul`
   }
 `;
 
-// const Swiper = styled.ul`
-//   ${tw`my-4`}
-//   display: grid;
-//   grid-gap: 1rem;
-//   grid-template-columns: repeat(12, 1fr);
-
-//   @media (max-width: 639px) {
-//     display: grid;
-//     grid-template-columns: 0 repeat(3, calc(50% - 40px)) 1px;
-//     grid-gap: 1rem;
-//     overflow: scroll;
-//     -webkit-overflow-scrolling: touch;
-//     margin: 0 -1rem;
-
-//     &::before,
-//     &::after {
-//       content: '';
-//     }
-
-//     & li {
-//       grid-column: auto;
-//     }
-//   }
-// `;
-
 // ============================================================================
 
 Grid.propTypes = {

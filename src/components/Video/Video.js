@@ -63,10 +63,13 @@ const Video = props => {
     <StyledVideoFull
       isHero={isHero}
       isFirstBlok={isFirstBlok}
-      textural={node.textural}
+      textural={node.textural !== undefined ? node.textural : true}
       bg={Placeholder}
     >
-      <Player videoUrl={node.videoUrl} textural={node.textural} />
+      <Player
+        videoUrl={node.videoUrl}
+        textural={node.textural !== undefined ? node.textural : true}
+      />
     </StyledVideoFull>
   );
 };
@@ -161,12 +164,13 @@ const PlayButton = styled.span`
 Video.propTypes = {
   firstBlok: PropTypes.string,
   isHero: PropTypes.bool,
-  textural: PropTypes.bool,
   grid: PropTypes.bool,
   blok: PropTypes.shape({
+    textural: PropTypes.bool,
     videoUrl: PropTypes.string,
   }),
   node: PropTypes.shape({
+    textural: PropTypes.bool,
     videoUrl: PropTypes.string,
     component: PropTypes.string.isRequired,
   }),
@@ -176,11 +180,12 @@ Video.defaultProps = {
   firstBlok: undefined,
   isHero: false,
   grid: false,
-  textural: false,
   blok: PropTypes.shape({
+    textural: false,
     videoUrl: 'https://vimeo.com/362097506',
   }),
   node: PropTypes.shape({
+    textural: false,
     videoUrl: 'https://vimeo.com/362097506',
   }),
 };
