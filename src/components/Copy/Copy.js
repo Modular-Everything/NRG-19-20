@@ -19,7 +19,10 @@ const Copy = props => {
     font-size: ${blok.fontScale}%;
 
     & h1 {
-      ${tw`mb-3 mt-0`};
+      ${tw`
+        mb-3 mt-0 leading-tight
+        lg:leading-snug
+      `};
     }
 
     @media (max-width: 768px) {
