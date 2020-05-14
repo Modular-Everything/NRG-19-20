@@ -20,7 +20,21 @@ const Credits = props => {
           <StyledUl>
             {node.credits.map(credit => (
               <Credit>
-                {credit.creditName}
+                {credit.link ? (
+                  <a
+                    href={
+                      credit.link.linktype === 'url'
+                        ? credit.link.url
+                        : `mailto:${credit.link.email}`
+                    }
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {credit.creditName}
+                  </a>
+                ) : (
+                  credit.creditName
+                )}
                 <span>{credit.creditRole}</span>
               </Credit>
             ))}
@@ -61,6 +75,10 @@ const Credit = styled.li`
       block
     `}
     color: var(--color-brand);
+  }
+
+  & a {
+    ${tw`underline`}
   }
 `;
 
