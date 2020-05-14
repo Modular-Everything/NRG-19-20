@@ -13,6 +13,8 @@ import Container from '../Container';
 const Credits = props => {
   const { node } = props;
 
+  console.log(node);
+
   return (
     <StyledCredits>
       <Fade ssrFadeout>
@@ -20,11 +22,11 @@ const Credits = props => {
           <StyledUl>
             {node.credits.map(credit => (
               <Credit>
-                {credit.link ? (
+                {credit.link && credit.link.cached_url !== '' ? (
                   <a
                     href={
                       credit.link.linktype === 'url'
-                        ? credit.link.url
+                        ? credit.link.cached_url
                         : `mailto:${credit.link.email}`
                     }
                     target="_blank"
