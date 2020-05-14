@@ -43,7 +43,7 @@ const Header = props => {
     <>
       <Helmet>
         <html lang="en" />
-        <title>{name}</title>
+        <title>{name || SiteTitle}</title>
         {description && <meta name="Description" content={description} />}
       </Helmet>
 
