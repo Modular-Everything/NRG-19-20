@@ -40,6 +40,11 @@ const ProjectIntro = props => {
           : `var(--color-white-primary)`
       };
     }
+
+    & p {
+      ${tw`mb-2`}
+    }
+
     & h2 {
       ${tw`mb-2`}
     }
@@ -90,10 +95,6 @@ const ProjectDesc = styled.div`
     sm:pl-6
     md:pl-12
   `}
-
-  & p:last-of-type {
-    ${tw`mb-0`}
-  }
 `;
 
 // ============================================================================
