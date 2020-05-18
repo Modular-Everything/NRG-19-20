@@ -86,6 +86,11 @@ const StoryblokEntry = () => {
                     transition-duration: 0s !important;
                     transform: scale(1) !important;
           }
+
+          .react-reveal {
+            animation: none !important;
+            opacity: 1 !important;
+          }
         `}</style>
       </Helmet>
 
