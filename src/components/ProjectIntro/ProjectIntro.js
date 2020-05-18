@@ -61,9 +61,9 @@ const ProjectIntro = props => {
                 <Title is={title} />
               </div>
               <Tags color={color}>
-                {node.tagList.map(tag => (
-                  <li>{tag.tagName}</li>
-                ))}
+                {node.tags
+                  ? node.tags.map(tag => <li>{tag}</li>)
+                  : node.tagList.map(tag => <li>{tag.tagName}</li>)}
               </Tags>
             </ProjectMeta>
 
@@ -100,14 +100,23 @@ const ProjectDesc = styled.div`
 // ============================================================================
 
 ProjectIntro.propTypes = {
+  firstBlok: PropTypes.string.isRequired,
   node: PropTypes.shape({
     columns: PropTypes.array.isRequired,
     copy: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string.isRequired,
-    tagList: PropTypes.array.isRequired,
-  }).isRequired,
+    tags: PropTypes.array,
+    tagList: PropTypes.array,
+  }),
+};
+
+ProjectIntro.defaultProps = {
+  node: {
+    tags: null,
+    tagList: null,
+  },
 };
 
 // ============================================================================
