@@ -14,6 +14,7 @@ import Video from '../Video';
 import Credits from '../Credits';
 import ContactCard from '../ContactCard';
 import EmailCard from '../EmailCard';
+import SocialCard from '../SocialCard';
 import Spacer from '../Spacer';
 
 // ============================================================================
@@ -23,6 +24,7 @@ const ComponentList = {
   services: Services,
   contact: Contact,
   emailCard: EmailCard,
+  socialCard: SocialCard,
   contactCard: ContactCard,
   contactDyn: ContactDynamic,
   gridContact: Grid,

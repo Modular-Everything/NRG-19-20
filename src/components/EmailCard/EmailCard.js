@@ -2,13 +2,11 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 import SbEditable from 'storyblok-react';
-import ReactMarkdown from 'react-markdown';
 
 import styled from '@emotion/styled';
 import tw from 'tailwind.macro';
 
 import Subtitle from '../Subtitle';
-import Title from '../Title';
 
 // ============================================================================
 
