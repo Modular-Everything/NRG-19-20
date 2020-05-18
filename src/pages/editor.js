@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { Helmet } from 'react-helmet';
 import config from '../../gatsby-config';
 import StoryblokComponents from '../components/StoryblokComponents';
 
@@ -73,6 +74,21 @@ const StoryblokEntry = () => {
 
   return (
     <>
+      <Helmet>
+        <style type="text/css">{`
+          a {
+            pointer-events: none;
+          }
+
+          * {
+            -webkit-transition-duration: 0s !important;
+                  -o-transition-duration: 0s !important;
+                    transition-duration: 0s !important;
+                    transform: scale(1) !important;
+          }
+        `}</style>
+      </Helmet>
+
       {React.createElement(StoryblokComponents(content.component), {
         // eslint-disable-next-line no-underscore-dangle
         key: content._uid,
