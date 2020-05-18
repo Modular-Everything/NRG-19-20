@@ -23,7 +23,12 @@ const Contact = props => {
         hasFade
       />
 
-      <Video textural isHero />
+      <Video
+        textural
+        isHero
+        caption="Find us on the map"
+        link={blok.mapUrl.cached_url}
+      />
 
       <section>
         {blok.content &&
@@ -48,9 +53,16 @@ export default Contact;
 Contact.propTypes = {
   blok: PropTypes.shape({
     content: PropTypes.array.isRequired,
+    mapUrl: PropTypes.object,
     meta: PropTypes.shape({
       title: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
     }),
-  }).isRequired,
+  }),
+};
+
+Contact.defaultProps = {
+  blok: {
+    mapUrl: null,
+  },
 };
