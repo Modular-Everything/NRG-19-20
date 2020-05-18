@@ -21,7 +21,7 @@ const ProjectIntro = props => {
 
   if (!node) return <ComponentNotFound />;
 
-  const { copy, title, subtitle, color } = node;
+  const { copy, title, subtitle, color, tags, tagList } = node;
 
   const Intro = styled.div`
     ${tw`py-10 sm:py-20`}
@@ -60,11 +60,7 @@ const ProjectIntro = props => {
                 <Subtitle is={subtitle} />
                 <Title is={title} />
               </div>
-              <Tags color={color}>
-                {node.tags
-                  ? node.tags.map(tag => <li>{tag}</li>)
-                  : node.tagList.map(tag => <li>{tag.tagName}</li>)}
-              </Tags>
+              <Tags color={color} tags={tags || tagList} />
             </ProjectMeta>
 
             <ProjectDesc>
