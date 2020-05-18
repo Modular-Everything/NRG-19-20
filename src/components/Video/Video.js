@@ -78,7 +78,6 @@ const Video = props => {
 
 const StyledVideoContained = styled.div`
   ${tw`relative bg-black rounded-lg overflow-hidden`}
-  min-height: 200px;
   grid-column: span 12;
 
   & div,
@@ -184,7 +183,7 @@ Video.defaultProps = {
     textural: false,
     videoUrl: 'https://vimeo.com/362097506',
   }),
-  node: PropTypes.shape({
+  node: PropTypes.objectOf({
     textural: false,
     videoUrl: 'https://vimeo.com/362097506',
   }),

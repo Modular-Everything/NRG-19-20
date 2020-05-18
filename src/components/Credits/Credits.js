@@ -13,15 +13,14 @@ import Container from '../Container';
 const Credits = props => {
   const { node } = props;
 
-  console.log(node);
-
   return (
     <StyledCredits>
       <Fade ssrFadeout>
         <Container>
           <StyledUl>
             {node.credits.map(credit => (
-              <Credit>
+              // eslint-disable-next-line no-underscore-dangle
+              <Credit key={credit._uid}>
                 {credit.link && credit.link.cached_url !== '' ? (
                   <a
                     href={

@@ -44,10 +44,7 @@ Page.propTypes = {
     isHero: PropTypes.bool.isRequired,
     isInverted: PropTypes.bool.isRequired,
     hasFade: PropTypes.bool.isRequired,
-    meta: PropTypes.objectOf({
-      title: PropTypes.string,
-      description: PropTypes.string,
-    }),
+    meta: PropTypes.object,
   }).isRequired,
 };
 
