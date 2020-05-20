@@ -31,7 +31,7 @@ const EmailCard = props => {
           {emailA && (
             <Email>
               <Label>{emailALabel}</Label>
-              <a href={`mailto:${emailA}`}>
+              <a href={`mailto:${emailA}@madewithnrg.com`}>
                 <div>
                   {emailA}
                   <span>@madewithnrg.com</span>

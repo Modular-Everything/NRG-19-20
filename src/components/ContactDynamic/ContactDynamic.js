@@ -23,12 +23,7 @@ const Contact = props => {
         hasFade
       />
 
-      <Video
-        textural
-        isHero
-        caption="Find us on the map"
-        link={blok.mapUrl.cached_url}
-      />
+      <Video textural isHero />
 
       <section>
         {blok.content &&
