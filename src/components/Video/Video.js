@@ -50,13 +50,22 @@ const Player = props => {
 // ============================================================================
 
 const Video = props => {
-  const { isHero, grid, blok, node, firstBlok, caption, link } = props;
+  const {
+    isHero,
+    grid,
+    blok,
+    node,
+    firstBlok,
+    caption,
+    link,
+    videoUrl,
+  } = props;
   const isFirstBlok = firstBlok === node.component;
 
   if (grid) {
     return (
       <StyledVideoContained>
-        <Player videoUrl={blok.videoUrl} textural={blok.textural} />
+        <Player videoUrl={videoUrl || blok.videoUrl} textural={blok.textural} />
       </StyledVideoContained>
     );
   }
@@ -93,7 +102,7 @@ const Video = props => {
       )}
 
       <Player
-        videoUrl={node.videoUrl}
+        videoUrl={videoUrl || node.videoUrl}
         textural={node.textural !== undefined ? node.textural : true}
       />
     </StyledVideoFull>

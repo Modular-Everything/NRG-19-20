@@ -12,6 +12,8 @@ import Video from '../Video';
 const Contact = props => {
   const { blok } = props;
 
+  console.log(blok);
+
   return (
     <Layout>
       <Header
@@ -23,7 +25,7 @@ const Contact = props => {
         hasFade
       />
 
-      <Video textural isHero />
+      <Video textural isHero videoUrl={blok.video} />
 
       <section>
         {blok.content &&
@@ -48,6 +50,7 @@ export default Contact;
 Contact.propTypes = {
   blok: PropTypes.shape({
     content: PropTypes.array.isRequired,
+    video: PropTypes.string.isRequired,
     mapUrl: PropTypes.object,
     meta: PropTypes.shape({
       title: PropTypes.string.isRequired,
