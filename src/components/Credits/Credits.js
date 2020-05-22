@@ -19,8 +19,23 @@ const Credits = props => {
         <Container>
           <StyledUl>
             {node.credits.map(credit => (
-              <Credit>
-                {credit.creditName}
+              // eslint-disable-next-line no-underscore-dangle
+              <Credit key={credit._uid}>
+                {credit.link && credit.link.cached_url !== '' ? (
+                  <a
+                    href={
+                      credit.link.linktype === 'url'
+                        ? credit.link.cached_url
+                        : `mailto:${credit.link.email}`
+                    }
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {credit.creditName}
+                  </a>
+                ) : (
+                  credit.creditName
+                )}
                 <span>{credit.creditRole}</span>
               </Credit>
             ))}
@@ -61,6 +76,10 @@ const Credit = styled.li`
       block
     `}
     color: var(--color-brand);
+  }
+
+  & a {
+    ${tw`underline`}
   }
 `;
 

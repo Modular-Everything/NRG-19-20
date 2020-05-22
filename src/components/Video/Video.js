@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import tw from 'tailwind.macro';
 import styled from '@emotion/styled';
 import Vimeo from '@u-wave/react-vimeo';
+import Container from '../Container';
+import Arrow from '../../../static/images/arrowWhite.svg';
 
 import Placeholder from '../../../static/images/placeholder.webp';
 
@@ -48,7 +50,7 @@ const Player = props => {
 // ============================================================================
 
 const Video = props => {
-  const { isHero, grid, blok, node, firstBlok } = props;
+  const { isHero, grid, blok, node, firstBlok, caption, link } = props;
   const isFirstBlok = firstBlok === node.component;
 
   if (grid) {
@@ -63,10 +65,37 @@ const Video = props => {
     <StyledVideoFull
       isHero={isHero}
       isFirstBlok={isFirstBlok}
-      textural={node.textural}
+      textural={node.textural !== undefined ? node.textural : true}
       bg={Placeholder}
     >
-      <Player videoUrl={node.videoUrl} textural={node.textural} />
+      {caption && (
+        <Overlay>
+          <Container>
+            <p>
+              {link ? (
+                <a href={link} target="_blank" rel="noopener noreferrer">
+                  {caption}
+                  <span>
+                    <img src={Arrow} alt="->" />
+                  </span>
+                </a>
+              ) : (
+                <>
+                  {caption}
+                  <span>
+                    <img src={Arrow} alt="->" />
+                  </span>
+                </>
+              )}
+            </p>
+          </Container>
+        </Overlay>
+      )}
+
+      <Player
+        videoUrl={node.videoUrl}
+        textural={node.textural !== undefined ? node.textural : true}
+      />
     </StyledVideoFull>
   );
 };
@@ -74,8 +103,7 @@ const Video = props => {
 // ============================================================================
 
 const StyledVideoContained = styled.div`
-  ${tw`relative bg-black rounded-lg overflow-hidden`}
-  min-height: 200px;
+  ${tw`bg-black overflow-hidden relative rounded-lg`}
   grid-column: span 12;
 
   & div,
@@ -85,7 +113,7 @@ const StyledVideoContained = styled.div`
 `;
 
 const StyledVideoFull = styled.div`
-  ${tw`w-full relative bg-black overflow-hidden`}
+  ${tw`bg-black overflow-hidden relative w-full`}
     background-size: cover;
   ${props => props.bg && `background-image: url(${props.bg});`}
   ${props => props.isHero && props.isFirstBlok && tw`-mt-40`}
@@ -121,9 +149,9 @@ const StyledVideoFull = styled.div`
 
 const PlayButton = styled.span`
   ${tw`
-    absolute cursor-pointer text-red-600 bg-white inset-x-0 mx-auto rounded-full shadow-xl flex justify-center items-center w-24 h-24 invisible
+    absolute bg-white cursor-pointer flex h-24 inset-x-0 invisible items-center justify-center mx-auto rounded-full shadow-xl text-red-600 w-24
     sm:block sm:visible
-    lg:w-32 lg:h-32
+    lg:h-32 lg:w-32
   `}
   padding: 50% 50% 0 0;
   bottom: 1rem;
@@ -156,17 +184,47 @@ const PlayButton = styled.span`
   }
 `;
 
+const Overlay = styled.div`
+  ${tw`
+    absolute bottom-0 h-32 w-full z-40
+  `}
+
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.8)
+  );
+
+  & a,
+  & p {
+    font-family: 'Simplon BP', -apple-system, 'Helvetica Neue', sans-serif;
+    ${tw`
+      flex items-center mt-6 text-sm text-white
+      md:text-base
+    `}
+
+    & img {
+      ${tw`w-3 ml-2`}
+    }
+  }
+
+  & a:hover {
+    ${tw`underline`}
+  }
+`;
+
 // ============================================================================
 
 Video.propTypes = {
   firstBlok: PropTypes.string,
   isHero: PropTypes.bool,
-  textural: PropTypes.bool,
   grid: PropTypes.bool,
   blok: PropTypes.shape({
+    textural: PropTypes.bool,
     videoUrl: PropTypes.string,
   }),
   node: PropTypes.shape({
+    textural: PropTypes.bool,
     videoUrl: PropTypes.string,
     component: PropTypes.string.isRequired,
   }),
@@ -176,11 +234,12 @@ Video.defaultProps = {
   firstBlok: undefined,
   isHero: false,
   grid: false,
-  textural: false,
   blok: PropTypes.shape({
+    textural: false,
     videoUrl: 'https://vimeo.com/362097506',
   }),
-  node: PropTypes.shape({
+  node: PropTypes.objectOf({
+    textural: false,
     videoUrl: 'https://vimeo.com/362097506',
   }),
 };

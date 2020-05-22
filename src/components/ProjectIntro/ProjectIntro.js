@@ -21,7 +21,7 @@ const ProjectIntro = props => {
 
   if (!node) return <ComponentNotFound />;
 
-  const { copy, title, subtitle, color } = node;
+  const { copy, title, subtitle, color, tags, tagList } = node;
 
   const Intro = styled.div`
     ${tw`py-10 sm:py-20`}
@@ -40,6 +40,11 @@ const ProjectIntro = props => {
           : `var(--color-white-primary)`
       };
     }
+
+    & p {
+      ${tw`mb-2`}
+    }
+
     & h2 {
       ${tw`mb-2`}
     }
@@ -55,11 +60,7 @@ const ProjectIntro = props => {
                 <Subtitle is={subtitle} />
                 <Title is={title} />
               </div>
-              <Tags color={color}>
-                {node.tagList.map(tag => (
-                  <li>{tag.tagName}</li>
-                ))}
-              </Tags>
+              <Tags color={color} tags={tags || tagList} />
             </ProjectMeta>
 
             <ProjectDesc>
@@ -90,23 +91,28 @@ const ProjectDesc = styled.div`
     sm:pl-6
     md:pl-12
   `}
-
-  & p:last-of-type {
-    ${tw`mb-0`}
-  }
 `;
 
 // ============================================================================
 
 ProjectIntro.propTypes = {
+  firstBlok: PropTypes.string.isRequired,
   node: PropTypes.shape({
     columns: PropTypes.array.isRequired,
     copy: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string.isRequired,
-    tagList: PropTypes.array.isRequired,
-  }).isRequired,
+    tags: PropTypes.array,
+    tagList: PropTypes.array,
+  }),
+};
+
+ProjectIntro.defaultProps = {
+  node: {
+    tags: null,
+    tagList: null,
+  },
 };
 
 // ============================================================================

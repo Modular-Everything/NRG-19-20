@@ -126,6 +126,7 @@ PageIntro.propTypes = {
     cta: PropTypes.string,
     ctaLink: PropTypes.object,
   }),
+  firstBlok: PropTypes.string,
 };
 
 PageIntro.defaultProps = {
@@ -136,6 +137,7 @@ PageIntro.defaultProps = {
     cta: null,
     ctaLink: '/',
   }),
+  firstBlok: null,
 };
 
 // ============================================================================

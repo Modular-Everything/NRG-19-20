@@ -9,13 +9,15 @@ import styled from '@emotion/styled';
 // ============================================================================
 
 const Tags = props => {
-  const { color, children } = props;
+  const { color, tags } = props;
+  let OLD_METHOD;
+  console.log(tags.length);
+
+  if (tags.find(({ component }) => component === 'tag') || tags.length === 0) {
+    OLD_METHOD = true;
+  }
 
   const StyledTags = styled.ul`
-    /* display: grid;
-    grid-template-columns: repeat(3, auto);
-    grid-gap: 1rem; */
-
     ${tw`
       flex
       flex-wrap
@@ -58,7 +60,11 @@ const Tags = props => {
 
   return (
     <StyledTags>
-      <Fade ssrFadeout>{children}</Fade>
+      <Fade ssrFadeout>
+        {!OLD_METHOD
+          ? tags.map(tag => <li>{tag}</li>)
+          : tags.map(tag => <li>{tag.tagName}</li>)}
+      </Fade>
     </StyledTags>
   );
 };
@@ -67,7 +73,7 @@ const Tags = props => {
 
 Tags.propTypes = {
   color: PropTypes.string.isRequired,
-  children: PropTypes.arrayOf(PropTypes.object).isRequired,
+  tags: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
 };
 
 // ============================================================================

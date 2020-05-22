@@ -36,10 +36,7 @@ const Services = props => {
 Services.propTypes = {
   blok: PropTypes.shape({
     content: PropTypes.array.isRequired,
-    meta: PropTypes.objectOf({
-      title: PropTypes.string,
-      description: PropTypes.string,
-    }),
+    meta: PropTypes.object,
   }).isRequired,
 };
 

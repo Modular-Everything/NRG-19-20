@@ -49,7 +49,13 @@ const StaticImage = props => {
       ) : (
         <StyledImage>
           <Fade ssrFadeout>
-            <Img fluid={fluidProps} alt="" />
+            {blok.externalUrl ? (
+              <a href={blok.externalUrl.cached_url}>
+                <Img fluid={fluidProps} alt="" />
+              </a>
+            ) : (
+              <Img fluid={fluidProps} alt="" />
+            )}
             {caption && <Caption is={caption} />}
           </Fade>
         </StyledImage>
@@ -63,9 +69,18 @@ const StaticImage = props => {
 StaticImage.propTypes = {
   blok: PropTypes.shape({
     image: PropTypes.string.isRequired,
+    externalUrl: PropTypes.objectOf({
+      cached_url: PropTypes.string,
+    }),
     caption: PropTypes.string.isRequired,
     width: PropTypes.string.isRequired,
-  }).isRequired,
+  }),
+};
+
+StaticImage.defaultProps = {
+  blok: {
+    externalUrl: null,
+  },
 };
 
 // ============================================================================
