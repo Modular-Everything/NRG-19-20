@@ -92,7 +92,7 @@ const Card = props => {
             <CardContent>
               <div>
                 <Subtitle is={subtitle} />
-                <Title isCard is={title} />
+                <Title isCard is={title} heading="h2" />
               </div>
               <div>
                 <TextBlock is={excerpt} />

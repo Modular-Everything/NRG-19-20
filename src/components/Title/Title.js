@@ -9,7 +9,7 @@ import styled from '@emotion/styled';
 // ============================================================================
 
 const Title = props => {
-  const { is: title, children, red } = props;
+  const { is: title, children, red, heading } = props;
 
   if (typeof children === 'object') {
     if (children.length === 0) {
@@ -17,21 +17,37 @@ const Title = props => {
     }
     return (
       <StyledTitle red={red}>
-        <Fade ssrFadeout>{children[0].props.value}</Fade>
+        {heading === 'h2' ? (
+          <Fade ssrFadeout>
+            <h2>{children[0].props.value}</h2>
+          </Fade>
+        ) : (
+          <Fade ssrFadeout>
+            <p>{children[0].props.value}</p>
+          </Fade>
+        )}
       </StyledTitle>
     );
   }
 
   return (
     <StyledTitle red={red}>
-      <Fade ssrFadeout>{title}</Fade>
+      {heading === 'h2' ? (
+        <Fade ssrFadeout>
+          <h2>{title}</h2>
+        </Fade>
+      ) : (
+        <Fade ssrFadeout>
+          <p>{title}</p>
+        </Fade>
+      )}
     </StyledTitle>
   );
 };
 
 // ============================================================================
 
-const StyledTitle = styled.h1`
+const StyledTitle = styled.p`
   ${tw`
     font-medium leading-normal my-2
     lg:leading-tight
@@ -52,12 +68,14 @@ Title.propTypes = {
   is: PropTypes.string,
   red: PropTypes.bool,
   children: PropTypes.arrayOf(PropTypes.object),
+  heading: PropTypes.string,
 };
 
 Title.defaultProps = {
   is: 'Title goes here',
   red: false,
   children: undefined,
+  heading: undefined,
 };
 
 // ============================================================================
