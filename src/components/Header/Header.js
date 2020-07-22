@@ -48,8 +48,15 @@ const Header = props => {
         <html lang="en" />
         <title>{name || SiteTitle}</title>
         {description && <meta name="Description" content={description} />}
+
+        {schema && <script style="display: none;" type="application/ld+json">
+        {
+          "@context": "https://schema.org/", 
+          "@type": "Service", 
+          "name": "{schema}",
+        }
         
-        {schema && <script type="application/ld+json">{schema}</script>}
+        </script>}
       </Helmet>
 
       <HeaderBG

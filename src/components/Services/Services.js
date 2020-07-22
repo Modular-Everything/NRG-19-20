@@ -12,12 +12,7 @@ const Services = props => {
   const { blok } = props;
 
   // Placeholder schema until storyBlok is connected.
-  const schema = {
-    "@context": "https://schema.org/", 
-    "@type": "Product", 
-    "name": "",
-    "image": ""
-  }
+  const schema = 'Schema Markup'
 
   return (
     <Layout>
