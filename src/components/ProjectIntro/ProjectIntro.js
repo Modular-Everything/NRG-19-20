@@ -58,7 +58,7 @@ const ProjectIntro = props => {
             <ProjectMeta>
               <div>
                 <Subtitle is={subtitle} />
-                <Title is={title} />
+                <Title heading="h2" is={title} />
               </div>
               <Tags color={color} tags={tags || tagList} />
             </ProjectMeta>

@@ -16,11 +16,12 @@ import Plus from '../Plus';
 import Burger from '../Burger';
 import LogoLight from '../../../static/images/logo-light.svg';
 import LogoDark from '../../../static/images/logo-dark.svg';
+import { comment } from 'postcss';
 
 // ============================================================================
 
 const Header = props => {
-  const { hasHero, isInverted, hasFade, name, noGutter, description } = props;
+  const { hasHero, isInverted, hasFade, name, noGutter, description, schema } = props;
 
   const data = useStaticQuery(graphql`
     query MetaData {
@@ -39,12 +40,16 @@ const Header = props => {
     menuOpen: false,
   });
 
+
+ 
   return (
     <>
       <Helmet>
         <html lang="en" />
         <title>{name || SiteTitle}</title>
         {description && <meta name="Description" content={description} />}
+        
+        {schema && <script type="application/ld+json">{schema}</script>}
       </Helmet>
 
       <HeaderBG

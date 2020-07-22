@@ -11,13 +11,23 @@ import Footer from '../Footer';
 const Services = props => {
   const { blok } = props;
 
+  // Placeholder schema until storyBlok is connected.
+  const schema = {
+    "@context": "https://schema.org/", 
+    "@type": "Product", 
+    "name": "",
+    "image": ""
+  }
+
   return (
     <Layout>
       <Header
         name={blok.meta ? blok.meta.title : `Services`}
         description={blok.meta.description && blok.meta.description}
         noGutter
+        schema={schema}
       />
+      {schema}
       {blok.content &&
         blok.content.map(node =>
           React.createElement(StoryblokComponents(node.component), {

@@ -10,7 +10,7 @@ import Footer from '../Footer';
 
 const Page = props => {
   const { name, blok } = props;
-
+ 
   return (
     <Layout>
       <Header

@@ -81,21 +81,21 @@ const Card = props => {
 
   return (
     <SbEditable content={blok}>
-      <StyledCard>
+      <StyledCard itemscope itemtype="http://schema.org/article">
         <Fade ssrFadeout>
           <Link to={link !== undefined ? `/${link.cached_url}` : `/`}>
             {ext.test(image) ? (
               <CardVideo is={image} />
             ) : (
-              <CardImage is={image} altRatio={width === '12-Alt'} />
+              <CardImage is={image} altRatio={width === '12-Alt'} itemprop="image" />
             )}
             <CardContent>
               <div>
                 <Subtitle is={subtitle} />
-                <Title isCard is={title} heading="h2" />
+                <Title isCard is={title} heading="h2" itemprop="name" />
               </div>
               <div>
-                <TextBlock is={excerpt} />
+                <TextBlock is={excerpt} itemprop="description" />
                 <CallToAction is={cta} color="white" />
               </div>
             </CardContent>
