@@ -12,7 +12,13 @@ const Services = props => {
   const { blok } = props;
 
   // Placeholder schema until storyBlok is connected.
-  const schema = 'Schema Markup'
+  const schema = [
+    {
+      '@context': 'https://schema.org/',
+      '@type': 'Service',
+      anotherField: 'Something else',
+    },
+  ];
 
   return (
     <Layout>
@@ -22,7 +28,6 @@ const Services = props => {
         noGutter
         schema={schema}
       />
-      {schema}
       {blok.content &&
         blok.content.map(node =>
           React.createElement(StoryblokComponents(node.component), {
