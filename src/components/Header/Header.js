@@ -65,11 +65,7 @@ const Header = props => {
         <title>{name || SiteTitle}</title>
         {description && <meta name="Description" content={description} />}
 
-        {schema && (
-          <script type="application/ld+json">
-            {JSON.stringify(pageSchema)}
-          </script>
-        )}
+        <script type="application/ld+json">{JSON.stringify(pageSchema)}</script>
       </Helmet>
 
       <HeaderBG
