@@ -21,7 +21,15 @@ import { comment } from 'postcss';
 // ============================================================================
 
 const Header = props => {
-  const { hasHero, isInverted, hasFade, name, noGutter, description, schema } = props;
+  const {
+    hasHero,
+    isInverted,
+    hasFade,
+    name,
+    noGutter,
+    description,
+    schema,
+  } = props;
 
   const data = useStaticQuery(graphql`
     query MetaData {
@@ -40,8 +48,16 @@ const Header = props => {
     menuOpen: false,
   });
 
+  const baseSchema = [
+    {
+      '@context': 'https://schema.org/',
+      '@type': 'Webpage',
+      // default schema for every page (let's add more here!)
+    },
+  ];
 
- 
+  const pageSchema = schema ? [...schema] : baseSchema;
+
   return (
     <>
       <Helmet>
@@ -49,14 +65,11 @@ const Header = props => {
         <title>{name || SiteTitle}</title>
         {description && <meta name="Description" content={description} />}
 
-        {schema && <script style="display: none;" type="application/ld+json">
-        {
-          "@context": "https://schema.org/", 
-          "@type": "Service", 
-          "name": "{schema}",
-        }
-        
-        </script>}
+        {schema && (
+          <script type="application/ld+json">
+            {JSON.stringify(pageSchema)}
+          </script>
+        )}
       </Helmet>
 
       <HeaderBG
