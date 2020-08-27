@@ -9,7 +9,7 @@ import styled from '@emotion/styled';
 // ============================================================================
 
 const Title = props => {
-  const { is: title, children, red } = props;
+  const { is: title, children, red, heading } = props;
 
   if (typeof children === 'object') {
     if (children.length === 0) {
@@ -18,7 +18,11 @@ const Title = props => {
     return (
       <StyledTitle red={red}>
         <Fade ssrFadeout>
-          <h1>{children[0].props.value}</h1>
+          {heading ? (
+            <h1>{children[0].props.value}</h1>
+          ) : (
+            <p>{children[0].props.value}</p>
+          )}
         </Fade>
       </StyledTitle>
     );
@@ -26,9 +30,7 @@ const Title = props => {
 
   return (
     <StyledTitle red={red}>
-      <Fade ssrFadeout>
-        <h1>{title}</h1>
-      </Fade>
+      <Fade ssrFadeout>{heading ? <h1>{title}</h1> : <p>{title}</p>}</Fade>
     </StyledTitle>
   );
 };

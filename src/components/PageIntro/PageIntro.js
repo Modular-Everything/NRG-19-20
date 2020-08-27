@@ -53,7 +53,7 @@ const PageIntro = props => {
             <PageMeta>
               <div>
                 <TextBlock is={subtitle} />
-                <Title is={title} />
+                <Title is={title} heading />
                 <TextBlock is={strapline} />
               </div>
             </PageMeta>
