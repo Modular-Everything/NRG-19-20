@@ -2,9 +2,10 @@ module.exports = {
   siteMetadata: {
     title: `NRG`,
     description: `Creators, makers and builders.`,
-    author: `@chrish-d`,
+    author: `@madewithnrg`,
+    siteUrl: `https://madewithnrg.com/`,
     // Change in production
-    baseUrl: 'localhost',
+    baseUrl: 'https://madewithnrg.com/',
   },
   plugins: [
     `gatsby-transformer-sharp`,
@@ -15,6 +16,7 @@ module.exports = {
     `gatsby-plugin-resolve-src`,
     `gatsby-plugin-emotion`,
     `gatsby-plugin-postcss`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-filesystem`,
       options: { path: `./static/images/` },
