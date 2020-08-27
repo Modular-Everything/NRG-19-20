@@ -4,7 +4,7 @@ module.exports = {
     description: `Creators, makers and builders.`,
     author: `@chrish-d`,
     // Change in production
-    baseUrl: 'localhost'
+    baseUrl: 'localhost',
   },
   plugins: [
     `gatsby-transformer-sharp`,
@@ -58,11 +58,11 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-google-tagmanager",
+      resolve: 'gatsby-plugin-google-tagmanager',
       options: {
         id: '',
         includeInDevelopment: false,
-        defaultDataLayer: { platform: "gatsby" },
+        defaultDataLayer: { platform: 'gatsby' },
         gtmAuth: '',
         gtmPreview: '',
         dataLayerName: '',
