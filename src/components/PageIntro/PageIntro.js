@@ -44,7 +44,7 @@ const PageIntro = props => {
       ${tw`mb-2`}
     }
   `;
- 
+
   return (
     <SbEditable content={node}>
       <Intro>
@@ -53,7 +53,7 @@ const PageIntro = props => {
             <PageMeta>
               <div>
                 <TextBlock is={subtitle} />
-                <Title is={title} heading="h2" />
+                <Title is={title} />
                 <TextBlock is={strapline} />
               </div>
             </PageMeta>
