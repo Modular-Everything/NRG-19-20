@@ -16,7 +16,6 @@ const Services = props => {
     {
       '@context': 'https://schema.org/',
       '@type': 'Service',
-      anotherField: 'Something else',
     },
   ];
 

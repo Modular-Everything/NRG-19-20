@@ -11,12 +11,12 @@ import { jsx, css } from '@emotion/core';
 import styled from '@emotion/styled';
 import tw from 'tailwind.macro';
 
+import { comment } from 'postcss';
 import Container from '../Container';
 import Plus from '../Plus';
 import Burger from '../Burger';
 import LogoLight from '../../../static/images/logo-light.svg';
 import LogoDark from '../../../static/images/logo-dark.svg';
-import { comment } from 'postcss';
 
 // ============================================================================
 
@@ -52,7 +52,6 @@ const Header = props => {
     {
       '@context': 'https://schema.org/',
       '@type': 'Webpage',
-      // default schema for every page (let's add more here!)
     },
   ];
 
