@@ -87,12 +87,16 @@ const Card = props => {
             {ext.test(image) ? (
               <CardVideo is={image} />
             ) : (
-              <CardImage is={image} altRatio={width === '12-Alt'} itemprop="image" />
+              <CardImage
+                is={image}
+                altRatio={width === '12-Alt'}
+                itemprop="image"
+              />
             )}
             <CardContent>
               <div>
                 <Subtitle is={subtitle} />
-                <Title isCard is={title} heading="h2" itemprop="name" />
+                <Title isCard is={title} itemprop="name" />
               </div>
               <div>
                 <TextBlock is={excerpt} itemprop="description" />
