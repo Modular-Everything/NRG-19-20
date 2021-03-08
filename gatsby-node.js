@@ -27,6 +27,7 @@ exports.createPages = ({ graphql, actions }) => {
                   uuid
                   slug
                   full_slug
+                  published_at
                   content
                   is_startpage
                   parent_id
