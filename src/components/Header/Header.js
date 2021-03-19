@@ -122,8 +122,8 @@ const Header = props => {
                   <li>
                     <small>Work with you</small>
                     <div>
-                      <a href="mailto:solutions@madewithnrg.com">
-                        solutions
+                      <a href="mailto:hello@madewithnrg.com">
+                        hello
                         <span>@madewithnrg.com</span>
                       </a>
                     </div>
@@ -133,15 +133,6 @@ const Header = props => {
                     <div>
                       <a href="mailto:talent@madewithnrg.com">
                         talent
-                        <span>@madewithnrg.com</span>
-                      </a>
-                    </div>
-                  </li>
-                  <li>
-                    <small>Everything else</small>
-                    <div>
-                      <a href="mailto:questions@madewithnrg.com">
-                        questions
                         <span>@madewithnrg.com</span>
                       </a>
                     </div>
